@@ -1,4 +1,4 @@
-export class CustomerDTO{
+export class Customer{
     customerId:string;
     emailId:string;
     firstname:string;

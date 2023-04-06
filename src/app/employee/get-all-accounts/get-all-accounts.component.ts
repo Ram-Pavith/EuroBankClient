@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AccountDTO } from 'src/Models/AccountDTO';
+import { Account } from 'src/Models/Account';
 import { EmployeeservService } from '../Services/employeeserv.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { EmployeeservService } from '../Services/employeeserv.service';
   styleUrls: ['./get-all-accounts.component.css']
 })
 export class GetAllAccountsComponent {
-  accountsDTO:AccountDTO[] = [];
+  accountsDTO:Account[] = [];
   constructor(private empserv:EmployeeservService){}
 
   ngOnInit(){

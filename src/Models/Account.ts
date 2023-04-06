@@ -1,5 +1,7 @@
-export class AccountDTO{
-    accountId:string;
+import { Guid } from "guid-typescript";
+
+export class Account{
+    accountId:Guid;
     accountTypeId:number;
     accountCreationStatusId:number;
     customerId:string;

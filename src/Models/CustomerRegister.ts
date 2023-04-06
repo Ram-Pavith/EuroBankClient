@@ -1,4 +1,4 @@
-export class CustomerRegisterDTO{
+export class CustomerRegister{
   customerId: string;
   emailId: string;
   firstname: string;

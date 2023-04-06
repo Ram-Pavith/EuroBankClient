@@ -1,4 +1,12 @@
 <!-- <app-login></app-login> -->
 <!-- <app-get-all-customers></app-get-all-customers> -->
 <!-- <app-get-all-accounts></app-get-all-accounts> -->
-<app-get-all-transactions></app-get-all-transactions>
+<nav>
+    <ul>
+      <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
+      <li><a routerLink="/getAllCustomers" routerLinkActive="active" ariaCurrentWhenActive="page">Get Customers</a></li>
+      <li><a routerLink="/getAllTransactions" routerLinkActive="active" ariaCurrentWhenActive="page">Get Transactions</a></li>
+      <li><a routerLink="/getAllAccounts" routerLinkActive="active" ariaCurrentWhenActive="page">Get Accounts</a></li>
+    </ul>
+  </nav>
+<router-outlet></router-outlet>

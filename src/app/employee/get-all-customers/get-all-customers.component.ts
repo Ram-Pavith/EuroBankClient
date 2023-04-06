@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EmployeeservService } from '../Services/employeeserv.service';
-import { CustomerDTO } from 'src/Models/CustomerDTO';
+import { Customer } from 'src/Models/Customer';
 
 @Component({
   selector: 'app-get-all-customers',
@@ -9,7 +9,7 @@ import { CustomerDTO } from 'src/Models/CustomerDTO';
 })
 export class GetAllCustomersComponent {
 
-  customersDTO:CustomerDTO[] = [];
+  customersDTO:Customer[] = [];
   constructor(private empserv:EmployeeservService){}
 
   ngOnInit(){

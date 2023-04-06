@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmployeeLoginDTO } from 'src/Models/EmployeeLoginDTO';
+import { EmployeeLogin } from 'src/Models/EmployeeLogin';
 import { EmployeeservService } from '../Services/employeeserv.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { EmployeeservService } from '../Services/employeeserv.service';
 })
 export class LoginComponent {
   msg:string = "";
-  employeeloginDTO:EmployeeLoginDTO = {emailId:"",password:""}
+  employeeloginDTO:EmployeeLogin = {emailId:"",password:""}
 
   constructor(private empservice:EmployeeservService){}
 

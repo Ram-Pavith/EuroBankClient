@@ -1,12 +1,12 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { AccountDTO } from 'src/Models/AccountDTO';
-import { CustomerDTO } from 'src/Models/CustomerDTO';
-import { CustomerRegisterDTO } from 'src/Models/CustomerRegisterDTO';
-import { EmployeeLoginDTO } from 'src/Models/EmployeeLoginDTO';
-import { TransactionDTO } from 'src/Models/TransactionDTO';
-import { UserAuthResponseDTO } from 'src/Models/UserAuthResponseDTO';
+import { AccountDTO } from 'src/Models/Account';
+import { CustomerDTO } from 'src/Models/Customer';
+import { CustomerRegisterDTO } from 'src/Models/CustomerRegister';
+import { EmployeeLoginDTO } from 'src/Models/EmployeeLogin';
+import { TransactionDTO } from 'src/Models/Transaction';
+import { UserAuthResponseDTO } from 'src/Models/UserAuthResponse';
 
 @Injectable({
   providedIn: 'root'

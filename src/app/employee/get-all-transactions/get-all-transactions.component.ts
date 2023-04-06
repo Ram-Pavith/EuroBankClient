@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TransactionDTO } from 'src/Models/TransactionDTO';
+import { Transaction } from 'src/Models/Transaction';
 import { EmployeeservService } from '../Services/employeeserv.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { EmployeeservService } from '../Services/employeeserv.service';
   styleUrls: ['./get-all-transactions.component.css']
 })
 export class GetAllTransactionsComponent {
-  transactionsDTO:TransactionDTO[] = [];
+  transactionsDTO:Transaction[] = [];
   msg:string="";
   constructor(private empserv:EmployeeservService){}
 

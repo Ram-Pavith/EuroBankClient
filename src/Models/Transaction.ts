@@ -1,4 +1,4 @@
-export class TransactionDTO{
+export class Transaction{
     transactionId: string;
     counterPartyId: string;
     accountId: string;
