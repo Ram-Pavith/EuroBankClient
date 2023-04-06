@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GetAllCustomersComponent } from './get-all-customers/get-all-customers.component';
 import { GetAllAccountsComponent } from './get-all-accounts/get-all-accounts.component';
+import { GetAllTransactionsComponent } from './get-all-transactions/get-all-transactions.component';
+import { CreateCustomerComponent } from './create-customer/create-customer.component';
 
 
 
@@ -12,7 +14,9 @@ import { GetAllAccountsComponent } from './get-all-accounts/get-all-accounts.com
   declarations: [
     LoginComponent,
     GetAllCustomersComponent,
-    GetAllAccountsComponent
+    GetAllAccountsComponent,
+    GetAllTransactionsComponent,
+    CreateCustomerComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { GetAllAccountsComponent } from './get-all-accounts/get-all-accounts.com
   exports:[
     LoginComponent,
     GetAllCustomersComponent,
-    GetAllAccountsComponent
+    GetAllAccountsComponent,
+    GetAllTransactionsComponent,
+    CreateCustomerComponent
   ]
 })
 export class EmployeeModule { }

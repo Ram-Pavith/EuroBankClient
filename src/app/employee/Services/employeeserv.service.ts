@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { AccountDTO } from 'src/Models/AccountDTO';
 import { CustomerDTO } from 'src/Models/CustomerDTO';
+import { CustomerRegisterDTO } from 'src/Models/CustomerRegisterDTO';
 import { EmployeeLoginDTO } from 'src/Models/EmployeeLoginDTO';
+import { TransactionDTO } from 'src/Models/TransactionDTO';
 import { UserAuthResponseDTO } from 'src/Models/UserAuthResponseDTO';
 
 @Injectable({
@@ -114,6 +116,26 @@ export class EmployeeservService {
 
   getAllAccounts():Observable<AccountDTO[]>{
     return this.http.get<AccountDTO[]>(this.req+"/ViewAllBankAccounts",{
+      headers:new HttpHeaders({
+        'Content-Type':'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Method':'*'
+      })
+    })
+  }
+
+  getAllTransactions():Observable<TransactionDTO[]>{
+    return this.http.get<TransactionDTO[]>(this.req+"/ViewAllTransactions",{
+      headers:new HttpHeaders({
+        'Content-Type':'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Method':'*'
+      })
+    })
+  }
+
+  createCustomer(customer:CustomerRegisterDTO):Observable<any>{
+    return this.http.post<CustomerRegisterDTO>(this.req+"/CreateCustomer",customer,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
