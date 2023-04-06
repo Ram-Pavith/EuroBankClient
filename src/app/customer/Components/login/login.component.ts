@@ -22,15 +22,15 @@ user:CustomerLoginDTO=
    Password:""
  };
  msg:string="";
+ authtoken:string="";
  errormsg=""
  token:string="";
  use:any;
 constructor(private obj:CustomerService,private route:Router){}
 
-
 SaveToken()
   {
-    localStorage.setItem("token",this.token);
+    localStorage.setItem("token",this.authtoken);
   }
   
   IsLoggedIn()
@@ -48,11 +48,11 @@ SaveToken()
   {
     console.log(this.user)    
     this.obj.userlogin(this.user).subscribe(data=>{
-      console.log(data);
+      console.log(data.token);
       if(data.Success)
       this.msg="Success";
     },err=>{
-      console.log(err.errormsg)
+      console.log(err.error)
       this.msg="Invalid login";
     })
     }

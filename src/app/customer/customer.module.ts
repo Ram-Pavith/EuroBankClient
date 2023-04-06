@@ -3,21 +3,24 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './Components/login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './Components/home/home.component';
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    
   ],
   imports:
    [
-    CommonModule,
-    AppRoutingModule,
+   CommonModule,
+   AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    HttpClient
+   FormsModule,
+    HttpClientModule
     
   ],
   exports:[
