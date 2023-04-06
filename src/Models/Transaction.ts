@@ -1,7 +1,9 @@
+import { Guid } from "guid-typescript";
+
 export class Transaction{
-    transactionId: string;
-    counterPartyId: string;
-    accountId: string;
+    transactionId: Guid;
+    counterPartyId: Guid;
+    accountId: Guid;
     serviceId: number;
     refTransactionStatusId: number;
     refTransactionTypeId: number;

@@ -1,4 +1,5 @@
-export class CustomerCreationStatus{
-    id:string;
+export class CustomerCreationStatus
+{
+    customerCreationId:number;
     message:string;
 }
