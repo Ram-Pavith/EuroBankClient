@@ -51,6 +51,7 @@ SaveToken()
       console.log(data.token);
       if(data.Success)
       this.msg="Success";
+      this.route.navigateByUrl('home');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";
