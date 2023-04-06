@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ɵisObservable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './Components/login/login.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -8,8 +11,14 @@ import { LoginComponent } from './Components/login/login.component';
   declarations: [
     LoginComponent
   ],
-  imports: [
-    CommonModule
+  imports:
+   [
+    CommonModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClient
+    
   ],
   exports:[
     LoginComponent
