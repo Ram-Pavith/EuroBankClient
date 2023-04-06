@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WithDrawComponent } from './Components/withdraw/withdraw.component';
+import { WithDrawComponent } from './Components/with-draw/with-draw.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DepositComponent } from './Components/deposit/deposit.component';
+import { TransferComponent } from './Components/transfer/transfer.component';
+
 
 
 
 @NgModule({
   declarations: [
-    WithDrawComponent
+    WithDrawComponent,
+    DepositComponent,
+    TransferComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
-    WithDrawComponent
+    WithDrawComponent,
+    DepositComponent,
+    TransferComponent
   ]
 })
 export class TransactionModule { }

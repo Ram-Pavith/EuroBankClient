@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WithDrawComponent } from './withdraw.component';
+import { DepositComponent } from './deposit.component';
 
-describe('WithDrawComponent', () => {
-  let component: WithDrawComponent;
-  let fixture: ComponentFixture<WithDrawComponent>;
+describe('DepositComponent', () => {
+  let component: DepositComponent;
+  let fixture: ComponentFixture<DepositComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WithDrawComponent ]
+      declarations: [ DepositComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WithDrawComponent);
+    fixture = TestBed.createComponent(DepositComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

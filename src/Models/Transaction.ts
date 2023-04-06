@@ -2,13 +2,14 @@ import { Guid } from 'guid-typescript';
 export interface Transaction
 
 {
-    TransactionId:Guid,
-    CounterPartyId:Guid,
-    AccountId:Guid,
-    ServiceId:number,
-    RefTransactionStatusId:number,
-    RefTransactionTypeId:number,
-    RefPaymentMethodId:number,
-    DateOfTransaction:Date,
-    AmountOfTransaction:number
+    
+    transactionId:Guid,
+    counterPartyId:Guid,
+    accountId:Guid,
+    serviceId:number,
+    refTransactionStatusId:number,
+    refTransactionTypeId:number,
+    refPaymentMethodId:number,
+    dateOfTransaction:Date,
+    amountOfTransaction:number
 }

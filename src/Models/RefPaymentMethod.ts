@@ -1,4 +1,4 @@
 export interface RefPaymentMethod{
-    PaymentMethodCode:number,
-    PaymentMethodName:string
+    paymentMethodCode:number,
+    paymentMethodName:string
 }
