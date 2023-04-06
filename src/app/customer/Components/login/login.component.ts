@@ -28,10 +28,6 @@ user:CustomerLoginDTO=
  use:any;
 constructor(private obj:CustomerService,private route:Router){}
 
-SaveToken()
-  {
-    localStorage.setItem("token",this.authtoken);
-  }
   
   IsLoggedIn()
   {
@@ -51,11 +47,21 @@ SaveToken()
       console.log(data.token);
       if(data.Success)
       this.msg="Success";
+      this.authtoken=data.token;
+      this.SaveToken();
+      this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
       this.route.navigateByUrl('home');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";
     })
     }
+    SaveToken()
+  {
+    localStorage.setItem("token",this.authtoken);
+  }
+  GetToken(){
+    localStorage.getItem("token");
+  }
 
   }

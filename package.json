@@ -23,6 +23,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
     "chart.js": "^4.2.1",
+    "guid-typescript": "^1.0.9",
     "hammerjs": "^2.0.8",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
