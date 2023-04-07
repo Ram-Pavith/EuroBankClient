@@ -8,6 +8,7 @@ import { HomeComponent } from './customer/Components/home/home.component';
 import {CustomerLoginComponent} from './customer/Components/login/CustomerLogin.component';
 import { AccountsMenuComponent } from './account/Components/accounts-menu/accounts-menu.component';
 import { AccountDetailsComponent } from './account/Components/account-details/account-details.component';
+import { WithDrawComponent } from './transaction/Components/with-draw/with-draw.component';
 
 const routes: Routes = 
 [
@@ -25,4 +26,6 @@ const routes: Routes =
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  
+}

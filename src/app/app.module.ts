@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 import { CustomerService } from './customer/Services/customer.service';
 import { AccountModule } from './account/account.module';
 import { HttpClientModule } from '@angular/common/http';
+import { TransactionModule } from './transaction/transaction.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -29,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CustomerModule,
     AccountModule,
+    TransactionModule,
     ReactiveFormsModule,
     HttpClientModule    
   ],
