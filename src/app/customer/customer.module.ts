@@ -8,14 +8,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GetCustomerAccountsComponent } from './Components/get-customer-accounts/get-customer-accounts.component';
 import { GetAccountComponent } from './Components/get-account/get-account.component';
 
-
-
 @NgModule({
   declarations: [
     CustomerLoginComponent,
-    // HomeComponent,
     GetCustomerAccountsComponent,
-    GetAccountComponent,    
+    GetAccountComponent,
+      
   ],
   imports:
    [

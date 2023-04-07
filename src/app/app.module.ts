@@ -17,7 +17,8 @@ import { AccountModule } from './account/account.module';
 import { TransactionModule } from './transaction/transaction.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,

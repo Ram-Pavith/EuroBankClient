@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
 import { CustomerService } from 'src/app/customer/Services/customer.service';
@@ -49,6 +50,7 @@ constructor(private obj:CustomerService,private route:Router){}
       this.msg="Success";
       this.authtoken=data.token;
       this.SaveToken();
+      this.obj.GetAccount(Guid.parse("EDFEE085-BF83-4EDD-8FE9-36767A61A122")).subscribe(dat => console.log(dat))
       this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
       this.route.navigateByUrl('home');
     },err=>{
