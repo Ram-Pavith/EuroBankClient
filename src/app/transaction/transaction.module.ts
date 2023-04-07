@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DepositComponent } from './Components/deposit/deposit.component';
 import { TransferComponent } from './Components/transfer/transfer.component';
 import { GetalltransactionsComponent } from './Components/getalltransactions/getalltransactions.component';
+import { GettransactionComponent } from './Components/gettransaction/gettransaction.component';
 
 
 
@@ -14,7 +15,8 @@ import { GetalltransactionsComponent } from './Components/getalltransactions/get
     WithDrawComponent,
     DepositComponent,
     TransferComponent,
-    GetalltransactionsComponent
+    GetalltransactionsComponent,
+    GettransactionComponent
   ],
   imports: [
     CommonModule,
