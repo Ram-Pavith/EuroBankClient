@@ -94,33 +94,27 @@ export class EmployeeservService {
   //     })
   //   })
   // }
+  headers = {
+    'Content-Type':'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Method':'*',
+    'Access-Control-Allow-Headers':'Content-Type',
+    'Authorization':`Bearer ` + localStorage.getItem("token")
+  }
   employeelogin(emploginDTO:EmployeeLogin):Observable<any>{
     return this.http.post<EmployeeLogin>(this.req+"/EmployeeLogin",emploginDTO,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     })
   }
 
   getAllCustomers():Observable<Customer[]>{
     return this.http.get<Customer[]>(this.req+"/GetAllCustomers",{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     })
   }
 
   getAllAccounts():Observable<Account[]>{
-    return this.http.get<Account[]>(this.req+"/ViewAllBankAccounts",{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+    return this.http.get<Account[]>(this.req+"/ViewAllBankAccounts",{headers:this.headers
     })
   }
 
@@ -140,6 +134,7 @@ export class EmployeeservService {
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Method':'*'
+
       })
     })
   }

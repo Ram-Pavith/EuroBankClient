@@ -10,15 +10,23 @@ import { EmployeeservService } from '../Services/employeeserv.service';
 export class LoginComponent {
   msg:string = "";
   employeeloginDTO:EmployeeLogin = {emailId:"",password:""}
+  authtoken:string
 
   constructor(private empservice:EmployeeservService){}
+  SaveToken()
+  {
+    localStorage.setItem("token",this.authtoken);
+  }
 
   login(){
     console.log(this.employeeloginDTO)
 
     this.empservice.employeelogin(this.employeeloginDTO).subscribe(data =>{
       console.log(data);
-      if(data.success) this.msg = "Success";
+      if(data.success){ this.msg = "Success";
+      this.authtoken = data.token;
+      this.SaveToken();  
+    }
       
     },err =>{
       console.log(err.error)
