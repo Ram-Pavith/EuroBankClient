@@ -17,13 +17,14 @@ export class CustomerService
  {
   
   token:string = null;
-  headers:HttpHeaders = new HttpHeaders({
+  headers = {
     'Content-Type':'application/json;charset=UTF-8',
+    'Accept':'application/json',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Method':'*',
     'Authorization': `Bearer ${this.token}`,
 
-  })
+  }
   constructor(private http:HttpClient) { }
   req:string="https://localhost:7035/api/Customer";
   getCustomerAccounts(id:string):Observable<any>
@@ -33,7 +34,7 @@ export class CustomerService
     return this.http.get<Customer>("https://localhost:7035/api/Customer/GetCustomerAccounts?CustomerId="+id,this.httpOption);
   }
   httpOption = {
-    headers:this.headers
+    headers: new HttpHeaders(this.headers)
   }
   
   GetToken(){

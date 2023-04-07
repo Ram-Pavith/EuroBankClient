@@ -49,8 +49,9 @@ constructor(private obj:CustomerService,private route:Router){}
       this.msg="Success";
       this.authtoken=data.token;
       this.SaveToken();
-      this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
-      this.route.navigateByUrl('home');
+      //this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
+      this.obj.getWeatherForecastCustomer().subscribe(data=>console.log(data));
+      //this.route.navigateByUrl('home');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";
