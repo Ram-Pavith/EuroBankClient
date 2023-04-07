@@ -7,11 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomerModule } from './customer/customer.module';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { CustomerService } from './CustomerServices/customer.service';
 import { TransactionModule } from './transaction/transaction.module';
 
 @NgModule({
@@ -22,7 +20,6 @@ import { TransactionModule } from './transaction/transaction.module';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    CustomerModule,
     TransactionModule,
     ReactiveFormsModule,
     FormsModule,
