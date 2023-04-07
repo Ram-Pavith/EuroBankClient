@@ -13,10 +13,11 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CustomerService } from './customer/Services/customer.service';
+import { AccountModule } from './account/account.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent
-        
   ],
   imports: [
     BrowserModule,
@@ -27,11 +28,12 @@ import { CustomerService } from './customer/Services/customer.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     CustomerModule,
+    AccountModule,
     ReactiveFormsModule,
     HttpClientModule    
   ],
   exports:[
-  //  CustomerService
+  //  CustomerService    
   ],
   providers: [],
   bootstrap: [AppComponent],
