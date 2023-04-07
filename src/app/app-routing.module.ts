@@ -9,17 +9,22 @@ import {CustomerLoginComponent} from './customer/Components/login/CustomerLogin.
 import { AccountsMenuComponent } from './account/Components/accounts-menu/accounts-menu.component';
 import { AccountDetailsComponent } from './account/Components/account-details/account-details.component';
 import { WithDrawComponent } from './transaction/Components/with-draw/with-draw.component';
+import { DepositComponent } from './transaction/Components/deposit/deposit.component';
+import { TransferComponent } from './transaction/Components/transfer/transfer.component';
 
 const routes: Routes = 
 [
   {path:'EmployeeLogin',component:LoginComponent},
   {path:'CustomerLogin',component:CustomerLoginComponent},
-  {path:'getAllCustomers',component:GetAllCustomersComponent},
-  {path:'getAllAccounts',component:GetAllAccountsComponent},
-  {path:'getAllTransactions',component:GetAllTransactionsComponent},
+  {path:'GetAllCustomers',component:GetAllCustomersComponent},
+  {path:'GetAllAccounts',component:GetAllAccountsComponent},
+  {path:'GetAllTransactions',component:GetAllTransactionsComponent},
   // { path:"CustomerHome",component:HomeComponent},
-     {path:'AccountsMenu',component:AccountsMenuComponent},
-  {path:'AccountDetails',component:AccountDetailsComponent}
+  {path:'AccountsMenu',component:AccountsMenuComponent},
+  {path:'AccountDetails',component:AccountDetailsComponent},
+  {path:'Withdraw',component:WithDrawComponent},
+  {path:'Deposit',component:DepositComponent},
+  {path:'Transfer',component:TransferComponent}
 ];
 
 @NgModule({
