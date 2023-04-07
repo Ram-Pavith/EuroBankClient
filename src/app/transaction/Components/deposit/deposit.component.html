@@ -1,0 +1,30 @@
+<p>deposit works!</p>
+<div>
+    
+    <form [formGroup]="depositform"(ngSubmit)="onSubmit(depositform)">
+
+        <!-- <p>
+          <label for="AccountId">AccountId: </label>
+          <input type="text" id="AccountId" name="AccountId" formControlName="AccountId">
+        </p> -->
+       
+        <p>
+          <label for="amount"> Deposit Amount:</label>
+          <input type="text" id="amount" name="amount" formControlName="amount">
+        </p>
+       
+        <p>
+          <label for="ServiceId">Service Type:</label>
+          <select id="ServiceId" name="ServiceId" formControlName="ServiceId">
+            <option value="1">NEFT</option>
+            <option value="2">RTGS</option>
+            <option value="3">IMPS</option>
+          </select>  
+        </p>
+        <p>
+          <button type="submit">Deposit</button>
+        </p>
+       
+      </form>
+
+</div>

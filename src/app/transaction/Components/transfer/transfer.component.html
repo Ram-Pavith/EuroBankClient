@@ -1,0 +1,31 @@
+<p>transfer works!</p>
+<div>
+    <form [formGroup]="transferform"(ngSubmit)="onSubmit(transferform)">
+
+       <p>
+        <label for="TargetAccountId">Target AccountId:</label>
+        <input type="'text" id="TargetAccountId" name="TargetAccountId" formControlName="TargetAccountId">
+       </p>
+
+        <p>
+          <label for="amount"> Transfer Amount:</label>
+          <input type="text" id="amount" name="amount" formControlName="amount">
+        </p>
+       
+        <p>
+          <label for="ServiceId">Service Type:</label>
+          <select id="ServiceId" name="ServiceId" formControlName="ServiceId">
+            <option value="1">NEFT</option>
+            <option value="2">RTGS</option>
+            <option value="3">IMPS</option>
+          </select>  
+        </p>
+        <p>
+          <button type="submit">Transfer</button>
+        </p>
+       
+      </form>
+
+</div>
+
+

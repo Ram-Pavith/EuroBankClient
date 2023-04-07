@@ -13,3 +13,4 @@ export interface Transaction
     dateOfTransaction:Date,
     amountOfTransaction:number
 }
+

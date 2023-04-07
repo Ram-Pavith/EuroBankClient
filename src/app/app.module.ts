@@ -12,6 +12,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CustomerService } from './CustomerServices/customer.service';
+import { TransactionModule } from './transaction/transaction.module';
 
 @NgModule({
   declarations: [
@@ -22,16 +23,15 @@ import { CustomerService } from './CustomerServices/customer.service';
     CommonModule,
     AppRoutingModule,
     CustomerModule,
+    TransactionModule,
     ReactiveFormsModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
 BrowserAnimationsModule,
-
     HttpClientModule    
   ],
   exports:[
   //  CustomerService
-    
   ],
   providers: [],
   bootstrap: [AppComponent],
