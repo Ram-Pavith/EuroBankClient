@@ -1,0 +1,13 @@
+*{
+    font-size: xx-large;
+}
+
+.space{
+    height:100px
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 110px 0px 0px 0px;
+  }

@@ -1,5 +1,6 @@
-import{Guid } from 'guid-typescript';
-export interface CounterParty{
-    counterPartyId:Guid,
+import { Guid } from "guid-typescript";
+
+export class CounterParty{
+    counterPartyId:Guid;
     counterPartyName:string
 }

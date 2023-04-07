@@ -1,4 +1,4 @@
-export interface RefTransactionType{
-    transactionTypeId:number,
+export class RefTransactionType{
+    transactionTypeId:number;
     transactionTypeDescriptions:string
 }

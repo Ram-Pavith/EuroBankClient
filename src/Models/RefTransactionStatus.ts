@@ -1,4 +1,4 @@
-export interface RefTransactionStatus{
-    transactionStatusCode:number,
+export class RefTransactionStatus{
+    transactionStatusCode:number;
     transactionStatusDescription:string
 }
