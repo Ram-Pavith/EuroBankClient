@@ -4,14 +4,14 @@ import { CustomerLoginComponent } from './Components/login/CustomerLogin.compone
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './Components/home/home.component';
+// import { HomeComponent } from './Components/home/home.component';
 
 
 
 @NgModule({
   declarations: [
     CustomerLoginComponent,
-    HomeComponent,
+    // HomeComponent,
     
   ],
   imports:

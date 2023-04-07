@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CustomerService } from './customer/Services/customer.service';
 import { AccountModule } from './account/account.module';
-import { HttpClientModule } from '@angular/common/http';
 import { TransactionModule } from './transaction/transaction.module';
 
 @NgModule({
@@ -24,6 +23,8 @@ import { TransactionModule } from './transaction/transaction.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    TransactionModule,
+    ReactiveFormsModule,
     EmployeeModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
