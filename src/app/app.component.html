@@ -3,16 +3,19 @@ Employee
 <nav>
     <ul>
       <li><a routerLink="/EmployeeLogin" routerLinkActive="active" ariaCurrentWhenActive="page">Employee Login</a></li>
-      <li><a routerLink="/getAllCustomers" routerLinkActive="active" ariaCurrentWhenActive="page">Get Customers</a></li>
-      <li><a routerLink="/getAllTransactions" routerLinkActive="active" ariaCurrentWhenActive="page">Get Transactions</a></li>
-      <li><a routerLink="/getAllAccounts" routerLinkActive="active" ariaCurrentWhenActive="page">Get Accounts</a></li>
+      <li><a routerLink="/GetAllCustomers" routerLinkActive="active" ariaCurrentWhenActive="page">Get Customers</a></li>
+      <li><a routerLink="/GetAllTransactions" routerLinkActive="active" ariaCurrentWhenActive="page">Get Transactions</a></li>
+      <li><a routerLink="/GetAllAccounts" routerLinkActive="active" ariaCurrentWhenActive="page">Get Accounts</a></li>
     </ul>
   </nav>
 Customer
-<li><a routerLink="/CustomerHome">Customer home</a></li>
+<!-- <li><a routerLink="/CustomerHome">Customer home</a></li> -->
 <li><a routerLink="/CustomerLogin" routerLinkActive="active" ariaCurrentWhenActive="page">Customer Login</a></li>
 Accounts
-<router-outlet></router-outlet>
-<li><a routerLink="AccountDetails">acc menu</a></li>
+<li><a routerLink="/AccountDetails" routerLinkActive="active" ariaCurrentWhenActive="page">acc menu</a></li>
 <br/>
-
+Transactions
+<li><a routerLink="/Withdraw" routerLinkActive="active" ariaCurrentWhenActive="page">Withdraw</a></li>
+<li><a routerLink="/Deposit" routerLinkActive="active" ariaCurrentWhenActive="page">Deposit</a></li>
+<li><a routerLink="/Transfer" routerLinkActive="active" ariaCurrentWhenActive="page">Transfer</a></li>
+<router-outlet></router-outlet>
