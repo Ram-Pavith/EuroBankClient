@@ -15,6 +15,7 @@ import { GetCustomerAccountsComponent } from './customer/Components/get-customer
 import { GetAccountComponent } from './customer/Components/get-account/get-account.component';
 import { AccountStatementComponent } from './account/Components/account-statement/account-statement.component';
 import { AccountTransactionsComponent } from './account/Components/account-transactions/account-transactions.component';
+import { CustomerMenuComponent } from './customer/Components/customer-menu/customer-menu.component';
 
 const routes: Routes = 
 [
@@ -23,7 +24,7 @@ const routes: Routes =
   {path:'GetAllCustomers',component:GetAllCustomersComponent}, 
   {path:'GetAllAccounts',component:GetAllAccountsComponent},
   {path:'GetAllTransactions',component:GetAllTransactionsComponent},
- // { path:"CustomerHome",component:HomeComponent},
+  { path:"CustomerMenu",component:CustomerMenuComponent},
 
   {path:'AccountsMenu',component:AccountsMenuComponent},
   {path:'AccountDetails',component:AccountDetailsComponent},

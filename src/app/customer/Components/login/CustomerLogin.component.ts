@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
 import { CustomerService } from 'src/app/customer/Services/customer.service';
+import { TransactionService } from 'src/app/transaction.service';
 
 @Component({
   selector: 'app-CustomerLogin',
@@ -26,7 +28,7 @@ user:CustomerLogin=
  errormsg=""
  token:string="";
  use:any;
-constructor(private obj:CustomerService,private route:Router){}
+constructor(private obj:CustomerService,private route:Router,private bj:TransactionService){}
 
   
   IsLoggedIn()
@@ -52,8 +54,11 @@ constructor(private obj:CustomerService,private route:Router){}
     }
       this.authtoken=data.token;
       this.SaveToken();
+      //this.obj.GetAccount(Guid.parse("C0BF0099-9706-4231-B4DA-6452C043F614")).subscribe(dat => console.log(dat))
       this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
-      this.route.navigateByUrl('home');
+      this.obj.GetCustomerStatement("CustomerEurobank",null,null).subscribe(dat => console.log(dat))
+      this.bj.GetAllTransaction("CustomerEurobank").subscribe(data => console.log(data))
+      this.route.navigateByUrl('CustomerMenu');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";
