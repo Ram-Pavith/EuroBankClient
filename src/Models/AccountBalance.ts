@@ -1,6 +1,6 @@
 import { Guid } from "guid-typescript";
 
-export interface AccountBalance{
-    accountId:Guid,
-    balance:number
+export class AccountBalance{
+    accountId:Guid;
+    balance:number    
 }
