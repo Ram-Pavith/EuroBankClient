@@ -40,7 +40,8 @@ export class AccountService {
   }
 
   GetAccountBalance(AccountId:Guid):Observable<AccountBalance>{
-    return this.http.get<AccountBalance>(this.GetAccBal_ReqUrl+AccountId.toString())
+    console.log(this.http.get<AccountBalance>(this.GetAccBal_ReqUrl+AccountId.toString()));
+    return this.http.get<AccountBalance>(this.GetAccBal_ReqUrl+AccountId.toString());
   }
 
   GetAccStatement(AccountId:Guid,From_date:Date,To_Date:Date):Observable<Statement[]>{
