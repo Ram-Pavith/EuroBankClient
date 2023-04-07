@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
-import { CustomerService } from 'src/app/customer/Services/customer.service';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-CustomerLogin',
