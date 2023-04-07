@@ -3,7 +3,7 @@ import{HttpClient,HttpHeaders, HttpParamsOptions} from '@angular/common/http';
 import { observable } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Customer } from 'src/Models/Customer';
-import { CustomerLoginDTO } from 'src/Models/CustomerLoginDTO';
+import { CustomerLogin } from 'src/Models/CustomerLogin';
 import { Guid } from 'guid-typescript';
 import { Weather } from 'src/Models/weather';
 import { Account } from 'src/Models/Account';
@@ -79,9 +79,9 @@ export class CustomerService
     });
   }
 
-  userlogin(CusloginDTO:CustomerLoginDTO):Observable<any>
+  userlogin(CusloginDTO:CustomerLogin):Observable<any>
   {
-    return this.http.post<CustomerLoginDTO>(this.req+"/CustomerLogin",CusloginDTO,{
+    return this.http.post<CustomerLogin>(this.req+"/CustomerLogin",CusloginDTO,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',

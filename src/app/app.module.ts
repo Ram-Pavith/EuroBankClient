@@ -7,35 +7,39 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmployeeModule } from './employee/employee.module';
 import { CustomerModule } from './customer/customer.module';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { CustomerService } from './CustomerServices/customer.service';
-
+import { CustomerService } from './customer/Services/customer.service';
+import { AccountModule } from './account/account.module';
+import { TransactionModule } from './transaction/transaction.module';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     AppRoutingModule,
-    CustomerModule,
+    TransactionModule,
     ReactiveFormsModule,
+    EmployeeModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
-BrowserAnimationsModule,
-
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    CustomerModule,
+    AccountModule,
+    TransactionModule,
+    ReactiveFormsModule,
     HttpClientModule    
   ],
   exports:[
-  //  CustomerService
-    
+  //  CustomerService    
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
-//summa da
