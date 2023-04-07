@@ -15,6 +15,7 @@ export class DepositComponent {
   depositform:FormGroup
  
   msg:string=''
+  flag:boolean=false
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
     transactionStatusDescription:""
@@ -35,15 +36,20 @@ ngOnInit(): void {
 
 deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
 {
-  {{debugger}}
   this.transactionservice.Deposit(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
-  this.msg="Successfully created ";
+  
+  console.log(data);
+
+  if(data.transactionStatusCode == 1) {
+    this.flag = true;
+    this.msg=data.transactionStatusDescription;
   //Logging the response received from web api.
   //this.route.navigateByUrl("Account")Mohana Page
-  console.log(data);
-  console.log(this.msg);
+  }},err=>{
+    this.flag = false;
   })
+  
 }
 onSubmit(form:FormGroup){
 

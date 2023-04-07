@@ -15,10 +15,12 @@ import { CommonModule } from '@angular/common';
 import { CustomerService } from './customer/Services/customer.service';
 import { AccountModule } from './account/account.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { GettransactionComponent } from './transaction/Components/gettransaction/gettransaction.component';
 //import { CustomerModule } from './customer/customer.module';
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -14,15 +14,13 @@ export class GetalltransactionsComponent implements OnInit{
   ngOnInit(): void {
     this.getalltransaction_api(this.CustomerId);
   }
-  CustomerId:string='CustomerEuroBank'
+  CustomerId:string='string'
   constructor(private TransactionService:TransactionService,private router:Router){}
 
   getalltransaction_api(CustomerId:string)
   {
      this.TransactionService.GetAllTransaction(this.CustomerId).subscribe(data=>{
     this.Transactions=data;
-       //this.flag_get=true;this.flag_post=false;this.flag_put=false;this.flag_delete=false;this.flag_register=false;
-       //Logging the response recieved from web api.
        console.log(this.Transactions);
      });
   }

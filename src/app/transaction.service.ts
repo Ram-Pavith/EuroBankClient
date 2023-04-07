@@ -47,7 +47,8 @@ export class TransactionService {
   GetAllTransaction(CustomerId:string):Observable<Transaction[]>
   {
     {{debugger}}
-    return this.http.get<Transaction[]>(this.url+"/"+CustomerId,{
+    return this.http.get<Transaction[]>(this.url+"/GetTransactions?CustomerId="+CustomerId
+    ,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -57,7 +58,8 @@ export class TransactionService {
   GetTransaction(TransactionId:Guid):Observable<Transaction>
   {
     {{debugger}}
-    return this.http.get<Transaction>(this.url+"/"+TransactionId,{
+    return this.http.get<Transaction>(this.url+"/GetTransactionById?TransactionId="+TransactionId
+    ,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',

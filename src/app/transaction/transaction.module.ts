@@ -10,6 +10,7 @@ import { GettransactionComponent } from './Components/gettransaction/gettransact
 
 
 
+
 @NgModule({
   declarations: [
     WithDrawComponent,
@@ -26,7 +27,8 @@ import { GettransactionComponent } from './Components/gettransaction/gettransact
   exports:[
     WithDrawComponent,
     DepositComponent,
-    TransferComponent
+    TransferComponent,
+    GettransactionComponent
   ]
 })
 export class TransactionModule { }

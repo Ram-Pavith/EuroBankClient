@@ -14,6 +14,7 @@ import { TransferComponent } from './transaction/Components/transfer/transfer.co
 import { GetCustomerAccountsComponent } from './customer/Components/get-customer-accounts/get-customer-accounts.component';
 import { GetAccountComponent } from './customer/Components/get-account/get-account.component';
 import { GetalltransactionsComponent } from './transaction/Components/getalltransactions/getalltransactions.component';
+import { GettransactionComponent } from './transaction/Components/gettransaction/gettransaction.component';
 
 const routes: Routes = 
 [
@@ -30,7 +31,8 @@ const routes: Routes =
   {path:'Transfer',component:TransferComponent},
   {path:'getalltransactioncus',component:GetalltransactionsComponent},
   {path:"Getcustomer",component:GetCustomerAccountsComponent},
-  {path:"Getaccount",component:GetAccountComponent}
+  {path:"Getaccount",component:GetAccountComponent},
+  {path:"gettransactionbytransactionId",component:GettransactionComponent}
 ];
 
 @NgModule({
