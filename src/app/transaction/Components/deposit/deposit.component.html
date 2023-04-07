@@ -1,6 +1,4 @@
 
-
-
 <section class="gradient-custom">
    
   <div class="container my-5 py-5">
@@ -8,11 +6,16 @@
       <div class="col-md-7 col-lg-5 col-xl-4">
         <div class="card" style="border-radius: 15px;">
           <div class="card-body p-4">
-            <p>{{msg}}</p> 
-
+             <div *ngIf="deposit_btn_click">
             <div *ngIf="flag">
+              <p>{{msg}}</p>
             <img src="https://crella.sfo2.cdn.digitaloceanspaces.com/wp-content/uploads/2023/01/16081957/green-check-02-2-scaled.jpg" width="20px" class="center">
           </div>
+          <div>
+            <p>{{msg}}</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8S94Ni6dgxWsJmYsPJ8ucfgTuTiEwmv9YrhzHk7hEwgirWYT2Ui-QaA16GDppStu0JVM&usqp=CAU" width="20px" class="center">
+          </div>
+        </div>
             <form [formGroup]="depositform"(ngSubmit)="onSubmit(depositform)">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-outline">
@@ -40,7 +43,7 @@
                 
                 <button type="submit" class="btn btn-info btn-lg btn-rounded">Deposit</button>
                 
-                  <a routerLink="/getTransactionByTransactionId">Get Transactions</a>
+                  
                 
               </div>
             </form>

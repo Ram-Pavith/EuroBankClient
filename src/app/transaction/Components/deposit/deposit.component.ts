@@ -16,6 +16,7 @@ export class DepositComponent {
  
   msg:string=''
   flag:boolean=false
+  deposit_btn_click:boolean=false;
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
     transactionStatusDescription:""
@@ -38,15 +39,20 @@ deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
 {
   this.transactionservice.Deposit(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
+    this.flag=false;
+    this.msg="Transaction Failure";
   
   console.log(data);
 
   if(data.transactionStatusCode == 1) {
     this.flag = true;
-    this.msg=data.transactionStatusDescription;
+    this.msg="Transaction Success";
+    
   //Logging the response received from web api.
-  //this.route.navigateByUrl("Account")Mohana Page
-  }},err=>{
+  this.route.navigateByUrl("/AccountDetails")
+  }
+  
+},err=>{
     this.flag = false;
   })
   
@@ -54,6 +60,6 @@ deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
 onSubmit(form:FormGroup){
 
   this.deposit_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),form.value.amount,form.value.ServiceId);
-
+  this.deposit_btn_click=true;
 }
 }
