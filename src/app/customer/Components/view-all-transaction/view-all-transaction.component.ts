@@ -12,7 +12,7 @@ export class ViewAllTransactionComponent implements OnInit
  {
   customer:Transaction[]=[]
   msg:string
-  id:string
+  id:string="CustomerEurobank"
   constructor(private obj:TransactionService){}
 
   ngOnInit(): void {

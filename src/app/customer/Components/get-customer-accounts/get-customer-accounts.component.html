@@ -1,3 +1,23 @@
-<div *ngFor="let c of customer">
-    <p>{{c|json}}</p>
+<div class="center">
+    <table class="table table-hover" id="StatementTable">
+        <thead>
+            <th> Account ID </th>
+            <th> Account Type </th>
+            <th> Account Creation Status ID </th>
+            <th> Customer ID </th>
+            <th> Date </th>
+            <th> Balance </th>
+            
+        </thead>
+        <tbody *ngFor="let s of customer">
+            <tr>
+                <td> {{ s.accountId }} </td>
+                <td> {{ s.accountTypeId}} </td>
+                <td> {{ s.accountCreationStatusId}} </td>
+                <td> {{ s.customerId }}</td>
+                <td> {{ s.dateCreated }}</td>
+                <td> &#8377; {{ s.balance}}</td>       
+            </tr>
+        </tbody>
+    </table>
 </div>

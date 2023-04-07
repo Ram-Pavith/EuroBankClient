@@ -1,3 +1,32 @@
-<div *ngFor="let c of customer">
-    <p>{{c|json}}</p>
+<div class="center">
+    <table class="table table-hover" id="StatementTable">
+        <thead>
+            <th> Statement ID </th>
+            <th> Account ID </th>
+            <th> Date </th>
+            <th> Narration </th>
+            <th> Reference Number </th>
+            <th> withdrawal </th>
+            <th> deposit </th>
+            <th> Balance </th>
+            
+        </thead>
+        <tbody *ngFor="let s of customer">
+            <tr>
+                <td> {{ s.statementId }} </td>
+                <td> {{ s.accountId}} </td>
+                <td> {{ s.date}} </td>
+                <td> {{ s.narration }}</td>
+                <td> {{ s.refNo }}</td>
+                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal}} </td>
+                <td *ngIf="s.withdrawal == 0"> &nbsp;  </td>
+                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit}}</td>
+                <td *ngIf="s.deposit == 0"> &nbsp;</td>
+                <td> &#8377; {{ s.closingBalance}}</td>       
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <button (click)="PrintStatement()">Print</button>
 </div>

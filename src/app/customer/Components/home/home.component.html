@@ -1,30 +1,33 @@
-<p>home works!</p>
-<body>
-    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <h4 style="color:rgb(0, 0, 0);font:bold;">Hindustan Students Management System   </h4>
-          <div style="margin-left: 80px;" class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav" style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
-    
-                <li><a  style="color: black;font-size: larger;" routerLink="/home">home</a></li>
-                    <li ><a style="color: black;font-size: larger;" routerLink="/batch">Batch</a></li>
-                    <li><a  style="color: black;font-size: larger;" routerLink="/course">Course</a></li>
-                    <li><a  style="color: black;font-size: larger;" routerLink="/registration">Registration</a></li>
-                    
-              <li>
-                <span style="color: darkmagenta;"></span>
-              </li>
-              <li class="navbar-nav">
-                <button class="nav-link active " aria-current="page" style="color: rgb(219, 13, 68);">LOGOUT</button>
-              </li>
-            </ul>
-          </div>
+<div class="center">
+
+  
+    <div class="row" style="display:flex">
+
+        <div class="card">
+            <img src="../../../../assets/Images/CustomerAccount.png" class="card-img-top" alt="...">
+            <div class="card-body">
+               
+                <div class="center-btn">
+                    <a routerLink="/Getcustomer" class="btn btn-primary stretched-link"> Customer Account Details</a>
+                </div>
+            </div>
         </div>
-      </nav>
-    </body>
-      <router-outlet></router-outlet>
+        <div class="card">
+            <img src="../../../../assets/Images/Statement.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <div class="center-btn">
+                    <a routerLink="/statement" class="btn btn-primary stretched-link">Customer Statement</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../../../../assets/Images/transactions.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <div class="center-btn">
+                    <a routerLink="/viewtransaction" class="btn btn-primary stretched-link">Customer Transactions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <router-outlet></router-outlet> -->

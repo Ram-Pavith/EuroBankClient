@@ -1,1 +1,36 @@
-<p>view-all-transaction works!</p>
+<div class="center">
+    <table class="table table-hover">
+        <thead>
+            <th> Transaction ID </th>
+            <th> Counterparty ID </th>
+            <th> Account ID </th>
+            <th> Service ID </th>
+            <th> Status </th>
+            <th> Payment Method</th>
+            <th> Date</th> 
+            <th> Amount </th>
+        </thead>
+        <tbody *ngFor="let t of customer">
+            <tr>
+                <td> {{ t.transactionId }} </td>
+                <td>{{t.counterPartyId}}</td>
+                <td>{{t.accountId}}</td>
+                <td>
+                    <span *ngIf="t.serviceId == 1">NEFT</span>
+                    <span *ngIf="t.serviceId == 2">RTGS</span>
+                    <span *ngIf="t.serviceId == 3">IMPS</span>
+                </td>
+               
+                <td>{{t.refTransactionStatusId}}</td>
+                <!-- <td>{{t.refTransactionTypeId}}</td> -->
+                <td>{{t.refPaymentMethodId}}</td>
+                <td>{{t.dateOfTransaction | date : 'short'}}</td>
+                <td>{{t.amountOfTransaction}}
+                    <span *ngIf="t.refTransactionTypeId == 1"> <i class="fas fa-caret-down fa-2xl"></i> </span>
+                    <span *ngIf="t.refTransactionTypeId == 2"> <i class="fas fa-caret-up fa-2xl"></i> </span>
+                    <span *ngIf="t.refTransactionTypeId == 3"> <i class="fa fa-exchange fa-xl"></i></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title = 'EuroBankClient';
   constructor(private route:Router){}
 ngOnInit(): void {
-  this.route.navigateByUrl('')
+  this.route.navigateByUrl('/CustomerLogin')
 }
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/Models/Customer';
 import { CustomerService } from '../../Services/customer.service';
+import jsPDF from 'jspdf';
+import { Statement } from 'src/Models/Statement';
 
 @Component({
   selector: 'app-get-customer-statement',
@@ -9,9 +11,9 @@ import { CustomerService } from '../../Services/customer.service';
 })
 export class GetCustomerStatementComponent implements OnInit
 {
-  customer:Customer[]=[];
+  customer:Statement[]=[];
   constructor(private obj:CustomerService) {}
-  id:string=""
+  id:string="CustomerEurobank"
   Fdate:Date
   Tdate:Date
   msg:string
@@ -30,6 +32,31 @@ export class GetCustomerStatementComponent implements OnInit
     },err =>{
       console.log(err);
     })
+  }
+
+  PrintStatement(): void {
+    var tab = document.getElementById('StatementTable');
+    var today = new Date();
+    var file_name = "EBstatement_" + this.id.toString() + "_" + today.toLocaleDateString();
+
+    var style = "<style>";
+    style = style + "table {width: 100%;font: 17px Calibri;}";
+    style = style + "th {background-color:#f50057}";
+    style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+    style = style + "padding: 2px 3px;text-align: center;}";
+    style = style + "</style>";
+
+    var doc = new jsPDF();
+    doc.html(tab, {
+      callback: function (doc) {
+        doc.save(file_name);
+      },
+      x: 15,
+      y: 15,
+      width: 170, //target width in the PDF document
+      windowWidth: 650 //window width in CSS pixels
+    },
+     );
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/Models/Customer';
 import { CustomerService } from '../../Services/customer.service';
+import { Account } from 'src/Models/Account';
 
 @Component({
   selector: 'app-get-customer-accounts',
@@ -9,9 +10,9 @@ import { CustomerService } from '../../Services/customer.service';
 })
 export class GetCustomerAccountsComponent implements OnInit 
 {
-  customer:Customer[]=[];
+  customer:Account[]=[];
   constructor(private obj:CustomerService) {}
-  id:string="";
+  id:string="CustomerEurobank";
 
   ngOnInit(): void {
     this.getaccounts();
