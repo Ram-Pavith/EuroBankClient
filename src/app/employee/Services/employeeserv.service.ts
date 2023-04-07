@@ -1,12 +1,12 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { AccountDTO } from 'src/Models/Account';
-import { CustomerDTO } from 'src/Models/Customer';
-import { CustomerRegisterDTO } from 'src/Models/CustomerRegister';
-import { EmployeeLoginDTO } from 'src/Models/EmployeeLogin';
-import { TransactionDTO } from 'src/Models/Transaction';
-import { UserAuthResponseDTO } from 'src/Models/UserAuthResponse';
+import { Account } from 'src/Models/Account';
+import { Customer } from 'src/Models/Customer';
+import { CustomerRegister } from 'src/Models/CustomerRegister';
+import { EmployeeLogin } from 'src/Models/EmployeeLogin';
+import { Transaction } from 'src/Models/Transaction';
+import { UserAuthResponse } from 'src/Models/UserAuthResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -94,8 +94,8 @@ export class EmployeeservService {
   //     })
   //   })
   // }
-  employeelogin(emploginDTO:EmployeeLoginDTO):Observable<any>{
-    return this.http.post<EmployeeLoginDTO>(this.req+"/EmployeeLogin",emploginDTO,{
+  employeelogin(emploginDTO:EmployeeLogin):Observable<any>{
+    return this.http.post<EmployeeLogin>(this.req+"/EmployeeLogin",emploginDTO,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -104,8 +104,8 @@ export class EmployeeservService {
     })
   }
 
-  getAllCustomers():Observable<CustomerDTO[]>{
-    return this.http.get<CustomerDTO[]>(this.req+"/GetAllCustomers",{
+  getAllCustomers():Observable<Customer[]>{
+    return this.http.get<Customer[]>(this.req+"/GetAllCustomers",{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -114,8 +114,8 @@ export class EmployeeservService {
     })
   }
 
-  getAllAccounts():Observable<AccountDTO[]>{
-    return this.http.get<AccountDTO[]>(this.req+"/ViewAllBankAccounts",{
+  getAllAccounts():Observable<Account[]>{
+    return this.http.get<Account[]>(this.req+"/ViewAllBankAccounts",{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -124,8 +124,8 @@ export class EmployeeservService {
     })
   }
 
-  getAllTransactions():Observable<TransactionDTO[]>{
-    return this.http.get<TransactionDTO[]>(this.req+"/ViewAllTransactions",{
+  getAllTransactions():Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(this.req+"/ViewAllTransactions",{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -134,8 +134,8 @@ export class EmployeeservService {
     })
   }
 
-  createCustomer(customer:CustomerRegisterDTO):Observable<any>{
-    return this.http.post<CustomerRegisterDTO>(this.req+"/CreateCustomer",customer,{
+  createCustomer(customer:CustomerRegister):Observable<any>{
+    return this.http.post<CustomerRegister>(this.req+"/CreateCustomer",customer,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',

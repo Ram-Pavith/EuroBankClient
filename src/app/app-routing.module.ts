@@ -5,12 +5,15 @@ import { GetAllCustomersComponent } from './employee/get-all-customers/get-all-c
 import { GetAllAccountsComponent } from './employee/get-all-accounts/get-all-accounts.component';
 import { GetAllTransactionsComponent } from './employee/get-all-transactions/get-all-transactions.component';
 import { HomeComponent } from './customer/Components/home/home.component';
-
+import {CustomerLoginComponent} from './customer/Components/login/CustomerLogin.component';
 
 const routes: Routes = 
 [
   {
-    path:'login',component:LoginComponent
+    path:'EmployeeLogin',component:LoginComponent
+  },
+  {
+    path:'CustomerLogin',component:CustomerLoginComponent
   },
   {
     path:'getAllCustomers',component:GetAllCustomersComponent

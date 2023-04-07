@@ -12,7 +12,7 @@ import { CustomerModule } from './customer/customer.module';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { CustomerService } from './CustomerServices/customer.service';
+import { CustomerService } from './customer/Services/customer.service';
 @NgModule({
   declarations: [
     AppComponent

@@ -1,4 +1,4 @@
-export class UserAuthResponseDTO{
+export class UserAuthResponse{
     success:Boolean;
     message:String;
     token:String;
