@@ -1,4 +1,5 @@
-export interface AccountCreationStatus{
-    accountCreationStatusId:number,
+
+export class AccountCreationStatus{
+    accountCreationStatusId:number;
     message:string
 }
