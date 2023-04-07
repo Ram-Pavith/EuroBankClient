@@ -44,12 +44,8 @@ export class CustomerService
   GetAccount(id:Guid):Observable<any>
   {
     return this.http.get<Account>(this.req+"/GetAccount?AccountId="+id,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
-    });``
+      headers:this.headers
+    });
 
   }
 

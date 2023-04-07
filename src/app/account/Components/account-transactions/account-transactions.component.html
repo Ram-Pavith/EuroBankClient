@@ -15,9 +15,7 @@
                 <td> {{ t.transactionId }} </td>
                 <td>{{t.counterPartyId}}</td>
                 <td>
-                    <span *ngIf="t.serviceId == 1">NEFT</span>
-                    <span *ngIf="t.serviceId == 2">RTGS</span>
-                    <span *ngIf="t.serviceId == 3">IMPS</span>
+                    <span> {{GetServiceTypeLabel(t.serviceId)}}</span>
                 </td>
                 <td>{{t.refTransactionStatusId}}</td>
                 <!-- <td>{{t.refTransactionTypeId}}</td> -->

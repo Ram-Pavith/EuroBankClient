@@ -11,8 +11,8 @@
         </thead>
         <tbody *ngFor="let s of AccStatement">
             <tr>
-                <td> {{ s.date }} </td>
-                <td> {{ s.valueDate}} </td>
+                <td> {{ s.date | date:'short'}} </td>
+                <td> {{ s.valueDate | date:'short'}} </td>
                 <td> {{ s.narration }}</td>
                 <td> {{ s.refNo }}</td>
                 <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal}} </td>

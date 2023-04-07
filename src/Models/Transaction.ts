@@ -6,7 +6,6 @@ export class Transaction{
     accountId: Guid;
     serviceId: number;
     refTransactionStatusId: number;
-    refTransactionS
     refTransactionTypeId: number;
     refPaymentMethodId: number;
     dateOfTransaction: Date;

@@ -1,3 +1,8 @@
+*{
+    font-family: 'Crimson Text', serif;
+    color:white
+}
+
 .center {
     margin: auto;
 }
@@ -11,7 +16,10 @@ img{
 }
 
 th{
-    width:200px
+    width:200px;
+}
+td{
+    margin-left: 50px;
 }
 
 .slogan{
@@ -21,7 +29,7 @@ th{
     font-size: 100px;
     font-style: italic;
     font-weight: bold;
-    background: -webkit-linear-gradient(#f50057, white);
+    background: -webkit-linear-gradient(white, #DE5D83);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -30,13 +38,14 @@ th{
 table{
     margin-top:30px;
     margin-left: 200px;
-    font-size: x-large;
+    font-size: 30px;
 }
 
 .accOutline{
     display: flex;
     /* justify-content: space-between; */
-    border: 2px solid white;
+    border: 2px solid #f50057;
+    background-color: #f50057;
     /* width: fit-content; */
     margin-top: 70px;
     margin-left: 100px;
