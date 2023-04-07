@@ -13,25 +13,30 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CustomerService } from './customer/Services/customer.service';
+import { AccountModule } from './account/account.module';
+import { TransactionModule } from './transaction/transaction.module';
 @NgModule({
   declarations: [
     AppComponent
-        
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    TransactionModule,
+    ReactiveFormsModule,
     EmployeeModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
     CustomerModule,
+    AccountModule,
+    TransactionModule,
     ReactiveFormsModule,
     HttpClientModule    
   ],
   exports:[
-  //  CustomerService
+  //  CustomerService    
   ],
   providers: [],
   bootstrap: [AppComponent],
