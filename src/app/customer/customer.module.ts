@@ -15,7 +15,7 @@ import { GetAccountComponent } from './Components/get-account/get-account.compon
     CustomerLoginComponent,
     // HomeComponent,
     GetCustomerAccountsComponent,
-    GetAccountComponent,    
+    GetAccountComponent    
   ],
   imports:
    [

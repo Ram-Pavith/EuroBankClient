@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Guid } from 'guid-typescript';
 import { Account } from 'src/Models/Account';
-import { CustomerService } from 'src/app/CustomerServices/customer.service';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-get-account',

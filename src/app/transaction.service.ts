@@ -44,7 +44,7 @@ export class TransactionService {
       })
     });
   }
-  GetAllTransaction(CustomerId:Guid):Observable<Transaction[]>
+  GetAllTransaction(CustomerId:string):Observable<Transaction[]>
   {
     {{debugger}}
     return this.http.get<Transaction[]>(this.url+"/"+CustomerId,{

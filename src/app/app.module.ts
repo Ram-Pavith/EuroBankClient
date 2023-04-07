@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // If You need animations
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +26,7 @@ import { TransactionModule } from './transaction/transaction.module';
     ReactiveFormsModule,
     EmployeeModule,
     FormsModule,
-    MDBBootstrapModule.forRoot(),
+    // MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
     CustomerModule,
