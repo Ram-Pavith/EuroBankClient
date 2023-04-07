@@ -45,8 +45,11 @@ constructor(private obj:CustomerService,private route:Router){}
     console.log(this.user)    
     this.obj.userlogin(this.user).subscribe(data=>{
       console.log(data.token);
-      if(data.Success)
+      if(data.Success){
       this.msg="Success";
+      this.authtoken = data.token;
+      this.SaveToken()
+    }
       this.authtoken=data.token;
       this.SaveToken();
       this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))

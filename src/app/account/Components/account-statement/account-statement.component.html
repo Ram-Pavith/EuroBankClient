@@ -1,1 +1,26 @@
-<p>account-statement works!</p>
+<div class="center">
+    <table class="table table-hover">
+        <thead>
+            <th> Date </th>
+            <th> Value Date </th>
+            <th> Narration </th>
+            <th> Ref No.</th>
+            <th> Withdraw</th> 
+            <th> Deposit </th>
+            <th> Balance </th>
+        </thead>
+        <tbody *ngFor="let s of AccStatement">
+            <tr>
+                <td> {{ s.date }} </td>
+                <td> {{ s.valueDate}} </td>
+                <td> {{ s.narration }}</td>
+                <td> {{ s.refNo }}</td>
+                <td *ngIf="s.withdrawal != 0"> {{ s.withdrawal}} </td>
+                <td *ngIf="s.withdrawal == 0"> &nbsp;  </td>
+                <td *ngIf="s.deposit != 0"> {{ s.deposit}}</td>
+                <td *ngIf="s.deposit == 0"> &nbsp;</td>
+                <td> {{ s.closingBalance}}</td>       
+            </tr>
+        </tbody>
+    </table>
+</div>

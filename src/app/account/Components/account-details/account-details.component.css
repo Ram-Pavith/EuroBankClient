@@ -1,0 +1,29 @@
+.center {
+    margin: auto;
+}
+
+/*  */
+
+img{
+
+    height: 600px; 
+    width: 230px;
+    margin-top: 50px;
+    margin-left: 100px;
+    float: left;
+}
+
+th{
+    width:200px
+}
+
+table{
+    margin-top:150px;
+    margin-left: 100px;
+    font-size: x-large;
+}
+
+.accOutline{
+    display: flex;
+    /* justify-content: space-between; */
+}
