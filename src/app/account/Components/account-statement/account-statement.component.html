@@ -1,5 +1,5 @@
 <div class="center">
-    <table class="table table-hover">
+    <table class="table table-hover" id="StatementTable">
         <thead>
             <th> Date </th>
             <th> Value Date </th>
@@ -15,12 +15,16 @@
                 <td> {{ s.valueDate}} </td>
                 <td> {{ s.narration }}</td>
                 <td> {{ s.refNo }}</td>
-                <td *ngIf="s.withdrawal != 0"> {{ s.withdrawal}} </td>
+                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal}} </td>
                 <td *ngIf="s.withdrawal == 0"> &nbsp;  </td>
-                <td *ngIf="s.deposit != 0"> {{ s.deposit}}</td>
+                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit}}</td>
                 <td *ngIf="s.deposit == 0"> &nbsp;</td>
-                <td> {{ s.closingBalance}}</td>       
+                <td> &#8377; {{ s.closingBalance}}</td>       
             </tr>
         </tbody>
     </table>
 </div>
+<div>
+    <button (click)="PrintStatement()">Print</button>
+</div>
+

@@ -1,17 +1,27 @@
 .center {
     margin: auto;
-    width: 50%;
-    padding: 110px 0px 0px 0px;
+    width: 80%;
+    padding: 250px 0px 0px 200px;
   }
+
+.center-btn{
+  padding: 0px 35px 0px 25px;
+}
 
   .btn-primary {
     background-color: #f50057;
     border-color: #f50057;
-    /* width: 500px; */
-    /* width: max-content; */
+    width: 139.74px;
+    height: 61.6px;    
 }
 
 .card{
-    width: 500px
+  width: 25%;
+  margin-right: 20px;
+}
+
+.card-deck{
+  width: fit-content;
+  margin-left: 500px;
 }
 
