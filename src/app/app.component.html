@@ -1,6 +1,20 @@
 
-<<<<<<< HEAD
-<li><a routerLink="/home">HOME</a></li>
+Employee
+<nav>
+    <ul>
+      <li><a routerLink="/EmployeeLogin" routerLinkActive="active" ariaCurrentWhenActive="page">Employee Login</a></li>
+      <li><a routerLink="/getAllCustomers" routerLinkActive="active" ariaCurrentWhenActive="page">Get Customers</a></li>
+      <li><a routerLink="/getAllTransactions" routerLinkActive="active" ariaCurrentWhenActive="page">Get Transactions</a></li>
+      <li><a routerLink="/getAllAccounts" routerLinkActive="active" ariaCurrentWhenActive="page">Get Accounts</a></li>
+    </ul>
+  </nav>
+Customer
+<li><a routerLink="/CustomerHome">Customer home</a></li>
+<li><a routerLink="/CustomerLogin" routerLinkActive="active" ariaCurrentWhenActive="page">Customer Login</a></li>
+Accounts
 <router-outlet></router-outlet>
+<li><a routerLink="AccountDetails">acc menu</a></li>
+<br/>
+Transactions
 <app-login></app-login>
 <app-transfer></app-transfer>

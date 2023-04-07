@@ -2,24 +2,24 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Customer } from 'src/Models/Customer';
-import { CustomerLoginDTO } from 'src/Models/CustomerLoginDTO';
-import { CustomerService } from 'src/app/CustomerServices/customer.service';
+import { CustomerLogin } from 'src/Models/CustomerLogin';
+import { CustomerService } from 'src/app/customer/Services/customer.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-CustomerLogin',
+  templateUrl: './CustomerLogin.component.html',
+  styleUrls: ['./CustomerLogin.component.css']
 })
-export class LoginComponent 
+export class CustomerLoginComponent 
 {
   userform:FormGroup=new FormGroup({})
 users:Customer[]=[];
 username:string="";
 password:string="";
-user:CustomerLoginDTO=
+user:CustomerLogin=
  {
-   EmailId:"",
-   Password:""
+   emailId:"",
+   password:""
  };
  msg:string="";
  authtoken:string="";

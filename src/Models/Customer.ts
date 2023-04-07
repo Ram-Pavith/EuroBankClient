@@ -1,16 +1,13 @@
-export class Customer
-{
-    CustomerId:string;
-    EmailId:string;
-    Firstname:string;
-    Lastname:string;
-    Address:string;
-    Phone:string;
-    PasswordHash:string;
-    PasswordSalt:string;
-    PanNumber:string;
-    DOB:Date;
-    CustomerCreationStatusId:number;
-
-
+export class Customer{
+    customerId:string;
+    emailId:string;
+    firstname:string;
+    lastname:string;
+    address:string;
+    phone:string;
+    passwordHash:string;
+    passwordSalt:string;
+    panNumber:string;
+    dob:Date;
+    customerCreationStatusId:number;
 }

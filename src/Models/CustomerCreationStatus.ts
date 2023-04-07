@@ -1,5 +1,5 @@
 export class CustomerCreationStatus
 {
-    CustomerCreationId:number;
-    Message:string;
+    customerCreationId:number;
+    message:string;
 }
