@@ -15,7 +15,7 @@
                 <td> {{ s.accountTypeId}} </td>
                 <td> {{ s.accountCreationStatusId}} </td>
                 <td> {{ s.customerId }}</td>
-                <td> {{ s.dateCreated }}</td>
+                <td> {{ s.dateCreated|date:'short' }}</td>
                 <td> &#8377; {{ s.balance}}</td>       
             </tr>
         </tbody>
