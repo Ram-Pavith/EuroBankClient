@@ -45,7 +45,7 @@ const routes: Routes =
   {path:'getalltransactioncus',component:GetalltransactionsComponent},
   {path:"Getcustomer",component:GetCustomerAccountsComponent},
   // {path:"Getaccount",component:GetAccountComponent},
-  {path:"gettransactionbytransactionId",component:GettransactionComponent},
+  {path:"gettransactionbytransactionId/:id",component:GettransactionComponent},
   {path:"CustomerHome",component:HomeComponent},
   {path:"statement",component:GetCustomerStatementComponent},
   {path:"viewtransaction",component:ViewAllTransactionComponent}
