@@ -1,4 +1,4 @@
-<!-- <section class="background-radial-gradient overflow-hidden">
+<section class="background-radial-gradient overflow-hidden">
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
       <div class="row gx-lg-5 align-items-center mb-5">
         <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
@@ -20,26 +20,62 @@
   
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
-              <form #loginform="ngForm" (submit)="login()">
+              <form #createcustomerform="ngForm" (submit)="createCustomer()">
                 <p>{{this.msg}}</p>
+                
                 <div class="form-outline mb-4">
-                  <input type="email" name="emailId" [(ngModel)]="employeeloginDTO.emailId" #emailId=ngModel id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3">Email address</label>
+                  <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control" />
+                  <label class="form-label">Email address</label>
                   <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
                 </div>
-  
-                
+
                 <div class="form-outline mb-4">
-                  <input type="password" name="password" [(ngModel)]="employeeloginDTO.password" #password="ngModel" id="form3Example4" class="form-control" />
-                  <label class="form-label" for="form3Example4">Password</label>
-                  <span class="text-danger" *ngIf="password.touched && password.invalid">*Required</span>
+                  <input type="text" name="firstname" [(ngModel)]="customer.firstname" #firstname=ngModel class="form-control" />
+                  <label class="form-label">First Name</label>
+                  <span class="text-danger" *ngIf="firstname.touched && firstname.invalid">*Required</span>
                 </div>
-                
-                <input type="submit" value="Login" class="btn btn-primary btn-block mb-4" [disabled]="!loginform.valid"/>
+
+                <div class="form-outline mb-4">
+                  <input type="text" name="lastname" [(ngModel)]="customer.lastname" #lastname=ngModel class="form-control" />
+                  <label class="form-label">Last Name</label>
+                  <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">*Required</span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" name="address" [(ngModel)]="customer.address" #address=ngModel class="form-control" />
+                  <label class="form-label">Address</label>
+                  <span class="text-danger" *ngIf="address.touched && address.invalid">*Required</span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel class="form-control" />
+                  <label class="form-label">Phone</label>
+                  <span class="text-danger" *ngIf="phone.touched && phone.invalid">*Required</span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" />
+                  <label class="form-label">Password</label>
+                  <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">*Required</span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control" />
+                  <label class="form-label">Pan Number</label>
+                  <span class="text-danger" *ngIf="pannumber.touched && pannumber.invalid">*Required</span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="date" name="dob" [(ngModel)]="customer.dob" #dob=ngModel class="form-control" />
+                  <label class="form-label">DOB</label>
+                  <span class="text-danger" *ngIf="dob.touched && dob.invalid">*Required</span>
+                </div>
+  
+                <input type="submit" value="Create" class="btn btn-primary btn-block mb-4" [disabled]="!createcustomerform.valid"/>
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
