@@ -1,14 +1,18 @@
 .center {
     margin: auto;
     width: 80%;
-    padding: 250px 0px 0px 200px;
+    padding: 30px 0px 0px 200px;
   }
 
 .center-btn{
   padding: 0px 35px 0px 25px;
 }
+/* .row{
+  width: 689px;
+  height: 187px;
+} */
 
-  .btn-primary {
+.btn-primary {
     background-color: #f50057;
     border-color: #f50057;
     width: 139.74px;

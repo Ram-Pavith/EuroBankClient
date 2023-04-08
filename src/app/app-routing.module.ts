@@ -35,7 +35,7 @@ const routes: Routes =
   {path:'GetAllTransactions',component:GetAllTransactionsComponent},
   { path:"CustomerMenu",component:CustomerMenuComponent},
   {path:'AccountsMenu',component:AccountsMenuComponent},
-  {path:'AccountDetails',component:AccountDetailsComponent},
+  {path:'AccountDetails/:id',component:AccountDetailsComponent},
   {path:'AccountStatement',component:AccountStatementComponent},
   {path:'AccountTransactions',component:AccountTransactionsComponent},
 
@@ -44,7 +44,7 @@ const routes: Routes =
   {path:'Transfer',component:TransferComponent},
   {path:'getalltransactioncus',component:GetalltransactionsComponent},
   {path:"Getcustomer",component:GetCustomerAccountsComponent},
-  {path:"Getaccount",component:GetAccountComponent},
+  // {path:"Getaccount",component:GetAccountComponent},
   {path:"gettransactionbytransactionId",component:GettransactionComponent},
   {path:"CustomerHome",component:HomeComponent},
   {path:"statement",component:GetCustomerStatementComponent},

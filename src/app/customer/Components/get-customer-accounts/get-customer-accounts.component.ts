@@ -12,7 +12,7 @@ export class GetCustomerAccountsComponent implements OnInit
 {
   customer:Account[]=[];
   constructor(private obj:CustomerService) {}
-  id:string="CustomerEurobank";
+  id:string=localStorage.getItem("CustomerId");
 
   ngOnInit(): void {
     this.getaccounts();

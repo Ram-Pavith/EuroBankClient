@@ -11,7 +11,7 @@
             <th> Amount </th>
         </thead>
         <tbody *ngFor="let t of AccTransactions">
-            <tr>
+            <tr [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
                 <td> {{ t.transactionId }} </td>
                 <td>{{t.counterPartyId}}</td>
                 <td>

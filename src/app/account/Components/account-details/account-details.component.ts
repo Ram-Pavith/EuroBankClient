@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../Services/account.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Account } from 'src/Models/Account';
 import { Guid } from 'guid-typescript';
 import { AccountBalance } from 'src/Models/AccountBalance';
@@ -26,8 +26,11 @@ export class AccountDetailsComponent implements OnInit {
     balance:0
   }
 
-  constructor(private AccService: AccountService, private CustService: CustomerService, private router: Router) {
-    this.CustService.GetAccount(Guid.parse("C0BF0099-9706-4231-B4DA-6452C043F614")).subscribe(data => {
+  accId:Guid;
+
+  constructor(private AccService: AccountService, private CustService: CustomerService, private router: Router,private route:ActivatedRoute) {
+    this.accId= Guid.parse(this.route.snapshot.paramMap.get('id')); 
+    this.CustService.GetAccount(this.accId).subscribe(data => {
       console.log(data);
       this.accDet = data;
       this.accTypeLabel = AcccountTypeEnum[data.accountTypeId];
