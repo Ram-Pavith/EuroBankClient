@@ -44,10 +44,10 @@ export class TransactionService {
       })
     });
   }
-  GetAllTransaction(CustomerId:Guid):Observable<Transaction[]>
+  GetAllTransaction(CustomerId:string):Observable<Transaction[]>
   {
-    {{debugger}}
-    return this.http.get<Transaction[]>(this.url+"/"+CustomerId,{
+   
+    return this.http.get<Transaction[]>("https://localhost:7035/api/Transaction/GetTransactions?CustomerId="+CustomerId,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
