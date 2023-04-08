@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
-import { CustomerService } from 'src/app/customer/Services/customer.service';
+import { TransactionService } from 'src/app/transaction.service';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-CustomerLogin',
@@ -25,8 +27,10 @@ user:CustomerLogin=
  authtoken:string="";
  errormsg=""
  token:string="";
+ customerId:string=""
  use:any;
-constructor(private obj:CustomerService,private route:Router){}
+
+constructor(private obj:CustomerService,private route:Router, private bj:TransactionService){}
 
   
   IsLoggedIn()
@@ -43,14 +47,27 @@ constructor(private obj:CustomerService,private route:Router){}
   login()
   {
     console.log(this.user)    
-    this.obj.userlogin(this.user).subscribe(data=>{
+    this.obj.userAuthorize(this.user).subscribe(data=>{
       console.log(data.token);
-      if(data.Success)
+      if(data.Success){
       this.msg="Success";
-      this.authtoken=data.token;
-      this.SaveToken();
-      this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
-      this.route.navigateByUrl('home');
+      this.authtoken = data.token;
+      this.obj.userlogin(this.user).subscribe(customer=>{
+        this.customerId = customer.customerId
+        console.log(customer)
+        console.log(this.customerId)
+        console.log(customer.customerId)
+        this.SaveCustomerId()
+      },error=>{
+        console.log(error)
+      })
+      this.SaveToken()
+    }
+
+      // this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
+      // this.obj.GetCustomerStatement("CustomerEurobank",null,null).subscribe(dat => console.log(dat))
+      // this.bj.GetAllTransaction("CustomerEurobank").subscribe(data => console.log(data))
+      this.route.navigateByUrl('CustomerHome');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";
@@ -63,5 +80,10 @@ constructor(private obj:CustomerService,private route:Router){}
   GetToken(){
     localStorage.getItem("token");
   }
-
+  SaveCustomerId(){
+    localStorage.setItem("CustomerId",this.customerId)
+  }
+  GetCustomerId(){
+    localStorage.getItem("CustomerId")
+  }
   }

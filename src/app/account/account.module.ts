@@ -4,6 +4,8 @@ import { AccountsMenuComponent } from './Components/accounts-menu/accounts-menu.
 import { AccountDetailsComponent } from './Components/account-details/account-details.component';
 import { AccountTransactionsComponent } from './Components/account-transactions/account-transactions.component';
 import { AccountStatementComponent } from './Components/account-statement/account-statement.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,7 +17,9 @@ import { AccountStatementComponent } from './Components/account-statement/accoun
     AccountStatementComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
+    HttpClientModule,
   ]
 })
 export class AccountModule { }
