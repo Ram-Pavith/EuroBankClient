@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
-import { CustomerService } from 'src/app/customer/Services/customer.service';
 import { TransactionService } from 'src/app/transaction.service';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-CustomerLogin',
@@ -28,7 +28,8 @@ user:CustomerLogin=
  errormsg=""
  token:string="";
  use:any;
-constructor(private obj:CustomerService,private route:Router,private bj:TransactionService){}
+
+constructor(private obj:CustomerService,private route:Router, private bj:TransactionService){}
 
   
   IsLoggedIn()
@@ -54,11 +55,11 @@ constructor(private obj:CustomerService,private route:Router,private bj:Transact
     }
       this.authtoken=data.token;
       this.SaveToken();
-      //this.obj.GetAccount(Guid.parse("C0BF0099-9706-4231-B4DA-6452C043F614")).subscribe(dat => console.log(dat))
+      this.obj.GetAccount(Guid.parse("FFA504B0-9CCE-4350-A6FA-974668B725C3")).subscribe(dat => console.log(dat))
       this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
       this.obj.GetCustomerStatement("CustomerEurobank",null,null).subscribe(dat => console.log(dat))
       this.bj.GetAllTransaction("CustomerEurobank").subscribe(data => console.log(data))
-      this.route.navigateByUrl('CustomerMenu');
+      this.route.navigateByUrl('CustomerHome');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";

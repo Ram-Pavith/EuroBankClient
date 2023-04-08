@@ -15,9 +15,12 @@ import { CommonModule } from '@angular/common';
 import { AccountModule } from './account/account.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { Router } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+//import { CustomerModule } from './customer/customer.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+       NavbarComponent
   ],
   imports: [
     BrowserModule,

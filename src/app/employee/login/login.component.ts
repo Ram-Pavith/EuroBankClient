@@ -9,6 +9,7 @@ import { EmployeeservService } from '../Services/employeeserv.service';
 })
 export class LoginComponent {
   msg:string = "";
+  authToken:string = "";
   employeeloginDTO:EmployeeLogin = {emailId:"",password:""}
   authToken:string
   constructor(private empservice:EmployeeservService){}
@@ -26,11 +27,17 @@ export class LoginComponent {
         this.authToken = data.token;
         this.SaveToken()
       }
-      
+      if(data.success){
+        this.msg = "Success";
+        this.authToken = data.token;
+        this.SaveToken();
+      }
     },err =>{
       console.log(err.error)
       this.msg = "Invalid Login";
     })
   }
-
+  SaveToken(){
+    localStorage.setItem("token",this.authToken);
+  }
 }
