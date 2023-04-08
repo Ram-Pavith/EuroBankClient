@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
-import { CustomerService } from 'src/app/customer/Services/customer.service';
 import { TransactionService } from 'src/app/transaction.service';
 import { CustomerService } from '../../Services/customer.service';
 
@@ -58,7 +57,7 @@ constructor(private obj:CustomerService,private route:Router, private bj:Transac
       this.bj.GetAllTransaction("CustomerEurobank").subscribe(data => console.log(data))
 
 
-      this.route.navigateByUrl('home');
+      this.route.navigateByUrl('CustomerHome');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";

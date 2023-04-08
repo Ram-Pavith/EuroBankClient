@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/Models/Customer';
 import { Transaction } from 'src/Models/Transaction';
 import { TransactionService } from 'src/app/transaction.service';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-view-all-transaction',
@@ -13,7 +14,7 @@ export class ViewAllTransactionComponent implements OnInit
   customer:Transaction[]=[]
   msg:string
   id:string="CustomerEurobank"
-  constructor(private obj:TransactionService){}
+  constructor(private obj:CustomerService){}
 
   ngOnInit(): void {
     this.transactions()
@@ -22,12 +23,12 @@ export class ViewAllTransactionComponent implements OnInit
 
 transactions()
 {
-  this.obj.GetAllTransaction(this.id).subscribe(data=>{
+  this.obj.ViewAllTransaction(this.id).subscribe(data=>{
     console.log(data);
     if(data.length == 0) this.msg = "No transactions";
     this.customer = data;
   },err =>{
-    console.log(err);
+    console.log(err.error);
   })
 }
 

@@ -21,7 +21,7 @@ export class CustomerService
     'Content-Type':'application/json;charset=UTF-8',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Method':'*',
-    'Authorization': `Bearer ${this.token}`,
+    'Authorization': `Bearer ${localStorage.getItem("token")}`,
 
   })
   constructor(private http:HttpClient) { }
@@ -47,11 +47,7 @@ export class CustomerService
   GetAccount(id:Guid):Observable<any>
   {
     return this.http.get<Account>(this.req+"/GetAccount?AccountId="+id,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     });``
 
   }
@@ -59,11 +55,7 @@ export class CustomerService
   GetCustomerStatement(id:string,fromdate:Date,todate:Date):Observable<any>
   {
     return this.http.get<Statement>(this.req+"/GetAccountStatement?CustomerId="+id,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     }
     );
   }
@@ -71,11 +63,7 @@ export class CustomerService
   ViewAllTransaction(id:string):Observable<any>
   {
     return this.http.get<Transaction>(this.req+"/ViewAllTransactions?CustomerId="+id,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     });
   }
 
