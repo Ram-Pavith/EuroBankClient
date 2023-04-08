@@ -54,7 +54,7 @@ export class CustomerService
 
   GetCustomerStatement(id:string,fromdate:Date,todate:Date):Observable<any>
   {
-    return this.http.get<Statement>(this.req+"/GetAccountStatement?CustomerId="+id,{
+    return this.http.get<Statement>(this.req+"/GetCustomerStatement?CustomerId="+id,{
       headers:this.headers
     }
     );

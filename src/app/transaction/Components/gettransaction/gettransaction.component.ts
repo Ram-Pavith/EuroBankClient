@@ -34,5 +34,4 @@ export class GettransactionComponent implements OnInit {
     }
   
 
-
 }

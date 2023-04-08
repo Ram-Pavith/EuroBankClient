@@ -17,7 +17,7 @@ import { AcccountTypeEnum } from 'src/Models/AccountTypeEnum';
 export class AccountDetailsComponent implements OnInit {
   accTypeLabel:string="";
   accId:Guid
-
+  accIdString:string
   accDet: Account = {
     accountId: Guid.parse("00000000-0000-0000-0000-000000000000"),
     accountTypeId: 0,
@@ -29,6 +29,7 @@ export class AccountDetailsComponent implements OnInit {
   
   constructor(private AccService: AccountService, private CustService: CustomerService, private router: Router,private route:ActivatedRoute) {
     this.accId= Guid.parse(this.route.snapshot.paramMap.get('id')); 
+    this.accIdString = this.route.snapshot.paramMap.get('id');
     this.CustService.GetAccount(this.accId).subscribe(data => {
       console.log(data);
       this.accDet = data;
@@ -36,6 +37,10 @@ export class AccountDetailsComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+  }
+  SaveAccountId(){
+    localStorage.setItem("AccountId",this.accIdString)
+    this.router.navigateByUrl( "/AccountsMenu");
   }
 
 }

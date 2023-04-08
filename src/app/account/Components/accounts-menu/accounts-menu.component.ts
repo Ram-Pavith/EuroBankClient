@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./accounts-menu.component.css']
 })
 export class AccountsMenuComponent {
-  
+  accId:string = localStorage.getItem("AccountId")
 
 }

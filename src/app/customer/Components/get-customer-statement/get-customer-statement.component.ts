@@ -11,20 +11,19 @@ import { Statement } from 'src/Models/Statement';
 })
 export class GetCustomerStatementComponent implements OnInit
 {
-  customer:Statement[]=[];
-  id:string=""
+  customerStatement:Statement[]=[];
+  id:string=localStorage.getItem("CustomerId")
   Fdate:Date
   Tdate:Date
   msg:string
   constructor(private obj:CustomerService) 
   {
-    this.id=localStorage.getItem("CustomerId");
+    this.getstatement();
   }
  
 
   ngOnInit()
    {
-    this.getstatement();
   }
 
   getstatement()
@@ -32,7 +31,7 @@ export class GetCustomerStatementComponent implements OnInit
     this.obj.GetCustomerStatement(this.id,this.Fdate,this.Tdate).subscribe(data=>{
       console.log(data);
       if(data.length == 0) this.msg = "No transactions";
-      this.customer = data;
+      this.customerStatement = data;
     },err =>{
       console.log(err);
     })

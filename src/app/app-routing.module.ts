@@ -36,10 +36,10 @@ const routes: Routes =
   {path:'GetAllTransactions',component:GetAllTransactionsComponent},
   { path:"CustomerMenu",component:CustomerMenuComponent},
   {path:'AccountsMenu',component:AccountsMenuComponent},
+  {path:'AccountDetails',component:AccountDetailsComponent},
   {path:'AccountDetails/:id',component:AccountDetailsComponent},
   {path:'AccountStatement',component:AccountStatementComponent},
   {path:'AccountTransactions',component:AccountTransactionsComponent},
-
   {path:'Withdraw',component:WithDrawComponent},
   {path:'Deposit',component:DepositComponent},
   {path:'Transfer',component:TransferComponent},
