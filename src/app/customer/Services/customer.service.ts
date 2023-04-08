@@ -24,6 +24,7 @@ export class CustomerService
     'Access-Control-Allow-Headers':'Content-Type',
     'Authorization':`Bearer ` + localStorage.getItem("token")
   }
+  })
   constructor(private http:HttpClient) { }
   req:string="https://localhost:7035/api/Customer";
   getCustomerAccounts(id:string):Observable<any>
@@ -60,7 +61,7 @@ export class CustomerService
   ViewAllTransaction(id:string):Observable<any>
   {
     return this.http.get<Transaction>(this.req+"/ViewAllTransactions?CustomerId="+id,{
-     headers:this.headers
+      headers:this.headers
     });
   }
 

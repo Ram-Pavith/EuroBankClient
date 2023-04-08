@@ -6,7 +6,7 @@ import { Customer } from 'src/Models/Customer';
 import { CustomerRegister } from 'src/Models/CustomerRegister';
 import { Employee } from 'src/Models/Employee';
 import { EmployeeLogin } from 'src/Models/EmployeeLogin';
-// import { EmployeeRegister } from 'src/Models/EmployeeRegister';
+import { EmployeeRegister } from 'src/Models/EmployeeRegister';
 import { Transaction } from 'src/Models/Transaction';
 import { UserAuthResponse } from 'src/Models/UserAuthResponse';
 
@@ -61,11 +61,12 @@ export class EmployeeservService {
     })
   }
 
-  // employeeRegister(emp:EmployeeRegister):Observable<any>{
-  //   return this.http.post<EmployeeRegister>(this.req+"/EmployeeRegister",emp,{
-  //     headers:this.headers
-  //   })
-  // }
+  employeeRegister(emp:EmployeeRegister):Observable<any>{
+    return this.http.post<EmployeeRegister>(this.req+"/EmployeeRegister",emp,{
+      headers:this.headers
+    })
+  }
+
 
   //Method to test error handling.
   register():Observable<any>
