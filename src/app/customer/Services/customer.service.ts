@@ -17,20 +17,21 @@ export class CustomerService
  {
   
   token:string = null;
-  headers:HttpHeaders = new HttpHeaders({
+  headers={
     'Content-Type':'application/json;charset=UTF-8',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Method':'*',
-    'Authorization': `Bearer ${this.token}`,
-
-  })
+    'Access-Control-Allow-Headers':'Content-Type',
+    'Authorization':`Bearer ` + localStorage.getItem("token")
+  }
+  
   constructor(private http:HttpClient) { }
   req:string="https://localhost:7035/api/Customer";
   getCustomerAccounts(id:string):Observable<any>
   {this.GetToken()
     console.log(this.token)
     
-    return this.http.get<Customer>("https://localhost:7035/api/Customer/GetCustomerAccounts?CustomerId="+id,this.httpOption);
+    return this.http.get<Customer>("https://localhost:7035/api/Customer/GetCustomerAccounts?CustomerId="+id,{headers:this.headers});
   }
   httpOption = {
     headers:this.headers
@@ -39,31 +40,20 @@ export class CustomerService
   GetToken(){
     this.token = localStorage.getItem("token");
   }
-  getWeatherForecastCustomer():Observable<any>{
 
-    return this.http.get<Weather>("https://localhost:7035/WeatherForecast/CustomerGetWeatherForecast",this.httpOption);
-  }
 
   GetAccount(id:Guid):Observable<any>
   {
     return this.http.get<Account>(this.req+"/GetAccount?AccountId="+id,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
-    });``
+      headers:this.headers
+    });
 
   }
 
   GetCustomerStatement(id:string,fromdate:Date,todate:Date):Observable<any>
   {
     return this.http.get<Statement>(this.req+"/GetAccountStatement?CustomerId="+id,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     }
     );
   }
@@ -71,22 +61,20 @@ export class CustomerService
   ViewAllTransaction(id:string):Observable<any>
   {
     return this.http.get<Transaction>(this.req+"/ViewAllTransactions?CustomerId="+id,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     });
   }
 
   userlogin(CusloginDTO:CustomerLogin):Observable<any>
   {
     return this.http.post<CustomerLogin>(this.req+"/CustomerLogin",CusloginDTO,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
+    });
+  }
+  userAuthorize(CusloginDTO:CustomerLogin):Observable<any>
+  {
+    return this.http.post<CustomerLogin>(this.req+"/CustomerAuthorize",CusloginDTO,{
+      headers:this.headers
     });
   }
   
