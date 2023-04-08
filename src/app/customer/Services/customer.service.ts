@@ -71,6 +71,12 @@ export class CustomerService
       headers:this.headers
     });
   }
+  userAuthorize(CusloginDTO:CustomerLogin):Observable<any>
+  {
+    return this.http.post<CustomerLogin>(this.req+"/CustomerAuthorize",CusloginDTO,{
+      headers:this.headers
+    });
+  }
   
 
   IsLoggedIn()
