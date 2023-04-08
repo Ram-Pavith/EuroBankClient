@@ -19,8 +19,7 @@ import { HomeComponent } from './Components/home/home.component';
     GetCustomerStatementComponent,
     ViewAllTransactionComponent,
     HomeComponent,
-      
-  ],
+],
   imports:
    [
    CommonModule,
