@@ -16,6 +16,9 @@ export class TransferComponent {
   msg:string=''
   flag:boolean
   transfer_btn_click:boolean=false
+  targetaccountId:string
+  Amount:number
+  serviceId:number
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
     transactionStatusDescription:""
@@ -26,22 +29,20 @@ export class TransferComponent {
 
 constructor(private transactionservice:TransactionService,private route:Router){}
 ngOnInit(): void { 
-  this.transferform = new FormGroup({
-    TargetAccountId:new FormControl(),
-    amount: new FormControl(),
-    ServiceId: new FormControl()
-  })
+  // this.transferform = new FormGroup({
+  //   TargetAccountId:new FormControl(),
+  //   amount: new FormControl(),
+  //   ServiceId: new FormControl()
+  // })
   
  }
 
 Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number):void
 {
-  
   this.transactionservice.Transfer(SrcAccountId,TarAccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
     this.flag=false;
     this.msg="Transaction Failure"
-  
   //Logging the response received from web api.
   //this.route.navigateByUrl("Account")Mohana Page
   console.log(data);
@@ -55,9 +56,12 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
 )}
 
 onSubmit(form:FormGroup){
-console.log(form.value.TarAccountId);
-  this.Transfer_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),Guid.parse(form.value.TargetAccountId),form.value.amount,form.value.ServiceId);
+console.log(this.targetaccountId,this.Amount,this.serviceId)
+  this.Transfer_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),Guid.parse(this.targetaccountId),this.Amount,this.serviceId);
 this.transfer_btn_click=true;
+}
+back(){
+  this.route.navigateByUrl("/AccountDetails")
 }
 
 }

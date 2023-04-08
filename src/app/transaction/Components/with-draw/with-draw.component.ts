@@ -13,7 +13,8 @@ import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 export class WithDrawComponent {
   withdrawform:FormGroup
   flag:Boolean
-  isValidFormSubmitted = null;
+  Amount:number
+  serviceId:number
   //amount:number
   withdraw_btn_click:boolean=false
   msg:string="TransactionFailure"
@@ -69,10 +70,11 @@ withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
 
 }
 onSubmit(form:FormGroup){
-  this.withdraw_api(Guid.parse("97F891B9-8321-4B37-9D93-95F10FCD7771"),form.value.amount,form.value.ServiceId);
-  this.withdraw_btn_click=true;
-  
-   
+  this.withdraw_api(Guid.parse("97F891B9-8321-4B37-9D93-95F10FCD7771"),this.Amount,this.serviceId);
+  this.withdraw_btn_click=true;   
 }
-}
+back(){
+  this.route.navigateByUrl("/AccountDetails")
+}}
+
 

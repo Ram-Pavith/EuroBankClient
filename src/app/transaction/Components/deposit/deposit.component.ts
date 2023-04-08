@@ -16,6 +16,8 @@ export class DepositComponent {
  
   msg:string=''
   flag:boolean=false
+  Amount:number
+  serviceId:number
   deposit_btn_click:boolean=false;
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
@@ -49,7 +51,7 @@ deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
     this.msg="Transaction Success";
     
   //Logging the response received from web api.
-  this.route.navigateByUrl("/AccountDetails")
+  //this.route.navigateByUrl("/AccountDetails")
   }
   
 },err=>{
@@ -59,7 +61,10 @@ deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
 }
 onSubmit(form:FormGroup){
 
-  this.deposit_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),form.value.amount,form.value.ServiceId);
+  this.deposit_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),this.Amount,this.serviceId);
   this.deposit_btn_click=true;
+}
+back(){
+  this.route.navigateByUrl("/AccountDetails")
 }
 }
