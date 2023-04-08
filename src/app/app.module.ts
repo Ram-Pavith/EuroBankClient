@@ -16,11 +16,13 @@ import { AccountModule } from './account/account.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { Router } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './Components/home/home.component';
 //import { CustomerModule } from './customer/customer.module';
 @NgModule({
   declarations: [
     AppComponent,
-       NavbarComponent
+       NavbarComponent,
+       HomeComponent
   ],
   imports: [
     BrowserModule,
