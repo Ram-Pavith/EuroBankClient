@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Guid } from 'guid-typescript';
 import { TransactionService } from 'src/app/transaction.service';
 import { Router } from '@angular/router';
@@ -13,8 +13,12 @@ import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 export class WithDrawComponent {
   withdrawform:FormGroup
   flag:Boolean
+  isValidFormSubmitted = null;
+  //amount:number
   withdraw_btn_click:boolean=false
   msg:string="TransactionFailure"
+  customMin:1
+  customMax:20000
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
     transactionStatusDescription:""
@@ -23,8 +27,16 @@ export class WithDrawComponent {
 constructor(private transactionservice:TransactionService,private route:Router){}
 ngOnInit(): void { 
   this.withdrawform = new FormGroup({
-    AccountId:new FormControl(),
-    amount: new FormControl(),
+    
+    AccountId:new FormControl(
+      Validators.required
+    ),
+    amount: new FormControl([
+      Validators.required,
+      Validators.min(1),
+      Validators.max(20000)]
+      
+    ),
     ServiceId: new FormControl()
   })
   
@@ -59,5 +71,8 @@ withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
 onSubmit(form:FormGroup){
   this.withdraw_api(Guid.parse("97F891B9-8321-4B37-9D93-95F10FCD7771"),form.value.amount,form.value.ServiceId);
   this.withdraw_btn_click=true;
+  
+   
 }
 }
+

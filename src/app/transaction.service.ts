@@ -47,8 +47,13 @@ export class TransactionService {
   }
   GetTransaction(TransactionId:Guid):Observable<Transaction>
   {
-    return this.http.get<Transaction>(this.url+"/"+TransactionId,{
-      headers:this.headers
+    
+    return this.http.get<Transaction>(this.url+"/GetTransactionById?TransactionId="+TransactionId
+    ,{
+      headers:new HttpHeaders({
+        'Content-Type':'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Method':'*'})
     });
   }
  

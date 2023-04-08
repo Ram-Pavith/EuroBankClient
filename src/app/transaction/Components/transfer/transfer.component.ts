@@ -55,8 +55,8 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
 )}
 
 onSubmit(form:FormGroup){
-
-  this.Transfer_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),form.value.TargetAccountId,form.value.amount,form.value.ServiceId);
+console.log(form.value.TarAccountId);
+  this.Transfer_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),Guid.parse(form.value.TargetAccountId),form.value.amount,form.value.ServiceId);
 this.transfer_btn_click=true;
 }
 
