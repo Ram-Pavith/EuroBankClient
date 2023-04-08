@@ -24,7 +24,7 @@ export class CustomerService
     'Access-Control-Allow-Headers':'Content-Type',
     'Authorization':`Bearer ` + localStorage.getItem("token")
   }
-  })
+  
   constructor(private http:HttpClient) { }
   req:string="https://localhost:7035/api/Customer";
   getCustomerAccounts(id:string):Observable<any>

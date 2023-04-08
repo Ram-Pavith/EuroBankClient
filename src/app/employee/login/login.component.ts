@@ -11,11 +11,8 @@ export class LoginComponent {
   msg:string = "";
   authToken:string = "";
   employeeloginDTO:EmployeeLogin = {emailId:"",password:""}
-  authToken:string
   constructor(private empservice:EmployeeservService){}
-  SaveToken(){
-    localStorage.setItem("token",this.authToken)
-  }
+
 
   login(){
     console.log(this.employeeloginDTO)

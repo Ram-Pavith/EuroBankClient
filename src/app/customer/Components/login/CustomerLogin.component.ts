@@ -52,10 +52,10 @@ constructor(private obj:CustomerService,private route:Router, private bj:Transac
       this.msg="Success";
       this.authtoken = data.token;
       this.SaveToken()
+      localStorage.setItem("CustomerEmailId",this.user.emailId)
     }
       this.authtoken=data.token;
       this.SaveToken();
-      this.obj.GetAccount(Guid.parse("FFA504B0-9CCE-4350-A6FA-974668B725C3")).subscribe(dat => console.log(dat))
       this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
       this.obj.GetCustomerStatement("CustomerEurobank",null,null).subscribe(dat => console.log(dat))
       this.bj.GetAllTransaction("CustomerEurobank").subscribe(data => console.log(data))
