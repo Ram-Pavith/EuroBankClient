@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Account } from 'src/Models/Account';
 import { Customer } from 'src/Models/Customer';
@@ -15,7 +16,7 @@ import { UserAuthResponse } from 'src/Models/UserAuthResponse';
 })
 export class EmployeeservService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   //Variable to store the request URL for accessing API.
   req:string="https://localhost:7035/api/Employee";
@@ -92,5 +93,17 @@ export class EmployeeservService {
 
     return throwError('There is a little problem while processing your request.Sorry for the inconvenience');
     
+  }
+
+  IsLoggedIn()
+  {
+    
+    return localStorage.getItem("token")!=null;
+  }
+
+
+  logout(){
+    localStorage.clear();
+    return this.router.navigateByUrl('EmployeeLogin');
   }
 }

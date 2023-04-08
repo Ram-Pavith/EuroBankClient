@@ -9,6 +9,7 @@ import { Weather } from 'src/Models/weather';
 import { Account } from 'src/Models/Account';
 import { Statement } from '@angular/compiler';
 import { Transaction } from 'src/Models/Transaction';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class CustomerService
     'Authorization':`Bearer ` + localStorage.getItem("token")
   }
   
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
   req:string="https://localhost:7035/api/Customer";
   getCustomerAccounts(id:string):Observable<any>
   {this.GetToken()
@@ -83,6 +84,12 @@ export class CustomerService
   {
     
     return localStorage.getItem("token")!=null;
+  }
+
+
+  logout(){
+    localStorage.clear();
+    return this.router.navigateByUrl('CustomerLogin');
   }
 
 }

@@ -17,6 +17,8 @@ import { TransactionModule } from './transaction/transaction.module';
 import { Router } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 //import { CustomerModule } from './customer/customer.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AccountModule,
     TransactionModule,
     ReactiveFormsModule,
-    HttpClientModule    
+    HttpClientModule,
+  
   ],
   exports:[
   //  CustomerService    

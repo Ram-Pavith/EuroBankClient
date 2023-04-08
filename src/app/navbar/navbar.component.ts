@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CustomerService } from '../customer/Services/customer.service';
+import { EmployeeservService } from '../employee/Services/employeeserv.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+
+  constructor(private CustService:CustomerService,private EmpService:EmployeeservService,private router:Router){
+    
+  }
+
+  user_logout():void{
+    if(this.CustService.IsLoggedIn()){
+      console.log("customer log out");
+      this.CustService.logout();
+    }
+    if(this.EmpService.IsLoggedIn()){
+      console.log("employee log out");
+      this.EmpService.logout();
+    }
+  }
+ 
 
 }
