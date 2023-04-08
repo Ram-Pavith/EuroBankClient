@@ -14,9 +14,11 @@ import { TransferComponent } from './transaction/Components/transfer/transfer.co
 import { GetCustomerAccountsComponent } from './customer/Components/get-customer-accounts/get-customer-accounts.component';
 import { GetAccountComponent } from './customer/Components/get-account/get-account.component';
 import { EmployeeRegisterComponent } from './employee/employee-register/employee-register.component';
+import { EmployeehomeComponent } from './employee/employeehome/employeehome.component';
 
 const routes: Routes = 
 [
+  {path:'EmployeeHome',component:EmployeehomeComponent},
   {path:'EmployeeRegister',component:EmployeeRegisterComponent},
   {path:'EmployeeLogin',component:LoginComponent},
   {path:'CustomerLogin',component:CustomerLoginComponent},

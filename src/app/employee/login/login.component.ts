@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EmployeeLogin } from 'src/Models/EmployeeLogin';
 import { EmployeeservService } from '../Services/employeeserv.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   authToken:string = "";
   employeeloginDTO:EmployeeLogin = {emailId:"",password:""}
 
-  constructor(private empservice:EmployeeservService){}
+  constructor(private empservice:EmployeeservService,private route:Router){}
 
   login(){
     console.log(this.employeeloginDTO)
@@ -23,6 +24,7 @@ export class LoginComponent {
         this.msg = "Success";
         this.authToken = data.token;
         this.SaveToken();
+        this.route.navigateByUrl('/EmployeeHome');
       }
     },err =>{
       console.log(err.error)
