@@ -13,6 +13,8 @@ import { DepositComponent } from './transaction/Components/deposit/deposit.compo
 import { TransferComponent } from './transaction/Components/transfer/transfer.component';
 import { GetCustomerAccountsComponent } from './customer/Components/get-customer-accounts/get-customer-accounts.component';
 import { GetAccountComponent } from './customer/Components/get-account/get-account.component';
+import { GetalltransactionsComponent } from './transaction/Components/getalltransactions/getalltransactions.component';
+import { GettransactionComponent } from './transaction/Components/gettransaction/gettransaction.component';
 import { HomeComponent } from './customer/Components/home/home.component';
 import { GetCustomerStatementComponent } from './customer/Components/get-customer-statement/get-customer-statement.component';
 import { ViewAllTransactionComponent } from './customer/Components/view-all-transaction/view-all-transaction.component';
@@ -31,8 +33,10 @@ const routes: Routes =
   {path:'Withdraw',component:WithDrawComponent},
   {path:'Deposit',component:DepositComponent},
   {path:'Transfer',component:TransferComponent},
+  {path:'getalltransactioncus',component:GetalltransactionsComponent},
   {path:"Getcustomer",component:GetCustomerAccountsComponent},
   {path:"Getaccount",component:GetAccountComponent},
+  {path:"gettransactionbytransactionId",component:GettransactionComponent},
   {path:"CustomerHome",component:HomeComponent},
   {path:"statement",component:GetCustomerStatementComponent},
   {path:"viewtransaction",component:ViewAllTransactionComponent}
