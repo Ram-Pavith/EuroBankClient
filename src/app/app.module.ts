@@ -17,7 +17,7 @@ import { TransactionModule } from './transaction/transaction.module';
 import { Router } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
-import { ForgotPasswordComponent } from './Componenets/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 //import { CustomerModule } from './customer/customer.module';
 

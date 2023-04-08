@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent {
-  user={
-    emailId:
-  }
+  // user={
+  //   emailId:
+  // }
 }
