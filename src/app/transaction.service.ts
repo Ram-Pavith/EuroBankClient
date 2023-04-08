@@ -10,6 +10,13 @@ import { Transaction } from 'src/Models/Transaction';
 })
 export class TransactionService {
 
+  headers={
+    'Content-Type':'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Method':'*',
+    'Access-Control-Allow-Headers':'Content-Type',
+    'Authorization':`Bearer ` + localStorage.getItem("token")
+  }
 
   constructor(private http:HttpClient) { }
 
@@ -17,51 +24,31 @@ export class TransactionService {
   Withdraw(AccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
     return this.http.post<RefTransactionStatus>(this.url+"/Withdraw?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     });
   }
   Deposit(AccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
     return this.http.post<RefTransactionStatus>(this.url+"/Deposit?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     });
   }
   Transfer(SourceAccountId:Guid,TargetAccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
     return this.http.post<RefTransactionStatus>(this.url+"/Transfer?Source_AccountId="+SourceAccountId.toString()+"&Target_AccountId="+TargetAccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'
-      })
+      headers:this.headers
     });
   }
   GetAllTransaction(CustomerId:string):Observable<Transaction[]>
   {
-    return this.http.get<Transaction[]>(this.url+"/GetTransactions?CustomerId="+CustomerId
-    ,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'})
+    return this.http.get<Transaction[]>(this.url+"/"+CustomerId,{
+      headers:this.headers
     });
   }
   GetTransaction(TransactionId:Guid):Observable<Transaction>
   {
-    return this.http.get<Transaction>(this.url+"/GetTransactionById?TransactionId="+TransactionId
-    ,{
-      headers:new HttpHeaders({
-        'Content-Type':'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Method':'*'})
+    return this.http.get<Transaction>(this.url+"/"+TransactionId,{
+      headers:this.headers
     });
   }
  

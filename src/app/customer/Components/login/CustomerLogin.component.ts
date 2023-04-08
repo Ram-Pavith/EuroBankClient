@@ -28,6 +28,7 @@ user:CustomerLogin=
  errormsg=""
  token:string="";
  use:any;
+
 constructor(private obj:CustomerService,private route:Router, private bj:TransactionService){}
 
   
@@ -47,16 +48,17 @@ constructor(private obj:CustomerService,private route:Router, private bj:Transac
     console.log(this.user)    
     this.obj.userlogin(this.user).subscribe(data=>{
       console.log(data.token);
-      if(data.Success)
+      if(data.Success){
       this.msg="Success";
+      this.authtoken = data.token;
+      this.SaveToken()
+    }
       this.authtoken=data.token;
       this.SaveToken();
       this.obj.GetAccount(Guid.parse("FFA504B0-9CCE-4350-A6FA-974668B725C3")).subscribe(dat => console.log(dat))
       this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
       this.obj.GetCustomerStatement("CustomerEurobank",null,null).subscribe(dat => console.log(dat))
       this.bj.GetAllTransaction("CustomerEurobank").subscribe(data => console.log(data))
-
-
       this.route.navigateByUrl('CustomerHome');
     },err=>{
       console.log(err.error)
