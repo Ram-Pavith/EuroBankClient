@@ -7,16 +7,19 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 // import { HomeComponent } from './Components/home/home.component';
 import { GetCustomerAccountsComponent } from './Components/get-customer-accounts/get-customer-accounts.component';
 import { GetAccountComponent } from './Components/get-account/get-account.component';
-
-
+import { GetCustomerStatementComponent } from './Components/get-customer-statement/get-customer-statement.component';
+import { ViewAllTransactionComponent } from './Components/view-all-transaction/view-all-transaction.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
     CustomerLoginComponent,
-    // HomeComponent,
     GetCustomerAccountsComponent,
-    GetAccountComponent    
-  ],
+    GetAccountComponent,
+    GetCustomerStatementComponent,
+    ViewAllTransactionComponent,
+    HomeComponent,
+],
   imports:
    [
    CommonModule,
