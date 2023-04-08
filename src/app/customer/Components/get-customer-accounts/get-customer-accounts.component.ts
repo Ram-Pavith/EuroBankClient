@@ -10,9 +10,13 @@ import { Account } from 'src/Models/Account';
 })
 export class GetCustomerAccountsComponent implements OnInit 
 {
+  id:string=""
   customer:Account[]=[];
-  constructor(private obj:CustomerService) {}
-  id:string="CustomerEurobank";
+  constructor(private obj:CustomerService) 
+  {
+    this.id=localStorage.getItem("CustomerId")
+  }
+  
 
   ngOnInit(): void {
     this.getaccounts();

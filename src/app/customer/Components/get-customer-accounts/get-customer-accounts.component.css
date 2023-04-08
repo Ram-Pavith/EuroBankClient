@@ -12,12 +12,12 @@
 
 th {
     background-color: #f50057;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
-td {
+/* td {
     border: 1px solid black;
-}
+} */
 
 .fa-caret-down {
     color: #66FF00;
@@ -36,4 +36,69 @@ td {
     color: orange;
     float: right;
     padding-top: 12%
+}
+
+.fa-circle-info{
+    color:black;
+}
+
+
+/* Container Tooltip */
+.tooltip {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+/* Style text tooltip */
+.tooltipText {
+    background-color: #fff;
+    position: absolute;
+    bottom: 130%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.tooltip:hover .tooltipText{
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+*  Membuat dan style tip*/
+.tooltipText::after {
+    content: '';
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    top: 100%;
+    left: 40%;
+    margin-left: 5%;
+}
+
+/* Style Icon
+i {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+    height: fit-content;
+} */
+
+
+/* Hover text tooltip */
+.tooltip:hover .tooltipText{
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.fa-circle-info:hover{
+
 }

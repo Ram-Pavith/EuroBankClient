@@ -4,7 +4,6 @@ import { WithDrawComponent } from './Components/with-draw/with-draw.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DepositComponent } from './Components/deposit/deposit.component';
 import { TransferComponent } from './Components/transfer/transfer.component';
-import { GetalltransactionsComponent } from './Components/getalltransactions/getalltransactions.component';
 import { GettransactionComponent } from './Components/gettransaction/gettransaction.component';
 
 
@@ -16,7 +15,6 @@ import { GettransactionComponent } from './Components/gettransaction/gettransact
     WithDrawComponent,
     DepositComponent,
     TransferComponent,
-    GetalltransactionsComponent,
     GettransactionComponent
   ],
   imports: [

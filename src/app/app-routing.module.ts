@@ -16,7 +16,6 @@ import { GetAccountComponent } from './customer/Components/get-account/get-accou
 import { AccountStatementComponent } from './account/Components/account-statement/account-statement.component';
 import { AccountTransactionsComponent } from './account/Components/account-transactions/account-transactions.component';
 import { CustomerMenuComponent } from './customer/Components/customer-menu/customer-menu.component';
-import { GetalltransactionsComponent } from './transaction/Components/getalltransactions/getalltransactions.component';
 import { GettransactionComponent } from './transaction/Components/gettransaction/gettransaction.component';
 import { HomeComponent } from './customer/Components/home/home.component';
 import { GetCustomerStatementComponent } from './customer/Components/get-customer-statement/get-customer-statement.component';
@@ -35,17 +34,16 @@ const routes: Routes =
   {path:'GetAllTransactions',component:GetAllTransactionsComponent},
   { path:"CustomerMenu",component:CustomerMenuComponent},
   {path:'AccountsMenu',component:AccountsMenuComponent},
-  {path:'AccountDetails',component:AccountDetailsComponent},
+  {path:'AccountDetails/:id',component:AccountDetailsComponent},
   {path:'AccountStatement',component:AccountStatementComponent},
   {path:'AccountTransactions',component:AccountTransactionsComponent},
 
   {path:'Withdraw',component:WithDrawComponent},
   {path:'Deposit',component:DepositComponent},
   {path:'Transfer',component:TransferComponent},
-  {path:'getalltransactioncus',component:GetalltransactionsComponent},
   {path:"Getcustomer",component:GetCustomerAccountsComponent},
   {path:"Getaccount",component:GetAccountComponent},
-  {path:"gettransactionbytransactionId",component:GettransactionComponent},
+  {path:"gettransactionbytransactionId/:id",component:GettransactionComponent},//for customer transactions (customer)
   {path:"CustomerHome",component:HomeComponent},
   {path:"statement",component:GetCustomerStatementComponent},
   {path:"viewtransaction",component:ViewAllTransactionComponent}
