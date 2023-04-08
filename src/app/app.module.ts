@@ -20,6 +20,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { ForgotPasswordComponent } from './Componenets/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 //import { CustomerModule } from './customer/customer.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,8 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
     AccountModule,
     TransactionModule,
     ReactiveFormsModule,
-    HttpClientModule    
+    HttpClientModule,
+  
   ],
   exports:[
   //  CustomerService    

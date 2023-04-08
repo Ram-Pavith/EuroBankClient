@@ -46,15 +46,14 @@ export class CustomerLoginComponent {
     this.obj.userAuthorize(this.user).subscribe(data => {
       console.log(data.token);
       if (data.success) {
-        this.msg = "Success";
-        this.authtoken = data.token;
-        this.obj.userlogin(this.user).subscribe(customer => {
-          this.customerId = customer.customerId
+            this.msg = "Success";
+            this.authtoken = data.token;
+            this.obj.userlogin(this.user).subscribe(customer => {
+            this.customerId = customer.customerId
+            console.log(customer)
+            console.log(this.customerId)
+            console.log(customer.customerId)
           this.SaveCustomerId()
-          console.log(customer)
-          console.log(this.customerId)
-          
-          console.log(this.customerId)
         }, error => {
           console.log(error)
         })

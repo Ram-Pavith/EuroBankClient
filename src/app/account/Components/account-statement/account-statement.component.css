@@ -3,6 +3,15 @@
     padding: 100px
 }
 
+.btn-primary {
+    background-color: #f50057;
+    border-color: #f50057;
+    width: 100px;
+    height: 40px;    
+    font-size: large;
+    float:right
+}
+
 .table {
     table-layout:auto ;
     width: 100%;
