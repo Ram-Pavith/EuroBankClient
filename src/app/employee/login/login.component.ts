@@ -19,6 +19,7 @@ export class LoginComponent {
     console.log(this.employeeloginDTO)
 
     this.empservice.employeelogin(this.employeeloginDTO).subscribe(data =>{
+      {{debugger}}
       console.log(data);
       if(data.success){
         this.msg = "Success";

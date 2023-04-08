@@ -9,6 +9,7 @@ import { GetAllTransactionsComponent } from './get-all-transactions/get-all-tran
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { EmployeehomeComponent } from './employeehome/employeehome.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -25,7 +26,8 @@ import { EmployeehomeComponent } from './employeehome/employeehome.component';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports:[
     LoginComponent,
