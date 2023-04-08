@@ -13,8 +13,10 @@ export class ViewAllTransactionComponent implements OnInit
  {
   customer:Transaction[]=[]
   msg:string
-  id:string="CustomerEurobank"
-  constructor(private obj:CustomerService){}
+  id:string=""
+  constructor(private obj:CustomerService){
+    this.id=localStorage.getItem("CustomerId");
+  }
 
   ngOnInit(): void {
     this.transactions()

@@ -2,22 +2,31 @@
     <table class="table table-hover" id="StatementTable">
         <thead>
             <th> Account ID </th>
-            <th> Account Type </th>
+            <!-- <th> Account Type </th> -->
             <!-- <th> Account Creation Status ID </th> -->
-            <th> Customer ID </th>
+            <!-- <th> Customer ID </th> -->
             <!-- <th> Date </th> -->
             <th> Balance </th>
-            
+            <th></th>
+
         </thead>
         <tbody *ngFor="let s of customer">
-            <tr>
-                <td> {{ s.accountId }} </td>
-                <td> {{ s.accountTypeId}} </td>
-                <!-- <td> {{ s.accountCreationStatusId}} </td> -->
-                <td> {{ s.customerId }}</td>
-                <!-- <td> {{ s.dateCreated|date:'short' }}</td> -->
-                <td> &#8377; {{ s.balance}}</td>       
-            </tr>
+                <tr [routerLink]="['/AccountDetails',s.accountId]">
+                    <td> {{ s.accountId }} </td>
+                    <!-- <td> {{ s.accountTypeId}} </td> -->
+                    <!-- <td> {{ s.accountCreationStatusId}} </td> -->
+                    <!-- <td> {{ s.customerId }}</td> -->
+                    <!-- <td> {{ s.dateCreated|date:'short' }}</td> -->
+                    <td> &#8377; {{ s.balance}}</td>
+                    <td>
+                        <a [routerLink]="['/AccountDetails',s.accountId]">
+                            <!-- <div class="tooltip">
+                            <span class="tooltipText">More details</span> -->
+                            <i class="fa-solid fa-circle-info fa-2xl"></i>
+                            <!-- </div> -->
+                        </a>
+                    </td>
+                </tr>
         </tbody>
     </table>
 </div>

@@ -12,11 +12,15 @@ import { Statement } from 'src/Models/Statement';
 export class GetCustomerStatementComponent implements OnInit
 {
   customer:Statement[]=[];
-  constructor(private obj:CustomerService) {}
-  id:string="CustomerEurobank"
+  id:string=""
   Fdate:Date
   Tdate:Date
   msg:string
+  constructor(private obj:CustomerService) 
+  {
+    this.id=localStorage.getItem("CustomerId");
+  }
+ 
 
   ngOnInit()
    {

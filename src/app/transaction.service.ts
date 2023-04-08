@@ -39,15 +39,10 @@ export class TransactionService {
       headers:this.headers
     });
   }
-  GetAllTransaction(CustomerId:string):Observable<Transaction[]>
-  {
-    return this.http.get<Transaction[]>(this.url+"/"+CustomerId,{
-      headers:this.headers
-    });
-  }
+
   GetTransaction(TransactionId:Guid):Observable<Transaction>
   {
-    return this.http.get<Transaction>(this.url+"/"+TransactionId,{
+    return this.http.get<Transaction>(this.url+"/GetTransactionById?TransactionId="+TransactionId,{
       headers:this.headers
     });
   }

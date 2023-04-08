@@ -6,15 +6,16 @@ import { Route, Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  //authtoken:string = "";
-  constructor(private route:Router){}
-  ngOnInit(){
-    //this.authtoken = localStorage.getItem("token");
+export class NavbarComponent 
+{
+  constructor(private route:Router)
+  {
+
+  }
+  Logout()
+  {
+    localStorage.clear();
+    this.route.navigateByUrl('CustomerLogin');
   }
 
-  Logout(){
-    localStorage.clear();
-    this.route.navigateByUrl('/EmployeeLogin');
-  }
 }
