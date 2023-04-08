@@ -7,6 +7,8 @@ import { GetAllCustomersComponent } from './get-all-customers/get-all-customers.
 import { GetAllAccountsComponent } from './get-all-accounts/get-all-accounts.component';
 import { GetAllTransactionsComponent } from './get-all-transactions/get-all-transactions.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { EmployeehomeComponent } from './employeehome/employeehome.component';
 
 
 
@@ -16,7 +18,9 @@ import { CreateCustomerComponent } from './create-customer/create-customer.compo
     GetAllCustomersComponent,
     GetAllAccountsComponent,
     GetAllTransactionsComponent,
-    CreateCustomerComponent
+    CreateCustomerComponent,
+    EmployeeRegisterComponent,
+    EmployeehomeComponent
   ],
   imports: [
     CommonModule,

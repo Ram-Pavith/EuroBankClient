@@ -1,0 +1,39 @@
+.center {
+    margin: auto;
+    padding: 100px
+}
+
+.table {
+    table-layout: auto;
+    width: 100%;
+    padding: 50px;
+
+}
+
+th {
+    background-color: #f50057;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+.fa-caret-down {
+    color: #66FF00;
+    float: right;
+    padding-top: 12%
+        /* padding: 0% 0% 0% 90%; */
+}
+
+.fa-caret-up {
+    color: red;
+    float: right;
+    padding-top: 12%
+}
+
+.fa-exchange {
+    color: orange;
+    float: right;
+    padding-top: 12%
+}

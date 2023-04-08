@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -12,13 +12,15 @@ import { CustomerModule } from './customer/customer.module';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { CustomerService } from './customer/Services/customer.service';
 import { AccountModule } from './account/account.module';
 import { TransactionModule } from './transaction/transaction.module';
-
+import { Router } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+//import { CustomerModule } from './customer/customer.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+       NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,4 +45,9 @@ import { TransactionModule } from './transaction/transaction.module';
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule implements OnInit{
+  constructor(private router: Router){}
+  ngOnInit(): void {
+    this.router.navigateByUrl('EmployeeLogin');
+  }
+ }
