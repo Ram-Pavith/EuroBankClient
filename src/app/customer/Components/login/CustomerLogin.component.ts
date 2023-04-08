@@ -45,12 +45,13 @@ constructor(private obj:CustomerService,private route:Router, private bj:Transac
     this.route.navigateByUrl('/Login');
   }
   login()
-  {
+  {      {{debugger}}
+
     console.log(this.user)    
     this.obj.userAuthorize(this.user).subscribe(data=>{
-      console.log(data.token);
-      if(data.Success){
+      if(data.success){
       this.msg="Success";
+      console.log(data.token);
       this.authtoken = data.token;
       this.obj.userlogin(this.user).subscribe(customer=>{
         this.customerId = customer.customerId
@@ -62,12 +63,12 @@ constructor(private obj:CustomerService,private route:Router, private bj:Transac
         console.log(error)
       })
       this.SaveToken()
+      this.route.navigateByUrl('CustomerHome');
     }
 
       // this.obj.getCustomerAccounts("CustomerEurobank").subscribe(dat => console.log(dat))
       // this.obj.GetCustomerStatement("CustomerEurobank",null,null).subscribe(dat => console.log(dat))
       // this.bj.GetAllTransaction("CustomerEurobank").subscribe(data => console.log(data))
-      this.route.navigateByUrl('CustomerHome');
     },err=>{
       console.log(err.error)
       this.msg="Invalid login";
