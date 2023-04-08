@@ -20,9 +20,18 @@
                     <span *ngIf="t.serviceId == 2">RTGS</span>
                     <span *ngIf="t.serviceId == 3">IMPS</span>
                 </td>
-                <td>{{t.refTransactionStatusId}}</td>
+                <td>
+                    
+                    <span *ngIf="t.refTransactionStatusId == 1">Transaction Success</span>
+                    <span *ngIf="t.refTransactionStatusId == 2">Transaction Failed </span>
+                    <span *ngIf="t.refTransactionStatusId == 3">Withdrawal Limit Amount Exceeded </span>
+                    <span *ngIf="t.refTransactionStatusId == 4">Insufficient Balance </span>
+
+                </td>
                 <!-- <td>{{t.refTransactionTypeId}}</td> -->
-                <td>{{t.refPaymentMethodId}}</td>
+                <td>
+                    <span *ngIf="t.refTransactionStatusId == 1">Card</span>
+                    <span *ngIf="t.refTransactionStatusId == 2">Net Banking </span>
                 <td>{{t.dateOfTransaction | date : 'short'}}</td>
                 <td>{{t.amountOfTransaction}}
                     <span *ngIf="t.refTransactionTypeId == 1"> <i class="fas fa-caret-down fa-2xl"></i> </span>
