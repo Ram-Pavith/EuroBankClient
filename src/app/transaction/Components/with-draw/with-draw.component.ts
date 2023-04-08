@@ -12,16 +12,14 @@ import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 })
 export class WithDrawComponent {
   withdrawform:FormGroup
- 
-  msg:string=''
+  flag:Boolean
+  withdraw_btn_click:boolean=false
+  msg:string="TransactionFailure"
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
     transactionStatusDescription:""
 
   }
-
-  
-
 constructor(private transactionservice:TransactionService,private route:Router){}
 ngOnInit(): void { 
   this.withdrawform = new FormGroup({
@@ -34,18 +32,32 @@ ngOnInit(): void {
 
 withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
 {
-  {{debugger}}
+  
   this.transactionservice.Withdraw(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
-  this.msg="Successfully created ";
-  //Logging the response received from web api.
-  //this.route.navigateByUrl("Account")Mohana Page
+    this.msg=data.transactionStatusDescription;
+    console.log(this.msg);
   console.log(data);
+  this.flag=false;
+  this.msg="Transaction Failure";
+  if(data.transactionStatusCode == 1) {
+    this.flag = true;  
+    this.msg="Transaction Success"
+    console.log(this.msg);
+  //Logging the response received from web api.
+  this.route.navigateByUrl("/AccountDetails");
+  }
+  console.log(this.flag);
+  
+},err=>{
+    this.flag = false;
+    
   })
+  
+
 }
 onSubmit(form:FormGroup){
-
-  this.withdraw_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),form.value.amount,form.value.ServiceId);
-
+  this.withdraw_api(Guid.parse("97F891B9-8321-4B37-9D93-95F10FCD7771"),form.value.amount,form.value.ServiceId);
+  this.withdraw_btn_click=true;
 }
 }

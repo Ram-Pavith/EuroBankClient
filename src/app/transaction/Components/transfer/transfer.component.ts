@@ -14,6 +14,8 @@ export class TransferComponent {
   transferform:FormGroup
  
   msg:string=''
+  flag:boolean
+  transfer_btn_click:boolean=false
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
     transactionStatusDescription:""
@@ -34,13 +36,20 @@ ngOnInit(): void {
 
 Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number):void
 {
-  //{{debugger}}
+  
   this.transactionservice.Transfer(SrcAccountId,TarAccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
-  this.msg="Successfully created ";
+    this.flag=false;
+    this.msg="Transaction Failure"
+  
   //Logging the response received from web api.
   //this.route.navigateByUrl("Account")Mohana Page
   console.log(data);
+  this.msg=data.transactionStatusDescription;
+  if(data.transactionStatusCode==1){
+    this.flag=true;
+    this.msg="Transaction success"
+  }
   },err=>{
   console.log(err.error)}
 )}
@@ -48,7 +57,7 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
 onSubmit(form:FormGroup){
 
   this.Transfer_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),form.value.TargetAccountId,form.value.amount,form.value.ServiceId);
-
+this.transfer_btn_click=true;
 }
 
 }

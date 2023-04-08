@@ -9,5 +9,5 @@ export class Statement{
     valueDate: Date;
     withdrawal: number;
     deposit: number;
-    closingBalance: number;
+    closingBalance: number
 }
