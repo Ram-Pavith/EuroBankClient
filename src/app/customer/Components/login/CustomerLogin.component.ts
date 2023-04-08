@@ -45,7 +45,7 @@ constructor(private obj:CustomerService,private route:Router, private bj:Transac
     this.route.navigateByUrl('/Login');
   }
   login()
-  {      {{debugger}}
+  {    
 
     console.log(this.user)    
     this.obj.userAuthorize(this.user).subscribe(data=>{
