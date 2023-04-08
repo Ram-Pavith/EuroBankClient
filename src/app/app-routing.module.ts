@@ -16,9 +16,11 @@ import { GetAccountComponent } from './customer/Components/get-account/get-accou
 import { HomeComponent } from './customer/Components/home/home.component';
 import { GetCustomerStatementComponent } from './customer/Components/get-customer-statement/get-customer-statement.component';
 import { ViewAllTransactionComponent } from './customer/Components/view-all-transaction/view-all-transaction.component';
+import { EmployeeRegisterComponent } from './employee/employee-register/employee-register.component';
 
 const routes: Routes = 
 [
+  {path:'EmployeeRegister',component:EmployeeRegisterComponent},
   {path:'EmployeeLogin',component:LoginComponent},
   {path:'CustomerLogin',component:CustomerLoginComponent},
   {path:'GetAllCustomers',component:GetAllCustomersComponent},

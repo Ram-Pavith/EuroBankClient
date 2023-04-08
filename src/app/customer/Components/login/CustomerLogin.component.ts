@@ -6,6 +6,7 @@ import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
 import { CustomerService } from 'src/app/customer/Services/customer.service';
 import { TransactionService } from 'src/app/transaction.service';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-CustomerLogin',

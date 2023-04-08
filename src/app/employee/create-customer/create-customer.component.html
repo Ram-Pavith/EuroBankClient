@@ -22,7 +22,6 @@
             <div class="card-body px-4 py-5 px-md-5">
               <form #loginform="ngForm" (submit)="login()">
                 <p>{{this.msg}}</p>
-                
                 <div class="form-outline mb-4">
                   <input type="email" name="emailId" [(ngModel)]="employeeloginDTO.emailId" #emailId=ngModel id="form3Example3" class="form-control" />
                   <label class="form-label" for="form3Example3">Email address</label>
