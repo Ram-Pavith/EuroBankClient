@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +8,13 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   //authtoken:string = "";
-  
+  constructor(private route:Router){}
   ngOnInit(){
     //this.authtoken = localStorage.getItem("token");
+  }
+
+  Logout(){
+    localStorage.clear();
+    this.route.navigateByUrl('/EmployeeLogin');
   }
 }

@@ -23,11 +23,13 @@ import { GetCustomerStatementComponent } from './customer/Components/get-custome
 import { ViewAllTransactionComponent } from './customer/Components/view-all-transaction/view-all-transaction.component';
 import { EmployeeRegisterComponent } from './employee/employee-register/employee-register.component';
 import { EmployeehomeComponent } from './employee/employeehome/employeehome.component';
+import { CreateCustomerComponent } from './employee/create-customer/create-customer.component';
 
 const routes: Routes = 
 [
   {path:'EmployeeHome',component:EmployeehomeComponent},
   {path:'EmployeeRegister',component:EmployeeRegisterComponent},
+  {path:'CreateCustomer',component:CreateCustomerComponent},
   {path:'EmployeeLogin',component:LoginComponent},
   {path:'CustomerLogin',component:CustomerLoginComponent},
   {path:'GetAllCustomers',component:GetAllCustomersComponent}, 
@@ -45,7 +47,9 @@ const routes: Routes =
   {path:'getalltransactioncus',component:GetalltransactionsComponent},
   {path:"Getcustomer",component:GetCustomerAccountsComponent},
   {path:"Getaccount",component:GetAccountComponent},
+  {path:"Getaccount/:id",component:GetAccountComponent},
   {path:"gettransactionbytransactionId",component:GettransactionComponent},
+  {path:"gettransactionbytransactionId/:id",component:GettransactionComponent},
   {path:"CustomerHome",component:HomeComponent},
   {path:"statement",component:GetCustomerStatementComponent},
   {path:"viewtransaction",component:ViewAllTransactionComponent}
