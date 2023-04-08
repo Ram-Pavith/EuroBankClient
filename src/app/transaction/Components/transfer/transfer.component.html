@@ -16,27 +16,33 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8S94Ni6dgxWsJmYsPJ8ucfgTuTiEwmv9YrhzHk7hEwgirWYT2Ui-QaA16GDppStu0JVM&usqp=CAU" width="20px" class="center">
           </div>
             </div>
-            <form [formGroup]="transferform" (ngSubmit)="onSubmit(transferform)">
+           
+
+            <form #transferform="ngForm" (submit)="onSubmit(transferform.value)">
+              <p>{{this.msg}}</p>
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="form-outline">
+                <div class="form-outline">  
+                  <input type="text" id="TargetAccountId" name="TargetAccountId" [(ngModel)]="TargetAccountId" #TargetAccountId=ngModel class="form-control"/>
                   <label class="form-label" for="TargetAccountId">Target AccountId:</label>
-                  <input type="text" id="TargetAccountId" name="TargetAccountId" formControlName="TargetAccountId">
-                </div>
-                
+                  <span class="text-danger" *ngIf="TargetAccountId.touched && TargetAccountId.invalid">*Required</span>
+                </div> 
               </div>
+
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-outline">
+                  <input type="text" id="amount" name="amount" (ngModel)="amount" #amount=ngModel class="form-control"/>
                   <label class="form-label" for="amount">Transfer Amount</label>
-                  <input type="text" id="amount" name="amount" formControlName="amount">
-                </div>
-                
+                  <span class="text-danger" *ngIf="amount.touched && amount.invalid">*Required</span>
+                </div>                
               </div>
+
 
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-outline">
-                  
                     <label class="form-label" for="ServiceId">Service Type:</label>
-                    <select id="ServiceId" name="ServiceId" formControlName="ServiceId">
+                    <select id="ServiceId" name="ServiceId" (ngModel)="ServiceId" #ServiceId=ngModel class="form-control">
+                      <span class="text-danger" *ngIf="ServiceId.touched && ServiceId.invalid">*Required</span>
+
                       <option value="1">NEFT</option>
                       <option value="2">RTGS</option>
                       <option value="3">IMPS</option>
