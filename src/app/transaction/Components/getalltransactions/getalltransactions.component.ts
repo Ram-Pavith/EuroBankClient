@@ -14,7 +14,7 @@ export class GetalltransactionsComponent implements OnInit{
   ngOnInit(): void {
     this.getalltransaction_api(this.CustomerId);
   }
-  CustomerId:string='string'
+  CustomerId:string=localStorage.getItem('CustomerId')
   constructor(private TransactionService:TransactionService,private router:Router){}
 
   getalltransaction_api(CustomerId:string)
