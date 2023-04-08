@@ -24,7 +24,7 @@ export class CustomerService
     'Access-Control-Allow-Headers':'Content-Type',
     'Authorization':`Bearer ` + localStorage.getItem("token")
   }
-  })
+  
   constructor(private http:HttpClient) { }
   req:string="https://localhost:7035/api/Customer";
   getCustomerAccounts(id:string):Observable<any>
@@ -68,6 +68,12 @@ export class CustomerService
   userlogin(CusloginDTO:CustomerLogin):Observable<any>
   {
     return this.http.post<CustomerLogin>(this.req+"/CustomerLogin",CusloginDTO,{
+      headers:this.headers
+    });
+  }
+  userAuthorize(CusloginDTO:CustomerLogin):Observable<any>
+  {
+    return this.http.post<CustomerLogin>(this.req+"/CustomerAuthorize",CusloginDTO,{
       headers:this.headers
     });
   }

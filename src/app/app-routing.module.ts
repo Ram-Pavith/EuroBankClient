@@ -22,9 +22,11 @@ import { HomeComponent } from './customer/Components/home/home.component';
 import { GetCustomerStatementComponent } from './customer/Components/get-customer-statement/get-customer-statement.component';
 import { ViewAllTransactionComponent } from './customer/Components/view-all-transaction/view-all-transaction.component';
 import { EmployeeRegisterComponent } from './employee/employee-register/employee-register.component';
+import { EmployeehomeComponent } from './employee/employeehome/employeehome.component';
 
 const routes: Routes = 
 [
+  {path:'EmployeeHome',component:EmployeehomeComponent},
   {path:'EmployeeRegister',component:EmployeeRegisterComponent},
   {path:'EmployeeLogin',component:LoginComponent},
   {path:'CustomerLogin',component:CustomerLoginComponent},

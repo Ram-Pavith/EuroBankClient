@@ -29,6 +29,11 @@ export class EmployeeservService {
   }
   employeelogin(emploginDTO:EmployeeLogin):Observable<any>{
     return this.http.post<EmployeeLogin>(this.req+"/EmployeeLogin",emploginDTO,{
+      headers:this.headers
+    })
+  }
+  employeeAuthorize(emploginDTO:EmployeeLogin):Observable<any>{
+    return this.http.post<EmployeeLogin>(this.req+"/EmployeeAuthorize",emploginDTO,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
