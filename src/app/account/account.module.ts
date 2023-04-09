@@ -8,6 +8,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AccTransactionsFilter } from './Components/account-transactions/accTransactionsFilter';
+import * as Sherlock from '../../../node_modules/sherlockjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -23,7 +26,9 @@ import { AccTransactionsFilter } from './Components/account-transactions/accTran
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ]
 })
 export class AccountModule { }

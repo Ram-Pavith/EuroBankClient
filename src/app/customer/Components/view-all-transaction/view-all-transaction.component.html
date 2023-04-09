@@ -1,5 +1,5 @@
 <div class="center">
-    <table class="table table-hover">
+    <table class="table table-hover" id="StatementTable">
         <thead>
             <th> Transaction ID </th>
             <th> Counterparty ID </th>
@@ -11,7 +11,7 @@
             <th> Amount </th>
             <th></th>
         </thead>
-        <tbody *ngFor="let t of customer">
+        <tbody *ngFor="let t of customerTransactions">
             <tr [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
                 <td> {{ t.transactionId }} </td>
                 <td>{{t.counterPartyId}}</td>
@@ -43,3 +43,9 @@
         </tbody>
     </table>
 </div>
+<script>
+    $('#StatementTable').DataTable()
+</script>
+<!-- <div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div> -->

@@ -16,39 +16,47 @@ import { GetAccountComponent } from './customer/Components/get-account/get-accou
 import { AccountStatementComponent } from './account/Components/account-statement/account-statement.component';
 import { AccountTransactionsComponent } from './account/Components/account-transactions/account-transactions.component';
 import { CustomerMenuComponent } from './customer/Components/customer-menu/customer-menu.component';
-import { GetalltransactionsComponent } from './transaction/Components/getalltransactions/getalltransactions.component';
 import { GettransactionComponent } from './transaction/Components/gettransaction/gettransaction.component';
-import { HomeComponent } from './customer/Components/home/home.component';
+import { CustomerHomeComponent } from './customer/Components/home/home.component';
 import { GetCustomerStatementComponent } from './customer/Components/get-customer-statement/get-customer-statement.component';
 import { ViewAllTransactionComponent } from './customer/Components/view-all-transaction/view-all-transaction.component';
 import { EmployeeRegisterComponent } from './employee/employee-register/employee-register.component';
 import { EmployeehomeComponent } from './employee/employeehome/employeehome.component';
+import { CreateCustomerComponent } from './employee/create-customer/create-customer.component';
+import { AnalysisComponent } from './customer/Components/analysis/analysis.component';
+import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
+import { AuthGuard } from './Guards/auth.guard';
+
 
 const routes: Routes = 
 [
-  {path:'EmployeeHome',component:EmployeehomeComponent},
-  {path:'EmployeeRegister',component:EmployeeRegisterComponent},
+  {path:'EmployeeHome',component:EmployeehomeComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'EmployeeRegister',component:EmployeeRegisterComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'CreateCustomer',component:CreateCustomerComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
   {path:'EmployeeLogin',component:LoginComponent},
   {path:'CustomerLogin',component:CustomerLoginComponent},
-  {path:'GetAllCustomers',component:GetAllCustomersComponent}, 
-  {path:'GetAllAccounts',component:GetAllAccountsComponent},
-  {path:'GetAllTransactions',component:GetAllTransactionsComponent},
-  { path:"CustomerMenu",component:CustomerMenuComponent},
-  {path:'AccountsMenu',component:AccountsMenuComponent},
+  {path:'GetAllCustomers',component:GetAllCustomersComponent,canActivate: [AuthGuard],data: {role: 'Employee'}}, 
+  {path:'GetAllAccounts',component:GetAllAccountsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'GetAllTransactions',component:GetAllTransactionsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  { path:"CustomerMenu",component:CustomerMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
+  {path:'AccountsMenu',component:AccountsMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
+  {path:'AccountDetails',component:AccountDetailsComponent},
   {path:'AccountDetails/:id',component:AccountDetailsComponent},
-  {path:'AccountStatement',component:AccountStatementComponent},
-  {path:'AccountTransactions',component:AccountTransactionsComponent},
-
-  {path:'Withdraw',component:WithDrawComponent},
-  {path:'Deposit',component:DepositComponent},
-  {path:'Transfer',component:TransferComponent},
-  {path:'getalltransactioncus',component:GetalltransactionsComponent},
-  {path:"Getcustomer",component:GetCustomerAccountsComponent},
-  // {path:"Getaccount",component:GetAccountComponent},
+  {path:'AccountStatement',component:AccountStatementComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
+  {path:'AccountTransactions',component:AccountTransactionsComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
+  {path:'Withdraw',component:WithDrawComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
+  {path:'Deposit',component:DepositComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
+  {path:'Transfer',component:TransferComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
+  {path:"Getcustomer",component:GetCustomerAccountsComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
+  {path:"Getaccount",component:GetAccountComponent},
+  {path:"Getaccount/:id",component:GetAccountComponent},
   {path:"gettransactionbytransactionId/:id",component:GettransactionComponent},
-  {path:"CustomerHome",component:HomeComponent},
+  {path:"CustomerHome",component:CustomerHomeComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"statement",component:GetCustomerStatementComponent},
-  {path:"viewtransaction",component:ViewAllTransactionComponent}
+  {path:"viewtransaction",component:ViewAllTransactionComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
+  {path:"CustomerAnalysis",component:AnalysisComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
+  {path:'HomePage',component:AppHomePageComponent}
+
 ];
 
 @NgModule({

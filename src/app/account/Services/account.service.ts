@@ -52,17 +52,10 @@ export class AccountService {
     });
   }
 
-  GetAccStatement(AccountId:Guid,From_date?:Date,To_Date?:Date):Observable<Statement[]>{
-    if(From_date == null && To_Date == null){
-      return this.http.get<Statement[]>(this.GetStatement_ReqUrl+AccountId,{
+  GetAccStatement(url:string):Observable<Statement[]>{
+      return this.http.get<Statement[]>(url,{
         headers:this.headers
       });
-    }
-    else{
-      return this.http.get<Statement[]>(this.GetStatement_ReqUrl + AccountId + "&from_date=" + From_date + "&to_date=" + To_Date,{
-        headers:this.headers
-      });
-    }
   }
 
   

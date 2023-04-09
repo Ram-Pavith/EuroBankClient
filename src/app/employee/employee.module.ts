@@ -9,6 +9,9 @@ import { GetAllTransactionsComponent } from './get-all-transactions/get-all-tran
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { EmployeehomeComponent } from './employeehome/employeehome.component';
+import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -25,7 +28,10 @@ import { EmployeehomeComponent } from './employeehome/employeehome.component';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   exports:[
     LoginComponent,

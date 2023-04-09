@@ -7,6 +7,8 @@ import { AccountBalance } from 'src/Models/AccountBalance';
 import { AccountCreationStatus } from 'src/Models/AccountCreationStatus';
 import { CustomerService } from 'src/app/customer/Services/customer.service';
 import { AcccountTypeEnum } from 'src/Models/AccountTypeEnum';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/Services/auth-service.service';
 
 
 @Component({
@@ -16,7 +18,8 @@ import { AcccountTypeEnum } from 'src/Models/AccountTypeEnum';
 })
 export class AccountDetailsComponent implements OnInit {
   accTypeLabel:string="";
-
+  accId:Guid
+  accIdString:string
   accDet: Account = {
     accountId: Guid.parse("00000000-0000-0000-0000-000000000000"),
     accountTypeId: 0,
@@ -25,11 +28,10 @@ export class AccountDetailsComponent implements OnInit {
     dateCreated: new Date(),
     balance:0
   }
-
-  accId:Guid;
-
-  constructor(private AccService: AccountService, private CustService: CustomerService, private router: Router,private route:ActivatedRoute) {
+  
+  constructor(private AccService: AccountService, private CustService: CustomerService, private router: Router,private route:ActivatedRoute,private toastr:ToastrService,private authService:AuthService) {
     this.accId= Guid.parse(this.route.snapshot.paramMap.get('id')); 
+    this.accIdString = this.route.snapshot.paramMap.get('id');
     this.CustService.GetAccount(this.accId).subscribe(data => {
       console.log(data);
       this.accDet = data;
@@ -37,6 +39,12 @@ export class AccountDetailsComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+  }
+  SaveAccountId(){
+    localStorage.setItem("AccountId",this.accIdString)
+    this.authService.login('Account')
+    this.toastr.success(this.accIdString,"Account Chosen")
+    this.router.navigateByUrl( "/AccountsMenu");
   }
 
 }
