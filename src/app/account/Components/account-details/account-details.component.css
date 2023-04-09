@@ -1,10 +1,20 @@
 *{
     font-family: 'Crimson Text', serif;
-    color:white
 }
 
 .center {
     margin: auto;
+}
+
+.accMenuBtn{
+    float:right;
+    width: fit-content;
+    background-color: #f50057;
+    border-color: #f50057;
+    height: 40px;    
+    font-size: large;
+    color: white;
+
 }
 
 img{
@@ -45,9 +55,8 @@ table{
     display: flex;
     /* justify-content: space-between; */
     border: 2px solid #f50057;
-    background-color: #f50057;
     /* width: fit-content; */
-    margin-top: 70px;
+    margin-top: 40px;
     margin-left: 100px;
     margin-right: 100px;
 

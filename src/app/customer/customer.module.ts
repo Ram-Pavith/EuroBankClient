@@ -4,13 +4,14 @@ import { CustomerLoginComponent } from './Components/login/CustomerLogin.compone
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-// import { HomeComponent } from './Components/home/home.component';
 import { GetAccountComponent } from './Components/get-account/get-account.component';
 import { GetCustomerAccountsComponent } from './Components/get-customer-accounts/get-customer-accounts.component';
 import { CustomerMenuComponent } from './Components/customer-menu/customer-menu.component';
 import { GetCustomerStatementComponent } from './Components/get-customer-statement/get-customer-statement.component';
 import { ViewAllTransactionComponent } from './Components/view-all-transaction/view-all-transaction.component';
-import { HomeComponent } from './Components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CustomerHomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HomeComponent } from './Components/home/home.component';
     GetCustomerAccountsComponent,
     GetCustomerStatementComponent,
     ViewAllTransactionComponent,
-    HomeComponent,
+    CustomerHomeComponent
 ],
   imports:
    [
@@ -26,7 +27,9 @@ import { HomeComponent } from './Components/home/home.component';
    AppRoutingModule,
     ReactiveFormsModule,
    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     
   ],
   exports:[

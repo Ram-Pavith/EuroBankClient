@@ -1,15 +1,3 @@
-<!-- <p>gettransaction works!</p>
-
-
-
-AccountId:{{Transaction.accountId}}
-ServiceId: {{Transaction.serviceId}},
-TransactionStatusId:{{Transaction.refTransactionStatusId}},
-TransactionTypeId: {{Transaction.refTransactionTypeId}},
-PaymentMethodId: {{Transaction.refPaymentMethodId}},
-DateOfTransaction: {{Transaction.dateOfTransaction}},
-AmountOfTransaction: {{Transaction.amountOfTransaction}} -->
-
 <div class="accOutline">
     <!-- <div>
         <img src="C:\Users\Admin\Downloads\WhatsApp Image 2023-04-07 at 4.17.27 PM.jpeg">
@@ -29,9 +17,9 @@ AmountOfTransaction: {{Transaction.amountOfTransaction}} -->
             <td> {{Transaction.accountId}} </td>
         </tr>
         <tr>
-            <th>Type of Service </th>
+            <th>Type of Service</th>
             <td> {{Transaction.serviceId}} </td>
-            <span *ngIf="Transaction.serviceId == 1"> NEFT</span>
+            <span *ngIf="Transaction.serviceId == 1">NEFT</span>
                     <span *ngIf="Transaction.serviceId == 2">RTGS </span>
                     <span *ngIf="Transaction.serviceId == 3">IMPS </span>
         </tr>

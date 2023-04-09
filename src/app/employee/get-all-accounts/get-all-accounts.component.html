@@ -11,7 +11,6 @@
             <th> Customer ID </th>
             <th> Date Created</th> 
             <th> Balance </th>
-            <th></th>
         </thead>
         <tbody *ngFor="let t of accountsDTO">
             <tr>
@@ -21,16 +20,6 @@
                 <td>{{t.customerId}}</td>
                 <td>{{t.dateCreated | date : 'short'}}</td>
                 <td>{{t.balance}}</td>
-                <td>
-                    <a>
-                        
-                    </a>
-                </td>
-                <!-- <td>{{t.amountOfTransaction}}
-                    <span *ngIf="t.refTransactionTypeId == 1"> <i class="fas fa-caret-down fa-2xl"></i> </span>
-                    <span *ngIf="t.refTransactionTypeId == 2"> <i class="fas fa-caret-up fa-2xl"></i> </span>
-                    <span *ngIf="t.refTransactionTypeId == 3"> <i class="fa fa-exchange fa-xl"></i></span>
-                </td> -->
             </tr>
         </tbody>
     </table>
