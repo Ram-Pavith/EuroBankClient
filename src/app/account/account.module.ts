@@ -7,10 +7,12 @@ import { AccountStatementComponent } from './Components/account-statement/accoun
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AccTransactionsFilter } from './Components/account-transactions/accTransactionsFilter';
+import { TransactionTypeFilter } from './Components/account-transactions/transactionTypeFilter';
 import * as Sherlock from '../../../node_modules/sherlockjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { TransactionDateFilter } from './Components/account-transactions/transactionDateFilter';
+import { TransactionServiceFilter } from './Components/account-transactions/transactionServiceFilter';
 
 
 
@@ -20,7 +22,9 @@ import { ToastrModule } from 'ngx-toastr';
     AccountDetailsComponent,
     AccountTransactionsComponent,
     AccountStatementComponent,
-    AccTransactionsFilter
+    TransactionTypeFilter,
+    TransactionDateFilter,
+    TransactionServiceFilter
   ],
   imports: [
     CommonModule,

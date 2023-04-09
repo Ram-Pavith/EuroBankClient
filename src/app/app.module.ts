@@ -64,6 +64,5 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 export class AppModule implements OnInit{
   constructor(private router: Router){}
   ngOnInit(): void {
-    //this.router.navigateByUrl('/HomePage');
   }
  }
