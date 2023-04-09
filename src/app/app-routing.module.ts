@@ -30,14 +30,14 @@ import { AuthGuard } from './Guards/auth.guard';
 
 const routes: Routes = 
 [
-  {path:'EmployeeHome',component:EmployeehomeComponent},//,canActivate: [AuthGuard],data: {role: 'Employee'}},
-  {path:'EmployeeRegister',component:EmployeeRegisterComponent},//,canActivate: [AuthGuard],data: {role: 'Employee'}},
-  {path:'CreateCustomer',component:CreateCustomerComponent},//,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'EmployeeHome',component:EmployeehomeComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'EmployeeRegister',component:EmployeeRegisterComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'CreateCustomer',component:CreateCustomerComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
   {path:'EmployeeLogin',component:LoginComponent},
   {path:'CustomerLogin',component:CustomerLoginComponent},
-  {path:'GetAllCustomers',component:GetAllCustomersComponent},//canActivate: [AuthGuard],data: {role: 'Employee'}}, 
-  {path:'GetAllAccounts',component:GetAllAccountsComponent},//canActivate: [AuthGuard],data: {role: 'Employee'}},
-  {path:'GetAllTransactions',component:GetAllTransactionsComponent},//canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'GetAllCustomers',component:GetAllCustomersComponent,canActivate: [AuthGuard],data: {role: 'Employee'}}, 
+  {path:'GetAllAccounts',component:GetAllAccountsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'GetAllTransactions',component:GetAllTransactionsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
   { path:"CustomerMenu",component:CustomerMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:'AccountsMenu',component:AccountsMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
   {path:'AccountDetails',component:AccountDetailsComponent},
