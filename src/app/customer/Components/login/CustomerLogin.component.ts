@@ -49,11 +49,10 @@ export class CustomerLoginComponent {
             this.msg = "Success";
             this.authtoken = data.token;
             this.obj.userlogin(this.user).subscribe(customer => {
-            this.customerId = customer.customerId
-            console.log(customer)
-            console.log(this.customerId)
-            console.log(customer.customerId)
-          this.SaveCustomerId()
+              console.log(customer);
+            this.customerId = customer.customerId;
+            localStorage.setItem("CustomerName",customer.firstname + " " + customer.lastname);
+            this.SaveCustomerId();
         }, error => {
           console.log(error)
         })

@@ -6,6 +6,8 @@ import { AccountTransactionsComponent } from './Components/account-transactions/
 import { AccountStatementComponent } from './Components/account-statement/account-statement.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AccTransactionsFilter } from './Components/account-transactions/accTransactionsFilter';
 
 
 
@@ -14,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
     AccountsMenuComponent,
     AccountDetailsComponent,
     AccountTransactionsComponent,
-    AccountStatementComponent
+    AccountStatementComponent,
+    AccTransactionsFilter
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ]
 })
 export class AccountModule { }

@@ -89,10 +89,11 @@
 
       
 
-      <div>
+      <div *ngIf="isUserLoggedIn() == true">
         <ul>
-          <li class="Lev-1">
-            <a href="">Name <i class="fa-sharp fa-solid fa-circle-user"></i>
+          <li class="Lev-1" >
+            <a> {{username}} 
+              <i class="fa-sharp fa-solid fa-circle-user fa-2xl"></i>
             </a>
             <ul>
               <li><a routerLink="/AccountsMenu">Accounst Menu</a></li>
@@ -102,6 +103,11 @@
             </ul>
           </li>
         </ul>
+      </div>
+      <div>
+        <a class="link-secondary me-3 " (click)="user_logout()" href="#">
+          <i class="fas fa-sign-out-alt"> LOGOUT</i>
+        </a>
       </div>
 
     </div>
