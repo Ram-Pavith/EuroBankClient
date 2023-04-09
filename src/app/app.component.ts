@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
   title = 'EuroBankClient';
-  constructor(private route:Router){}
+  constructor(private route:Router){
+
+  }
 ngOnInit(): void {
-  //this.route.navigateByUrl('/CustomerLogin')
+  this.route.navigateByUrl('/HomePage')
 }
 
 }
