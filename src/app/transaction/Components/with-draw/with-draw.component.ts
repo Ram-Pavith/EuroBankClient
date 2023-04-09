@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Guid } from 'guid-typescript';
 import { TransactionService } from 'src/app/transaction.service';
 import { Router } from '@angular/router';
@@ -12,21 +12,32 @@ import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 })
 export class WithDrawComponent {
   withdrawform:FormGroup
- 
-  msg:string=''
+  flag:Boolean
+  Amount:number
+  serviceId:number
+  //amount:number
+  withdraw_btn_click:boolean=false
+  msg:string="TransactionFailure"
+  customMin:1
+  customMax:20000
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
     transactionStatusDescription:""
 
   }
-
-  
-
 constructor(private transactionservice:TransactionService,private route:Router){}
 ngOnInit(): void { 
   this.withdrawform = new FormGroup({
-    AccountId:new FormControl(),
-    amount: new FormControl(),
+    
+    AccountId:new FormControl(
+      Validators.required
+    ),
+    amount: new FormControl([
+      Validators.required,
+      Validators.min(1),
+      Validators.max(20000)]
+      
+    ),
     ServiceId: new FormControl()
   })
   
@@ -34,18 +45,33 @@ ngOnInit(): void {
 
 withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
 {
-  {{debugger}}
+  
   this.transactionservice.Withdraw(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
-  this.msg="Successfully created ";
+    this.msg=data.transactionStatusDescription;
+  if(data.transactionStatusCode == 1) {
+    this.flag = true;  
+    this.msg="Transaction Success"
+    console.log(this.msg);
   //Logging the response received from web api.
-  //this.route.navigateByUrl("Account")Mohana Page
-  console.log(data);
+  // this.route.navigateByUrl("/AccountDetails");
+  }
+  console.log(this.flag);
+  
+},err=>{
+    this.flag = false;
+    this.msg=err.error
+    
   })
+  
+
 }
 onSubmit(form:FormGroup){
-
-  this.withdraw_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),form.value.amount,form.value.ServiceId);
-
+  this.withdraw_api(Guid.parse(localStorage.getItem("AccountId")),this.Amount,this.serviceId);
+  this.withdraw_btn_click=true;   
 }
-}
+back(){
+  this.route.navigateByUrl("/AccountsMenu")
+}}
+
+

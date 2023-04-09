@@ -1,1 +1,81 @@
-<p>account-transactions works!</p>
+<div class="center">
+
+    <div>
+        <button type="button" class="btn btn-info" (click)="openModal()">
+            <i class="fa-solid fa-filter fa-xl" (click)="openModal()"></i>
+        </button>
+        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div>
+                                <label>Filter transactions by Type:</label> <br />
+                                <input type="radio" value="Deposit" name="transType" [(ngModel)]="filterItemType">
+                                Deposit <br />
+                                <input type="radio" value="Withdraw" name="transType" [(ngModel)]="filterItemType">
+                                Withdraw <br />
+                                <input type="radio" value="Transfer" name="transType" [(ngModel)]="filterItemType">
+                                Transfer
+                            </div>
+                            <div>
+                                <label>Filter transactions by Date:</label> <br />
+                                <input type="radio" value="asc" name="transDate" [(ngModel)]="filterItemDate"> Most
+                                Recent First <br />
+                                <input type="radio" value="desc" name="transDate" [(ngModel)]="filterItemDate"> Least
+                                Recent First <br />
+                            </div>
+                            <div>
+                                <label>Filter transactions by Service: </label><br />
+                                <input type="radio" value="NEFT" name="transServ" [(ngModel)]="filterItemServ"> NEFT
+                                <br />
+                                <input type="radio" value="RTGS" name="transServ" [(ngModel)]="filterItemServ"> RTGS
+                                <br />
+                                <input type="radio" value="IMPS" name="transServ" [(ngModel)]="filterItemServ"> IMPS
+                                <br />
+                            </div>
+                            <input type="reset" class="btn reset" value="Reset">
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal !-->
+    </div>
+    <br />
+    <table class="table table-hover">
+        <thead>
+            <th> Transaction ID</th>
+            <th> Service </th>
+            <th> Date </th>
+            <th> Amount </th>
+            <th></th>
+            <th></th>
+        </thead>
+        <tbody
+            *ngFor="let t of AccTransactions | TransactionTypeFilter:filterItemType | TransactionServiceFilter: filterItemServ | transactionDateFilter : filterItemDate">
+            <tr [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
+                <td>{{t.transactionId}}</td>
+                <td>
+                    <span> {{GetServiceTypeLabel(t.serviceId)}}</span>
+                </td>
+                <td>{{t.dateOfTransaction | date : 'short'}}</td>
+                <td> &#8377; {{ t.amountOfTransaction | number : '1.2-2'}}
+                </td>
+                <td>
+                    <span *ngIf="t.refTransactionTypeId == 1"> <i class="fas fa-caret-down fa-2xl"></i> </span>
+                    <span *ngIf="t.refTransactionTypeId == 2"> <i class="fas fa-caret-up fa-2xl"></i> </span>
+                    <span *ngIf="t.refTransactionTypeId == 3"> <i class="fa fa-exchange fa-xl"></i></span>
+                </td>
+                <td>
+                    <a [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
+                        <i class="fa-solid fa-circle-info fa-2xl"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

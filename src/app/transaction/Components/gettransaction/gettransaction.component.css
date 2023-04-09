@@ -1,0 +1,54 @@
+*{
+    font-family: 'Crimson Text', serif;
+    color:white
+}
+
+.center {
+    margin: auto;
+}
+
+img{
+    height: 600px; 
+    width: 230px;
+    /* margin-top: 5px; */
+    /* margin-left: 100px; */
+    float: left;
+}
+
+th{
+    width:200px;
+}
+td{
+    margin-left: 50px;
+}
+
+.slogan{
+    margin-top:90px;
+    margin-left: 240px;
+    font-family:'Alkatra', cursive;
+    font-size: 100px;
+    font-style: italic;
+    font-weight: bold;
+    background: -webkit-linear-gradient(white, #DE5D83);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+table{
+    margin-top:30px;
+    margin-left: 200px;
+    font-size: 30px;
+}
+
+.accOutline{
+    display: flex;
+    /* justify-content: space-between; */
+    border: 2px solid #c72c62;
+    /* background-color: #b42d5c; */
+    /* width: fit-content; */
+    margin-top: 70px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}

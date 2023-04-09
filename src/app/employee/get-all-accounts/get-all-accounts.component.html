@@ -1,3 +1,26 @@
-<div *ngFor="let c of accountsDTO">
+<!-- <div *ngFor="let c of accountsDTO">
     <p>{{c|json}}</p>
+</div> -->
+
+<div class="center">
+    <table class="table table-hover">
+        <thead>
+            <th> Account ID </th>
+            <th> Account Type ID </th>
+            <th> Account Creation Status ID </th>
+            <th> Customer ID </th>
+            <th> Date Created</th> 
+            <th> Balance </th>
+        </thead>
+        <tbody *ngFor="let t of accountsDTO">
+            <tr>
+                <td> {{ t.accountId }} </td>
+                <td>{{t.accountTypeId}}</td>
+                <td>{{ t.accountCreationStatusId }}</td>
+                <td>{{t.customerId}}</td>
+                <td>{{t.dateCreated | date : 'short'}}</td>
+                <td>{{t.balance}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

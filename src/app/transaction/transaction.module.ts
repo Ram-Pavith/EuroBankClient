@@ -4,6 +4,8 @@ import { WithDrawComponent } from './Components/with-draw/with-draw.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DepositComponent } from './Components/deposit/deposit.component';
 import { TransferComponent } from './Components/transfer/transfer.component';
+import { GettransactionComponent } from './Components/gettransaction/gettransaction.component';
+
 
 
 
@@ -12,7 +14,8 @@ import { TransferComponent } from './Components/transfer/transfer.component';
   declarations: [
     WithDrawComponent,
     DepositComponent,
-    TransferComponent
+    TransferComponent,
+    GettransactionComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,8 @@ import { TransferComponent } from './Components/transfer/transfer.component';
   exports:[
     WithDrawComponent,
     DepositComponent,
-    TransferComponent
+    TransferComponent,
+    GettransactionComponent
   ]
 })
 export class TransactionModule { }

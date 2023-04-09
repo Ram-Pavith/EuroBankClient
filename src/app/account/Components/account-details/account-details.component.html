@@ -1,2 +1,33 @@
-<p>account-details works!</p>
-<p>{{str}}</p>
+<div class="accOutline">
+    <div>
+        <img src="../../../../assets/Images/logo.png">
+    </div>       
+
+    <div>
+        <button class="accMenuBtn" (click) = "SaveAccountId()">
+            Go to Accounts Menu &#8594;
+        </button>
+        <p class="slogan">
+            Grow with us ...
+        </p>
+    <table>
+        <tr>
+            <th>Account ID</th>
+            <td> {{accDet.accountId}} </td>
+        </tr>
+        <tr>
+            <th>Account Type</th>
+            <td>{{this.accTypeLabel}}</td>
+            <!-- <td> {{accDet.accountTypeId}} </td> -->
+        </tr>
+        <tr>
+            <th>Date Created</th>
+            <td> {{accDet.dateCreated |  date:'short'}} </td>
+        </tr>
+        <tr>
+            <th>Balance</th>
+            <td> &#8377; {{  accDet.balance | number : '1.2-2'}}</td>
+        </tr>
+    </table>
+    </div>
+</div>

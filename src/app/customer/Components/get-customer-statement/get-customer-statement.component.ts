@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/Models/Customer';
 import { CustomerService } from '../../Services/customer.service';
- import jsPDF from 'jspdf';
+import {jsPDF} from 'jspdf';
 import { Statement } from 'src/Models/Statement';
-
+import * as Sherlock from '../../../../../node_modules/sherlockjs';
+import { ToastrService } from 'ngx-toastr';
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-get-customer-statement',
   templateUrl: './get-customer-statement.component.html',
@@ -11,28 +13,29 @@ import { Statement } from 'src/Models/Statement';
 })
 export class GetCustomerStatementComponent implements OnInit
 {
-  customer:Statement[]=[];
-  constructor(private obj:CustomerService) {}
-  id:string="CustomerEurobank"
+  customerStatement:Statement[]=[];
+  id:string=localStorage.getItem("CustomerId")
   Fdate:Date
   Tdate:Date
   msg:string
+  startDate:Date
+  endDate:Date
+  nlpString:any
+  showTable:boolean = false
+  SearchString:string
+  url:string
+
+  constructor(private obj:CustomerService,private toastr:ToastrService) 
+  {
+    this.getCustomerStatement();
+  }
+ 
 
   ngOnInit()
    {
-    this.getstatement();
   }
 
-  getstatement()
-  {
-    this.obj.GetCustomerStatement(this.id,this.Fdate,this.Tdate).subscribe(data=>{
-      console.log(data);
-      if(data.length == 0) this.msg = "No transactions";
-      this.customer = data;
-    },err =>{
-      console.log(err);
-    })
-  }
+
 
   PrintStatement(): void {
     var tab = document.getElementById('StatementTable');
@@ -57,6 +60,46 @@ export class GetCustomerStatementComponent implements OnInit
       windowWidth: 650 //window width in CSS pixels
     },
      );
+  }
+
+  SearchToDates(){
+    this.showTable = false
+    var flag = true
+    this.nlpString = Sherlock.parse(this.SearchString)
+    this.startDate = this.nlpString.startDate
+    this.endDate = this.nlpString.endDate
+    if(this.startDate == null || this.endDate == null ){
+      this.toastr.error("Enter Proper date span of from and to dates")
+      flag = false
+    }
+    var differenceInDays = (this.endDate.getTime() - this.startDate.getTime())/(1000 * 3600 * 24)
+    console.log(differenceInDays)
+    if(differenceInDays>30){
+      this.toastr.info("Date Difference is more than a month, hence dispaying this month's statements by default")
+      flag=false
+    }
+    if(this.endDate > new Date()){
+      this.toastr.error("the End Date should be in the past")
+    }
+    if(flag){
+      var startdate = formatDate(this.startDate,'mm/dd/yyyy','en-US');
+      var enddate = formatDate(this.endDate,'mm/dd/yyyy','en-US');
+      this.url = 'https://localhost:7035/api/Customer/GetCustomerStatement?CustomerId='+localStorage.getItem("CustomerId")+'&from_date='+this.startDate.getDate() +'%2F'+ this.startDate.getMonth() + '%2F'+this.startDate.getFullYear() + '&to_date=' + this.endDate.getDate() + '%2F' + this.endDate.getMonth() +'%2F'+this.endDate.getFullYear()
+      console.log(this.url)
+    }
+    if(flag==false){
+      this.url = 'https://localhost:7035/api/Customer/GetCustomerStatement?CustomerId='+localStorage.getItem("CustomerId")
+    }
+    this.getCustomerStatement()
+  }
+
+  getCustomerStatement(){
+    this.obj.GetCustomerStatement(this.url).subscribe(data => {
+      console.log(data);
+      this.customerStatement = data;
+    });
+    this.showTable = true
+
   }
 
 }

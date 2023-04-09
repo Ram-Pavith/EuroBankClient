@@ -1,0 +1,45 @@
+<body>
+      <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+            <img src="../../../assets/Images/Register.png" width="500" length="500">
+          </div>
+    
+          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">    
+            <div class="card bg-glass">
+              <div class="card-body px-4 py-5 px-md-5">
+                <form #registerform="ngForm" (submit)="register()">
+                  <p>{{this.msg}}</p>
+                  <div class="form-outline mb-4">
+                    <input type="text" name="firstname" [(ngModel)]="empregister.firstname" #firstname=ngModel id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">First Name</label>
+                    <span class="text-danger" *ngIf="firstname.touched && firstname.invalid">*Required</span>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" name="lastname" [(ngModel)]="empregister.lastname" #lastname=ngModel id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Last Name</label>
+                    <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">*Required</span>
+                  </div>
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                    <input type="email" name="emailId" [(ngModel)]="empregister.emailId" #emailId=ngModel id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email address</label>
+                    <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
+                  </div>
+    
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    <input type="password" name="password" [(ngModel)]="empregister.password" #password="ngModel" id="form3Example4" class="form-control" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                    <span class="text-danger" *ngIf="password.touched && password.invalid">*Required</span>
+                  </div>
+                  <!-- Submit button -->
+                  <input type="submit" value="Register" class="btn btn-primary btn-block mb-4" [disabled]="!registerform.valid"/>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
