@@ -13,7 +13,9 @@ import { ServiceEnum } from 'src/Models/ServiceEnum';
 export class AccountTransactionsComponent implements OnInit {
   //get using route parameter / localstorage
   AccId: string = localStorage.getItem("AccountId");
-  searchItem:number;
+  filterItemType:string;
+  filterItemDate:string;
+  filterItemServ:string;
 
   AccTransactions:Transaction[] = [];
 
@@ -32,4 +34,14 @@ export class AccountTransactionsComponent implements OnInit {
   GetServiceTypeLabel(id:number):String{
     return ServiceEnum[id];
   }
+
+  display='none';
+  openModal(){
+    this.display='block';
+ }
+ onCloseHandled(){
+  this.display='none';
+}
+
+  
 }
