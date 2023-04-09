@@ -53,8 +53,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
       }
       return true;
     }
-
+    if(!this.authService.isLoggedIn()){
     this.router.navigate(['/HomePage']);
+    return false;
+    }
     return false;
   }
 }

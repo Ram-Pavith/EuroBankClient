@@ -15,12 +15,16 @@ import { CommonModule } from '@angular/common';
 import { AccountModule } from './account/account.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { Router } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import * as Sherlock from '../../node_modules/sherlockjs';
+import * as mdb from 'mdb-ui-kit'; // lib
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { CustomerHomeComponent } from './customer/Components/home/home.component'
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
+
 
 
 
@@ -47,7 +51,8 @@ import { AppHomePageComponent } from './Components/app-home-page/app-home-page.c
     TransactionModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule
+    ToastrModule,
+    FontAwesomeModule
   ],
   exports:[
   //  CustomerService    
