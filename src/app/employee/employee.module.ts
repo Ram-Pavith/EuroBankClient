@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PaginationModule } from 'ngx-bootstrap/pagination';
+import { CreateaccountComponent } from './createaccount/createaccount.component';
 
 
 
@@ -24,7 +25,8 @@ import {PaginationModule } from 'ngx-bootstrap/pagination';
     GetAllTransactionsComponent,
     CreateCustomerComponent,
     EmployeeRegisterComponent,
-    EmployeehomeComponent
+    EmployeehomeComponent,
+    CreateaccountComponent
   ],
   imports: [
     CommonModule,

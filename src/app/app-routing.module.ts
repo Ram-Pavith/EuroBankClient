@@ -26,6 +26,7 @@ import { CreateCustomerComponent } from './employee/create-customer/create-custo
 import { AnalysisComponent } from './customer/Components/analysis/analysis.component';
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { CreateaccountComponent } from './employee/createaccount/createaccount.component';
 
 
 const routes: Routes = 
@@ -38,6 +39,7 @@ const routes: Routes =
   {path:'GetAllCustomers',component:GetAllCustomersComponent},//canActivate: [AuthGuard],data: {role: 'Employee'}}, 
   {path:'GetAllAccounts',component:GetAllAccountsComponent},//canActivate: [AuthGuard],data: {role: 'Employee'}},
   {path:'GetAllTransactions',component:GetAllTransactionsComponent},//canActivate: [AuthGuard],data: {role: 'Employee'}},
+  {path:'CreateAccount',component:CreateaccountComponent},
   { path:"CustomerMenu",component:CustomerMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:'AccountsMenu',component:AccountsMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
   {path:'AccountDetails',component:AccountDetailsComponent},

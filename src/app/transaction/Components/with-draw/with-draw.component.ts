@@ -45,6 +45,7 @@ ngOnInit(): void {
 
 withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
 {
+  if((ServiceId == 1 && (amount >= 1 && amount <= 200000)) || (ServiceId == 2 && (amount >= 200000)) ||(ServiceId == 3 && (amount >= 1 && amount <= 200000))){
   
   this.transactionservice.Withdraw(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
@@ -57,13 +58,24 @@ withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
   // this.route.navigateByUrl("/AccountDetails");
   }
   console.log(this.flag);
-  
 },err=>{
     this.flag = false;
     this.msg=err.error
     
   })
+}
+else{
+  if(ServiceId == 1){
+    this.msg="Amount not under NEFT constraints"
+  }
+  else if(ServiceId == 2){
+    this.msg="Amount not under RTGS constraints"
+  }
+  if(ServiceId == 1){
+    this.msg="Amount not under IMPS constraints"
+  }
   
+}
 
 }
 onSubmit(form:FormGroup){
