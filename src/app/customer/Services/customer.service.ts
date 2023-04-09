@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class CustomerService
  {
-  
+
   token:string = null;
   headers={
     'Content-Type':'application/json;charset=UTF-8',

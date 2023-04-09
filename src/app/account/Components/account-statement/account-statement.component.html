@@ -24,11 +24,11 @@
                 <td> {{ s.valueDate | date:'short'}} </td>
                 <td> {{ s.narration }}</td>
                 <td> {{ s.refNo }}</td>
-                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal}} </td>
+                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal | number : '1.2-2'}} </td>
                 <td *ngIf="s.withdrawal == 0"> &nbsp;  </td>
-                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit}}</td>
+                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit | number : '1.2-2'}}</td>
                 <td *ngIf="s.deposit == 0"> &nbsp;</td>
-                <td> &#8377; {{ s.closingBalance}}</td>       
+                <td> &#8377; {{  s.closingBalance | number : '1.2-2'}}</td>       
             </tr>
         </tbody>
     </table>

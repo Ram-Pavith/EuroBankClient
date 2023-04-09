@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from '../customer/Services/customer.service';
 import { EmployeeservService } from '../employee/Services/employeeserv.service';
 import { Router } from '@angular/router';
@@ -8,18 +8,18 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent 
-{
-  constructor(private CustService:CustomerService,private EmpService:EmployeeservService,private route:Router){
+export class NavbarComponent implements OnInit{
+
+  username:string="";
+
+  constructor(private CustService:CustomerService,private EmpService:EmployeeservService,private router:Router){
     
   }
-  Logout()
-  {
-    localStorage.clear();
-    this.route.navigateByUrl('CustomerLogin');
+  ngOnInit(): void {
+    if(this.CustService.IsLoggedIn()){
+      this.username = localStorage.getItem("CustomerName");
+    }
   }
-
-  
 
   user_logout():void{
     if(this.CustService.IsLoggedIn()){
@@ -30,6 +30,15 @@ export class NavbarComponent
       console.log("employee log out");
       this.EmpService.logout();
     }
+
+    
+  }
+
+  isUserLoggedIn():boolean{
+    if(this.CustService.IsLoggedIn() || this.EmpService.IsLoggedIn()){
+      return true;
+    }
+    return false;
   }
  
 

@@ -13,6 +13,7 @@ import { ServiceEnum } from 'src/Models/ServiceEnum';
 export class AccountTransactionsComponent implements OnInit {
   //get using route parameter / localstorage
   AccId: string = localStorage.getItem("AccountId");
+  searchItem:number;
 
   AccTransactions:Transaction[] = [];
 
