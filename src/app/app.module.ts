@@ -19,6 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import * as Sherlock from '../../node_modules/sherlockjs';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { CustomerHomeComponent } from './customer/Components/home/home.component'
+import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 
 
 
@@ -26,9 +28,9 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
   declarations: [
     AppComponent,
        NavbarComponent,
-       //HomeComponent,
        ForgotPasswordComponent,
-       ChangePasswordComponent
+       ChangePasswordComponent,
+       AppHomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,6 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 export class AppModule implements OnInit{
   constructor(private router: Router){}
   ngOnInit(): void {
-    this.router.navigateByUrl('EmployeeLogin');
+    this.router.navigateByUrl('/HomePage');
   }
  }

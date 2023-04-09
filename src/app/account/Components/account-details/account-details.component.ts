@@ -8,6 +8,7 @@ import { AccountCreationStatus } from 'src/Models/AccountCreationStatus';
 import { CustomerService } from 'src/app/customer/Services/customer.service';
 import { AcccountTypeEnum } from 'src/Models/AccountTypeEnum';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/Services/auth-service.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class AccountDetailsComponent implements OnInit {
     balance:0
   }
   
-  constructor(private AccService: AccountService, private CustService: CustomerService, private router: Router,private route:ActivatedRoute,private toastr:ToastrService) {
+  constructor(private AccService: AccountService, private CustService: CustomerService, private router: Router,private route:ActivatedRoute,private toastr:ToastrService,private authService:AuthService) {
     this.accId= Guid.parse(this.route.snapshot.paramMap.get('id')); 
     this.accIdString = this.route.snapshot.paramMap.get('id');
     this.CustService.GetAccount(this.accId).subscribe(data => {
@@ -41,6 +42,7 @@ export class AccountDetailsComponent implements OnInit {
   }
   SaveAccountId(){
     localStorage.setItem("AccountId",this.accIdString)
+    this.authService.login('Account')
     this.toastr.success(this.accIdString,"Account Chosen")
     this.router.navigateByUrl( "/AccountsMenu");
   }

@@ -4,6 +4,7 @@ import { EmployeeservService } from '../Services/employeeserv.service';
 import { Route, Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/Services/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   authToken:string = "";
   employeeloginDTO:EmployeeLogin = {emailId:"",password:""}
   employeeId:string
-  constructor(private empservice:EmployeeservService,private route:Router,private toastr:ToastrService){}
+  constructor(private empservice:EmployeeservService,private route:Router,private toastr:ToastrService,private authService:AuthService){}
   login(){
     console.log(this.employeeloginDTO)
 
@@ -31,6 +32,7 @@ export class LoginComponent {
           this.SaveEmployeeId()
         })
         this.SaveToken()
+        this.authService.login('Employee')
         this.route.navigateByUrl('/EmployeeHome');
       }
     },err =>{
@@ -48,4 +50,8 @@ export class LoginComponent {
   GetEmployeeId(){
     localStorage.getItem("EmployeeId");
   }
+  logout(){
+    localStorage.clear();
+    this.authService.logout
+    this.route.navigateByUrl('/HomePage');  }
 }

@@ -8,6 +8,7 @@ import { CustomerLogin } from 'src/Models/CustomerLogin';
 import { TransactionService } from 'src/app/transaction.service';
 import { CustomerService } from '../../Services/customer.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/Services/auth-service.service';
 
 @Component({
   selector: 'app-CustomerLogin',
@@ -31,7 +32,7 @@ export class CustomerLoginComponent {
   customerId: string = ""
   use: any;
 
-  constructor(private obj: CustomerService, private route: Router, private bj: TransactionService,private toastr : ToastrService) { }
+  constructor(private obj: CustomerService, private route: Router, private bj: TransactionService,private toastr : ToastrService,private authService:AuthService) { }
 
 
   IsLoggedIn() {
@@ -41,7 +42,8 @@ export class CustomerLoginComponent {
 
   Logout() {
     localStorage.clear();
-    this.route.navigateByUrl('/Login');
+    this.authService.logout();
+    this.route.navigateByUrl('/HomePage');
   }
   login() {
     console.log(this.user)
@@ -58,6 +60,7 @@ export class CustomerLoginComponent {
         }, error => {
           console.log(error)
         })
+        this.authService.login('Customer')
         this.SaveToken()
       }
       this.route.navigateByUrl('CustomerHome');
