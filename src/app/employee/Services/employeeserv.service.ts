@@ -8,6 +8,7 @@ import { CustomerRegister } from 'src/Models/CustomerRegister';
 import { Employee } from 'src/Models/Employee';
 import { EmployeeLogin } from 'src/Models/EmployeeLogin';
 import { EmployeeRegister } from 'src/Models/EmployeeRegister';
+import { Pagination } from 'src/Models/Pagination';
 import { Transaction } from 'src/Models/Transaction';
 import { UserAuthResponse } from 'src/Models/UserAuthResponse';
 
@@ -55,8 +56,8 @@ export class EmployeeservService {
     })
   }
 
-  getAllTransactions():Observable<Transaction[]>{
-    return this.http.get<Transaction[]>(this.req+"/ViewAllTransactions",{
+  getAllTransactions():Observable<any>{
+    return this.http.get<any>(this.req+"/ViewAllTransactions",{
       headers:this.headers
     })
   }

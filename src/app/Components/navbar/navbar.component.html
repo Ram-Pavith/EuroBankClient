@@ -42,28 +42,28 @@ rel="stylesheet"
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <div *ngIf="role==''">
           <li class="nav-item">
-            <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+            <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Home</a>
           </li>
         </div>
 
         <!-- Customer Home -->
         <div *ngIf="role=='Customer'">
           <li class="nav-item">
-            <a class="nav-link" href="/CustomerHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+            <a class="nav-link" href="/CustomerHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Customer Home</a>
           </li>
         </div>
 
         <!-- Account Home -->
         <div *ngIf="role=='Account'">
           <li class="nav-item">
-            <a class="nav-link" href="/EmployeeHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+            <a class="nav-link" href="/AccountsMenu" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Account Home</a>
           </li>
         </div>
 
         <!-- Employee Home -->
         <div *ngIf="role=='Employee'">
           <li class="nav-item">
-            <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+            <a class="nav-link" href="/EmployeeHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Employee Home</a>
           </li>
         </div>
       </ul>
@@ -137,9 +137,6 @@ rel="stylesheet"
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuAvatar"
         >
-        <li>
-          <a class="dropdown-item" (click)="customerHome()" ><i class="bi bi-person-circle"></i> My Menu </a>
-        </li>
         <li>
           <a class="dropdown-item" routerLink="/AccountsMenu" ><i class="bi bi-person-circle"></i> Account Menu </a>
         </li>

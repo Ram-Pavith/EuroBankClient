@@ -12,6 +12,7 @@ import { EmployeehomeComponent } from './employeehome/employeehome.component';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 
@@ -31,14 +32,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot() ,// ToastrModule added
+    PaginationModule.forRoot()
+
   ],
   exports:[
     LoginComponent,
     GetAllCustomersComponent,
     GetAllAccountsComponent,
     GetAllTransactionsComponent,
-    CreateCustomerComponent
+    CreateCustomerComponent,
+    PaginationModule
   ]
 })
 export class EmployeeModule { }

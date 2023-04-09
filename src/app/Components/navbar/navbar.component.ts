@@ -27,7 +27,7 @@ export class NavbarComponent implements OnChanges{
     if(this.CustService.IsLoggedIn()){
       this.username = localStorage.getItem("CustomerName");
     }
-    this.role = localStorage.getItem("Role")
+    this.role = localStorage.getItem("ROLE")
   }
 
   user_logout():void{
@@ -53,12 +53,5 @@ export class NavbarComponent implements OnChanges{
   this.accId = localStorage.getItem("AccountId")
   this.authService.login('Customer')
   this.router.navigateByUrl(`/AccountDeails/${this.accId}`)
-
  }
-customerHome(){
-  this.authService.login('Customer')
-  this.customerId = localStorage.getItem("CustomerId")
-}
-
-
 }

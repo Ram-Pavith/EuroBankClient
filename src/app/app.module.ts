@@ -27,10 +27,6 @@ import { TransactionDateFilter } from './Filters/transactionDateFilter';
 import { TransactionServiceFilter } from './Filters/transactionServiceFilter';
 import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +51,8 @@ import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+
   ],
   exports:[
   //  CustomerService    

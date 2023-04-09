@@ -43,6 +43,8 @@ export class AccountDetailsComponent implements OnInit {
   SaveAccountId(){
     localStorage.setItem("AccountId",this.accIdString)
     this.authService.login('Account')
+    localStorage.setItem("ROLE","Account")
+    localStorage.setItem("First","false")
     this.toastr.success(this.accIdString,"Account Chosen")
     this.router.navigateByUrl( "/AccountsMenu");
   }
