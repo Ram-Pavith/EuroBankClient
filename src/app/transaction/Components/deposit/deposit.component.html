@@ -20,32 +20,28 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-outline">
                   <label class="form-label" for="amount">Deposit Amount</label>
-                  <input type="text" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control" >
-                  <span class="text-danger" *ngIf="amount.touched && amount.invalid">*Required</span>
-
-                </div>
-                
+                  <input type="number" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control" required max="200000" >
+                  <span class="text-danger" *ngIf="amount.touched && amount.pristine "> *Required</span>
+                  <span class="text-danger" *ngIf="amount.dirty && amount.invalid">Amount limit exceeded should be less than 200000 rupees  </span>
+                </div>     
               </div>
 
               <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="form-outline">
-                  
+                <div class="form-outline">  
                     <label class="form-label" for="ServiceId">Service Type:</label>
                     <select id="ServiceId" name="ServiceId" [(ngModel)]="serviceId" #ServiceId=ngModel class="form-control">
                       <option value="1">NEFT</option>
                       <option value="2">RTGS</option>
                       <option value="3">IMPS</option>
                     </select>  
-                    <span class="text-danger" *ngIf="ServiceId.touched && ServiceId.invalid">*Required</span>
-
-                  
+                    <span class="text-danger" *ngIf="ServiceId.touched && ServiceId.invalid">*Required</span>    
                 </div>
               </div>
 
               <div class="d-flex justify-content-between align-items-center pb-2">
                
                 
-                <button type="submit" class="btn btn-info btn-lg btn-rounded buttoncolor">Deposit</button>
+                <button [disabled]="depositform.invalid"type="submit" class="btn btn-info btn-lg btn-rounded buttoncolor">Deposit</button>
                 
                 <button (click)="back()"> Back </button>
                    

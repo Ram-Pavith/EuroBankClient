@@ -56,13 +56,15 @@ deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
   
 },err=>{
     this.flag = false;
+    this.msg=err.error
   })
   
 }
 onSubmit(form:FormGroup){
 
-  this.deposit_api(Guid.parse("3C8509FF-8855-48B5-84B3-46DD69E9D568"),this.Amount,this.serviceId);
+  this.deposit_api(Guid.parse(localStorage.getItem("AccountId")),this.Amount,this.serviceId);
   this.deposit_btn_click=true;
+  
 }
 back(){
   this.route.navigateByUrl("/AccountDetails")
