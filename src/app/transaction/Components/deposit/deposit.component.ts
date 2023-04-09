@@ -40,10 +40,7 @@ ngOnInit(): void {
 deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
 {
   this.transactionservice.Deposit(AccountId,amount,ServiceId).subscribe(data=>{
-    this.RefTransactionStatus=data;
-    this.flag=false;
-    this.msg="Transaction Failure";
-  
+    this.RefTransactionStatus=data;  
   console.log(data);
 
   if(data.transactionStatusCode == 1) {
@@ -67,6 +64,6 @@ onSubmit(form:FormGroup){
   
 }
 back(){
-  this.route.navigateByUrl("/AccountDetails")
+  this.route.navigateByUrl("/AccountsMenu")
 }
 }

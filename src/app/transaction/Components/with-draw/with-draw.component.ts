@@ -49,10 +49,6 @@ withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
   this.transactionservice.Withdraw(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
     this.msg=data.transactionStatusDescription;
-    console.log(this.msg);
-  console.log(data);
-  this.flag=false;
-  this.msg="Transaction Failure";
   if(data.transactionStatusCode == 1) {
     this.flag = true;  
     this.msg="Transaction Success"

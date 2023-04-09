@@ -31,11 +31,11 @@ export class NavbarComponent implements OnChanges{
   }
 
   user_logout():void{
-    if(this.CustService.IsLoggedIn()){
+    if(localStorage.getItem("ROLE")=="Customer"){
       console.log("customer log out");
       this.CustService.logout();
     }
-    if(this.EmpService.IsLoggedIn()){
+    if(localStorage.getItem("ROLE")=="Employee"){
       console.log("employee log out");
       this.EmpService.logout();
     }

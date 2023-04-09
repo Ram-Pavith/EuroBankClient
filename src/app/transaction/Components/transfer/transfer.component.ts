@@ -41,8 +41,6 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
 {
   this.transactionservice.Transfer(SrcAccountId,TarAccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
-    this.flag=false;
-    this.msg="Transaction Failure"
   //Logging the response received from web api.
   //this.route.navigateByUrl("Account")Mohana Page
   console.log(data);
@@ -54,6 +52,7 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
     this.msg="Transaction success"
   }
   },err=>{
+  this.flag=false;
   console.log(err.error)
   this.msg=err.error
 }
@@ -67,7 +66,7 @@ console.log(this.targetaccountId,this.Amount,this.serviceId)
 this.transfer_btn_click=true;
 }
 back(){
-  this.route.navigateByUrl("/AccountDetails")
+  this.route.navigateByUrl("/AccountsMenu")
 }
 
 

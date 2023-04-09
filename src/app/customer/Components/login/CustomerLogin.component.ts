@@ -62,6 +62,7 @@ export class CustomerLoginComponent {
         })
         this.authService.login('Customer')
         this.SaveToken()
+        this.SaveCustomerId()
       }
       this.route.navigateByUrl('CustomerHome');
     }, err => {
