@@ -39,6 +39,8 @@ ngOnInit(): void {
 
 deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
 {
+  if((ServiceId == 1 && (amount >= 1 && amount <= 200000)) || (ServiceId == 2 && (amount >= 20000 && amount<=200000)) ||(ServiceId == 3 && (amount >= 1 && amount <= 200000))){
+
   this.transactionservice.Deposit(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;  
   console.log(data);
@@ -55,6 +57,19 @@ deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
     this.flag = false;
     this.msg=err.error
   })
+}
+else{
+  if(ServiceId == 1){
+    this.msg="For NEFT transcation amount should be less than 200000"
+  }
+  else if(ServiceId == 2){
+    this.msg="For RTGS transcation amount should be between 20000 and 200000"
+  }
+  else if(ServiceId == 3){
+    this.msg="For IMPS transcation amount should be less than 200000"
+  }
+}
+
   
 }
 onSubmit(form:FormGroup){

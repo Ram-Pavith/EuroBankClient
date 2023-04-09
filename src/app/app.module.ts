@@ -51,7 +51,7 @@ import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule,
-    FontAwesomeModule,
+    FontAwesomeModule
 
   ],
   exports:[
