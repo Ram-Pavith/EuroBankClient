@@ -9,9 +9,10 @@
             <th> Payment Method</th>
             <th> Date</th> 
             <th> Amount </th>
+            <th></th>
         </thead>
-        <tbody *ngFor="let t of customer">
-            <tr>
+        <tbody *ngFor="let t of customerTransactions">
+            <tr [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
                 <td> {{ t.transactionId }} </td>
                 <td>{{t.counterPartyId}}</td>
                 <td>{{t.accountId}}</td>
@@ -30,6 +31,14 @@
                     <span *ngIf="t.refTransactionTypeId == 2"> <i class="fas fa-caret-up fa-2xl"></i> </span>
                     <span *ngIf="t.refTransactionTypeId == 3"> <i class="fa fa-exchange fa-xl"></i></span>
                 </td>
+                <td>
+                    <a [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
+                        <!-- <div class="tooltip">
+                        <span class="tooltipText">More details</span> -->
+                        <i class="fa-solid fa-circle-info fa-2xl"></i>
+                        <!-- </div> -->
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -37,3 +46,6 @@
 <script>
     $('#StatementTable').DataTable()
 </script>
+<!-- <div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div> -->

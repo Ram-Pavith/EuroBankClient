@@ -1,10 +1,19 @@
+
+
 <div class="center">
-    <table class="table table-hover" id="StatementTable">
+    <div class="input-group p-5">
+        <input  name= "searchString" [(ngModel)]="SearchString" class="form-control py-2 border-right-0 border form-rounded" type="search" value="search" id="example-search-input">
+        <span class="input-group-append">
+            <div class="input-group-text bg-transparent form-rounded"><button (click)="SearchToDates()"><i class="fa fa-search"></i></button></div>
+        </span>
+    </div>
+
+    <table *ngIf="showTable" class="table table-hover" id="StatementTable">
         <thead>
             <th> Date </th>
             <th> Value Date </th>
             <th> Narration </th>
-            <th> Ref No.</th>
+            <th> Reference Number</th>
             <th> Withdraw</th> 
             <th> Deposit </th>
             <th> Balance </th>
@@ -15,16 +24,15 @@
                 <td> {{ s.valueDate | date:'short'}} </td>
                 <td> {{ s.narration }}</td>
                 <td> {{ s.refNo }}</td>
-                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal}} </td>
+                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal | number : '1.2-2'}} </td>
                 <td *ngIf="s.withdrawal == 0"> &nbsp;  </td>
-                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit}}</td>
+                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit | number : '1.2-2'}}</td>
                 <td *ngIf="s.deposit == 0"> &nbsp;</td>
-                <td> &#8377; {{ s.closingBalance}}</td>       
+                <td> &#8377; {{  s.closingBalance | number : '1.2-2'}}</td>       
             </tr>
         </tbody>
     </table>
+    <button (click)="PrintStatement()" class="btn-primary"><i class="fa fa-print"></i>  Print  </button>
 </div>
-<div>
-    <button (click)="PrintStatement()">Print</button>
-</div>
+
 
