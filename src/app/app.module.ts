@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // If You need animations
-
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeModule } from './employee/employee.module';
@@ -16,17 +16,17 @@ import { AccountModule } from './account/account.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { Router } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './Components/home/home.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import * as Sherlock from '../../node_modules/sherlockjs';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
-//import { CustomerModule } from './customer/customer.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
        NavbarComponent,
-       HomeComponent,
+       //HomeComponent,
        ForgotPasswordComponent,
        ChangePasswordComponent
   ],
@@ -45,7 +45,7 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
     TransactionModule,
     ReactiveFormsModule,
     HttpClientModule,
-  
+    ToastrModule
   ],
   exports:[
   //  CustomerService    

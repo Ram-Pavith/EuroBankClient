@@ -6,6 +6,10 @@ import { AccountTransactionsComponent } from './Components/account-transactions/
 import { AccountStatementComponent } from './Components/account-statement/account-statement.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import * as Sherlock from '../../../node_modules/sherlockjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -20,6 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ]
 })
 export class AccountModule { }

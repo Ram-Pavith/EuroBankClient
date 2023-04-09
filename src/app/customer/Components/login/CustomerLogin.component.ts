@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';    
 import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
 import { TransactionService } from 'src/app/transaction.service';
 import { CustomerService } from '../../Services/customer.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-CustomerLogin',
@@ -29,7 +31,7 @@ export class CustomerLoginComponent {
   customerId: string = ""
   use: any;
 
-  constructor(private obj: CustomerService, private route: Router, private bj: TransactionService) { }
+  constructor(private obj: CustomerService, private route: Router, private bj: TransactionService,private toastr : ToastrService) { }
 
 
   IsLoggedIn() {
@@ -46,13 +48,12 @@ export class CustomerLoginComponent {
     this.obj.userAuthorize(this.user).subscribe(data => {
       console.log(data.token);
       if (data.success) {
-            this.msg = "Success";
-            this.authtoken = data.token;
-            this.obj.userlogin(this.user).subscribe(customer => {
-            this.customerId = customer.customerId
-            console.log(customer)
-            console.log(this.customerId)
-            console.log(customer.customerId)
+          this.msg = "Success";
+          this.toastr.success(this.msg,"Succesfully Logged In")
+          this.authtoken = data.token;
+          this.obj.userlogin(this.user).subscribe(customer => {
+          this.customerId = customer.customerId
+          localStorage.setItem("CustomerEmailId",customer.emailId)
           this.SaveCustomerId()
         }, error => {
           console.log(error)
@@ -63,6 +64,7 @@ export class CustomerLoginComponent {
     }, err => {
       console.log(err.error)
       this.msg = "Invalid login";
+      this.toastr.error(err.error,"Wrong Credentials")
     })
   }
   SaveToken() {

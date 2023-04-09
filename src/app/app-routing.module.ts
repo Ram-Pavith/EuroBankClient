@@ -23,6 +23,9 @@ import { ViewAllTransactionComponent } from './customer/Components/view-all-tran
 import { EmployeeRegisterComponent } from './employee/employee-register/employee-register.component';
 import { EmployeehomeComponent } from './employee/employeehome/employeehome.component';
 import { CreateCustomerComponent } from './employee/create-customer/create-customer.component';
+import { AnalysisComponent } from './customer/Components/analysis/analysis.component';
+// import { HomeComponent } from './Components/home/home.component';
+
 
 const routes: Routes = 
 [
@@ -49,7 +52,9 @@ const routes: Routes =
   {path:"gettransactionbytransactionId/:id",component:GettransactionComponent},
   {path:"CustomerHome",component:HomeComponent},
   {path:"statement",component:GetCustomerStatementComponent},
-  {path:"viewtransaction",component:ViewAllTransactionComponent}
+  {path:"viewtransaction",component:ViewAllTransactionComponent},
+  {path:"CustomerAnalysis",component:AnalysisComponent},
+  // {path:'Home',component:HomeComponent}
 ];
 
 @NgModule({

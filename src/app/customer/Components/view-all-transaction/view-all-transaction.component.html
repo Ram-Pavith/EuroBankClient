@@ -11,7 +11,7 @@
             <th> Amount </th>
             <th></th>
         </thead>
-        <tbody *ngFor="let t of customer">
+        <tbody *ngFor="let t of customerTransactions">
             <tr [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
                 <td> {{ t.transactionId }} </td>
                 <td>{{t.counterPartyId}}</td>
@@ -46,3 +46,6 @@
 <script>
     $('#StatementTable').DataTable()
 </script>
+<!-- <div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div> -->

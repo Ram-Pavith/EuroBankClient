@@ -10,6 +10,8 @@ import { CreateCustomerComponent } from './create-customer/create-customer.compo
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { EmployeehomeComponent } from './employeehome/employeehome.component';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -27,7 +29,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   exports:[
     LoginComponent,
