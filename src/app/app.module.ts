@@ -59,6 +59,6 @@ import { AppHomePageComponent } from './Components/app-home-page/app-home-page.c
 export class AppModule implements OnInit{
   constructor(private router: Router){}
   ngOnInit(): void {
-    this.router.navigateByUrl('/HomePage');
+    //this.router.navigateByUrl('/HomePage');
   }
  }
