@@ -54,13 +54,13 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" />
+                  <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/>
                   <label class="form-label">Password</label>
-                  <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">*Required</span>
+                  <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control" />
+                  <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control" maxlength="10"/>
                   <label class="form-label">Pan Number</label>
                   <span class="text-danger" *ngIf="pannumber.touched && pannumber.invalid">*Required</span>
                 </div>
