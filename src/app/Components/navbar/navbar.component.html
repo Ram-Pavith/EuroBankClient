@@ -40,9 +40,32 @@ rel="stylesheet"
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
-        </li>
+        <div *ngIf="role==''">
+          <li class="nav-item">
+            <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+          </li>
+        </div>
+
+        <!-- Customer Home -->
+        <div *ngIf="role=='Customer'">
+          <li class="nav-item">
+            <a class="nav-link" href="/CustomerHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+          </li>
+        </div>
+
+        <!-- Account Home -->
+        <div *ngIf="role=='Account'">
+          <li class="nav-item">
+            <a class="nav-link" href="/EmployeeHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+          </li>
+        </div>
+
+        <!-- Employee Home -->
+        <div *ngIf="role=='Employee'">
+          <li class="nav-item">
+            <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon>Home</a>
+          </li>
+        </div>
       </ul>
       <!-- Left links -->
     </div>
@@ -52,7 +75,7 @@ rel="stylesheet"
     <div class="d-flex align-items-center">
 
       <!-- Transactions -->
-      <div class="dropdown">
+      <div class="dropdown" *ngIf="role=='Account'">
         <a
           class="text-reset me-3 dropdown-toggle hidden-arrow"
           href="#"
@@ -69,7 +92,7 @@ rel="stylesheet"
           aria-labelledby="navbarDropdownMenuLink"
         >
           <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-arrow-up"></i> Withdraw</a>
+            <a class="dropdown-item" href=""><i class="bi bi-arrow-up"></i> Withdraw</a>
           </li>
           <li>
             <a class="dropdown-item" href="#"><i class="bi bi-arrow-down"></i> Deposit</a>
@@ -89,6 +112,14 @@ rel="stylesheet"
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
+        <div *ngIf="role==''">
+          <a routerLink="/EmployeeLogin" class="btn" style="background-color: #f50057; color:white;"><i class="bi bi-door-open" style="background-color: #f50057;"></i> Employee Login</a>
+          &nbsp;
+          &nbsp;
+          <a routerLink="/CustomerLogin" class="btn" style="background-color: #f50057;color:white;"><i class="bi bi-door-open" style="background-color: #f50057;"></i> Customer Login</a>
+        </div>
+        
+        <div *ngIf="role!=''">
           <img
             src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
             class="rounded-circle"
@@ -96,25 +127,83 @@ rel="stylesheet"
             alt="Black and White Portrait of a Man"
             loading="lazy"
           />
+        </div>
+          
         </a>
-        <ul
+
+        <!-- Account Profile -->
+        <div *ngIf="role=='Account'">
+          <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+        <li>
+          <a class="dropdown-item" (click)="customerHome()" ><i class="bi bi-person-circle"></i> My Menu </a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/AccountsMenu" ><i class="bi bi-person-circle"></i> Account Menu </a>
+        </li>
+
+          <li>
+            <a class="dropdown-item" (click)="accountProfile()" ><i class="bi bi-person-circle"></i> My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/AccountTransactions"  ><i class="bi bi-cash"></i> Transactions</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/AccountStatement" ><i class="bi bi-file-text"></i> Statement</a>
+          </li>
+        </ul>
+        </div>
+
+        <!-- Customer Profile -->
+        <div *ngIf="role=='Customer'">
+          <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+        <li>
+          <a class="dropdown-item" routerLink="/CustomerHome" ><i class="bi bi-person-circle"></i> Customer Menu </a>
+        </li>
+          
+          <li>
+            <a class="dropdown-item" routerLink="/viewtransaction"  ><i class="bi bi-cash"></i> Transactions</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/statement" ><i class="bi bi-file-text"></i> Statement</a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" (click)="user_logout()" style="color:red;"><i class="bi bi-box-arrow-right"></i> Logout</a>
+          </li>
+        </ul>
+        </div>
+        
+        <!-- Employee Profile -->
+        <div *ngIf="role=='Employee'">
+          <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> My profile</a>
+            <a class="dropdown-item" routerLink="/EmployeeHome" ><i class="bi bi-person-circle"></i> Employee Menu </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-cash"></i> Transactions</a>
+            <a class="dropdown-item" routerLink="/GetAllTransactions"  ><i class="bi bi-cash"></i> All Transactions</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-file-text"></i> Statement</a>
+            <a class="dropdown-item" routerLink="/GetAllAccounts" ><i class="bi bi-person-circle"></i> All Accounts</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/GetAllCustomers" ><i class="bi bi-person-circle"></i> All Customers</a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="#" style="color:red;"><i class="bi bi-box-arrow-right"></i> Logout</a>
+            <a class="dropdown-item" (click)="user_logout()" style="color:red;"><i class="bi bi-box-arrow-right"></i> Logout</a>
           </li>
         </ul>
+        </div>
+       
       </div>
     </div>
     <!-- Right elements -->

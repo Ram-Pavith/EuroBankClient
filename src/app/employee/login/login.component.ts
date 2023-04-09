@@ -53,5 +53,5 @@ export class LoginComponent {
   logout(){
     localStorage.clear();
     this.authService.logout
-    this.route.navigateByUrl('/HomePage');  }
+    this.route.navigateByUrl('/EmployeeLogin');  }
 }

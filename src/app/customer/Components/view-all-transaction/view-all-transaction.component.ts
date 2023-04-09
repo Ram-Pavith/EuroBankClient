@@ -5,6 +5,8 @@ import { TransactionService } from 'src/app/transaction.service';
 import { CustomerService } from '../../Services/customer.service';
 import Chart from 'chart.js/auto';
 import { formatDate } from '@angular/common';
+import { ServiceEnum } from 'src/Models/ServiceEnum';
+
 
 @Component({
   selector: 'app-view-all-transaction',
@@ -20,6 +22,10 @@ export class ViewAllTransactionComponent implements OnInit
   dates:string[]
   uniqueDates:string[]
   dateCounts:number[]
+  filterItemType:string;
+  filterItemDate:string;
+  filterItemServ:string;
+  display='none';
 
   constructor(private obj:CustomerService){
     this.transactions()
@@ -42,42 +48,15 @@ transactions()
   //this.GetDates()
   //this.GetDateCounts()
 }
-
-GetDates(){
-  for(var item of this.customerTransactions){
-    var date = formatDate(item.dateOfTransaction,'mm/dd/yyyy','en-US')
-      this.dates.push(date)
-      if(!this.uniqueDates.includes(date)){
-        this.uniqueDates.push(date)
-      }
-  }
-}
-GetDateCounts(){
-  for(var item of this.uniqueDates){
-    this.dateCounts.push(this.dates.filter((x) => x == item).length)
-  }
+GetServiceTypeLabel(id:number):String{
+  return ServiceEnum[id];
 }
 
-createChart(){
-  
-  this.chart = new Chart("MyChart", {
-    type: 'bar', //this denotes tha type of chart
-
-    data: {// values on X-Axis
-      labels: this.uniqueDates, 
-       datasets: [
-        {
-          label: "Sales",
-          data: this.dateCounts,
-          backgroundColor: 'blue'
-        } 
-      ]
-    },
-    options: {
-      aspectRatio:2.5
-    }
-    
-  });
+openModal(){
+  this.display='block';
+}
+onCloseHandled(){
+this.display='none';
 }
 
 

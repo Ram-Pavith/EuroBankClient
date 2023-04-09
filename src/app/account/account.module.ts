@@ -7,12 +7,12 @@ import { AccountStatementComponent } from './Components/account-statement/accoun
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { TransactionTypeFilter } from './Components/account-transactions/transactionTypeFilter';
+import { TransactionTypeFilter } from '../Filters/transactionTypeFilter';
 import * as Sherlock from '../../../node_modules/sherlockjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { TransactionDateFilter } from './Components/account-transactions/transactionDateFilter';
-import { TransactionServiceFilter } from './Components/account-transactions/transactionServiceFilter';
+import { TransactionDateFilter } from '../Filters/transactionDateFilter';
+import { TransactionServiceFilter } from '../Filters/transactionServiceFilter';
 
 
 
@@ -32,7 +32,13 @@ import { TransactionServiceFilter } from './Components/account-transactions/tran
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot(), // ToastrModule added
+    
+  ],
+  exports:[
+    TransactionTypeFilter,
+    TransactionDateFilter,
+    TransactionServiceFilter
   ]
 })
 export class AccountModule { }

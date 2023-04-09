@@ -23,6 +23,9 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 import { CustomerHomeComponent } from './customer/Components/home/home.component'
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { TransactionDateFilter } from './Filters/transactionDateFilter';
+import { TransactionServiceFilter } from './Filters/transactionServiceFilter';
+import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
 
 
 

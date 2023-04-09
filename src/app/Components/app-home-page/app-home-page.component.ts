@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/Services/auth-service.service';
 
 @Component({
   selector: 'app-app-home-page',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-home-page.component.css']
 })
 export class AppHomePageComponent {
+
 
 }
