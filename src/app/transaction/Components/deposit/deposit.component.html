@@ -11,39 +11,41 @@
               <p>{{msg}}</p>
             <img src="https://crella.sfo2.cdn.digitaloceanspaces.com/wp-content/uploads/2023/01/16081957/green-check-02-2-scaled.jpg" width="20px" class="center">
           </div>
-          <div>
+          <div *ngIf="!flag">
             <p>{{msg}}</p>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8S94Ni6dgxWsJmYsPJ8ucfgTuTiEwmv9YrhzHk7hEwgirWYT2Ui-QaA16GDppStu0JVM&usqp=CAU" width="20px" class="center">
           </div>
         </div>
-            <form [formGroup]="depositform"(ngSubmit)="onSubmit(depositform)">
+            <form #depositform="ngForm"(ngSubmit)="onSubmit(depositform.value)">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-outline">
                   <label class="form-label" for="amount">Deposit Amount</label>
-                  <input type="text" id="amount" name="amount" formControlName="amount">
-                </div>
-                
+                  <input type="number" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control" required max="200000" >
+                  <span class="text-danger" *ngIf="amount.touched && amount.pristine "> *Required</span>
+                  <span class="text-danger" *ngIf="amount.dirty && amount.invalid">Amount limit exceeded should be less than 200000 rupees  </span>
+                </div>     
               </div>
 
               <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="form-outline">
-                  
+                <div class="form-outline">  
                     <label class="form-label" for="ServiceId">Service Type:</label>
-                    <select id="ServiceId" name="ServiceId" formControlName="ServiceId">
+                    <select id="ServiceId" name="ServiceId" [(ngModel)]="serviceId" #ServiceId=ngModel class="form-control">
                       <option value="1">NEFT</option>
                       <option value="2">RTGS</option>
                       <option value="3">IMPS</option>
                     </select>  
-                  
+                    <span class="text-danger" *ngIf="ServiceId.touched && ServiceId.invalid">*Required</span>    
                 </div>
               </div>
 
               <div class="d-flex justify-content-between align-items-center pb-2">
                
                 
-                <button type="submit" class="btn btn-info btn-lg btn-rounded">Deposit</button>
+                <button [disabled]="depositform.invalid"type="submit" class="btn btn-info btn-lg btn-rounded buttoncolor">Deposit</button>
                 
-                  
+                <button (click)="back()"> Back </button>
+                   
+                
                 
               </div>
             </form>
