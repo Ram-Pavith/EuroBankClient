@@ -12,6 +12,9 @@ import { ViewAllTransactionComponent } from './Components/view-all-transaction/v
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CustomerHomeComponent } from './Components/home/home.component';
+import { TransactionDateFilter } from '../Filters/transactionDateFilter';
+import { TransactionServiceFilter } from '../Filters/transactionServiceFilter';
+import { TransactionTypeFilter } from '../Filters/transactionTypeFilter';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,7 @@ import { CustomerHomeComponent } from './Components/home/home.component';
     GetCustomerAccountsComponent,
     GetCustomerStatementComponent,
     ViewAllTransactionComponent,
-    CustomerHomeComponent
+    CustomerHomeComponent,
 ],
   imports:
    [

@@ -36,25 +36,30 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
 
   checkUserLogin(route: ActivatedRouteSnapshot, url: any): boolean {
     if (this.authService.isLoggedIn()) {
-      const userRole = this.authService.getRole();
-      if(userRole=='Employee' && route.data['expectedRole'].indexOf(userRole) === -1){
-        this.router.navigateByUrl('EmployeeHome')
-      }
-      if(userRole=='Account' && route.data['expectedRole'].indexOf(userRole) === -1){
-        this.router.navigateByUrl('AccountsHome')
-      }
-      if(userRole=='Customer' && route.data['expectedRole'].indexOf(userRole) === -1){
-        this.router.navigateByUrl('CustomerHome')
-      }
-      if (userRole=="" && route.data['expectedRole'].indexOf(userRole) === -1) {
+      const userRole = this.authService.getRole()==undefined?"":this.authService.getRole()
+      // if(userRole=="Employee" && route.data['expectedRole']!=userRole){
+      //   this.router.navigateByUrl('/EmployeeHome')
+      //   return false;
+      // }
+      // if(userRole=="Account" && route.data['expectedRole']!=userRole){
+      //   this.router.navigateByUrl('/AccountsHome')
+      //   return false;
+      // }
+      // if(userRole=="Customer" && route.data['expectedRole']!=userRole){
+      //   this.router.navigateByUrl('/CustomerHome')
+      //   return false;
+      // }
+      if (route.data['expectedRole'] && route.data['expectedRole'].indexOf(userRole) === -1) {
         console.log(route.data['expectedRole'])
         this.router.navigate(['/HomePage']);
         return false;
       }
       return true;
     }
-
+    if(!this.authService.isLoggedIn()){
     this.router.navigate(['/HomePage']);
+    return false;
+    }
     return false;
   }
 }

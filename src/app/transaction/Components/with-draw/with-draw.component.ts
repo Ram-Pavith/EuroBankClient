@@ -13,7 +13,8 @@ import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 export class WithDrawComponent {
   withdrawform:FormGroup
   flag:Boolean
-  isValidFormSubmitted = null;
+  Amount:number
+  serviceId:number
   //amount:number
   withdraw_btn_click:boolean=false
   msg:string="TransactionFailure"
@@ -48,31 +49,29 @@ withdraw_api(AccountId:Guid,amount:number,ServiceId:number):void
   this.transactionservice.Withdraw(AccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
     this.msg=data.transactionStatusDescription;
-    console.log(this.msg);
-  console.log(data);
-  this.flag=false;
-  this.msg="Transaction Failure";
   if(data.transactionStatusCode == 1) {
     this.flag = true;  
     this.msg="Transaction Success"
     console.log(this.msg);
   //Logging the response received from web api.
-  this.route.navigateByUrl("/AccountDetails");
+  // this.route.navigateByUrl("/AccountDetails");
   }
   console.log(this.flag);
   
 },err=>{
     this.flag = false;
+    this.msg=err.error
     
   })
   
 
 }
 onSubmit(form:FormGroup){
-  this.withdraw_api(Guid.parse("97F891B9-8321-4B37-9D93-95F10FCD7771"),form.value.amount,form.value.ServiceId);
-  this.withdraw_btn_click=true;
-  
-   
+  this.withdraw_api(Guid.parse(localStorage.getItem("AccountId")),this.Amount,this.serviceId);
+  this.withdraw_btn_click=true;   
 }
-}
+back(){
+  this.route.navigateByUrl("/AccountsMenu")
+}}
+
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Transaction } from 'src/Models/Transaction';
 import { EmployeeservService } from '../Services/employeeserv.service';
-
+import {PaginationModule } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-get-all-transactions',
   templateUrl: './get-all-transactions.component.html',
@@ -18,9 +18,9 @@ export class GetAllTransactionsComponent {
 
   gettransactions(){
     this.empserv.getAllTransactions().subscribe(data =>{
-      console.log(data);
-      if(data.length == 0) this.msg = "No transactions";
-      this.transactionsDTO = data;
+      console.log(data.data);
+      if(data.data.length == 0) this.msg = "No transactions";
+      this.transactionsDTO = data.data;
     },err =>{
       console.log(err);
     })

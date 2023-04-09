@@ -43,7 +43,7 @@ export class CustomerLoginComponent {
   Logout() {
     localStorage.clear();
     this.authService.logout();
-    this.route.navigateByUrl('/HomePage');
+    this.route.navigateByUrl('/CustomerLogin');
   }
   login() {
     console.log(this.user)
@@ -62,6 +62,7 @@ export class CustomerLoginComponent {
         })
         this.authService.login('Customer')
         this.SaveToken()
+        this.SaveCustomerId()
       }
       this.route.navigateByUrl('CustomerHome');
     }, err => {

@@ -52,7 +52,7 @@ const routes: Routes =
   {path:"Getaccount/:id",component:GetAccountComponent},
   {path:"gettransactionbytransactionId/:id",component:GettransactionComponent},
   {path:"CustomerHome",component:CustomerHomeComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
-  {path:"statement",component:GetCustomerStatementComponent},
+  {path:"statement",component:GetCustomerStatementComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"viewtransaction",component:ViewAllTransactionComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"CustomerAnalysis",component:AnalysisComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:'HomePage',component:AppHomePageComponent}

@@ -1,8 +1,8 @@
-<!-- <section class="gradient-custom">
    
   <div class="container my-5 py-5">
     <div class="row d-flex justify-content-center py-5">
       <div class="col-md-7 col-lg-5 col-xl-4">
+        <img src="../../../../assets/Images/Money transfer _Flatline.png" width="300" length="300">
         <div class="card" style="border-radius: 15px;">
           <div class="card-body p-4">
             
@@ -12,17 +12,17 @@
             <img src="https://crella.sfo2.cdn.digitaloceanspaces.com/wp-content/uploads/2023/01/16081957/green-check-02-2-scaled.jpg" width="20px" class="center">
           </div>
           <div *ngIf="!flag">
-            <p>{{msg}}</p>
+            <p style="color:red">{{msg}}</p>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8S94Ni6dgxWsJmYsPJ8ucfgTuTiEwmv9YrhzHk7hEwgirWYT2Ui-QaA16GDppStu0JVM&usqp=CAU" width="20px" class="center">
           </div>
             </div>
            
 
             <form #transferform="ngForm" (submit)="onSubmit(transferform.value)">
-              <p>{{this.msg}}</p>
+              
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-outline">  
-                  <input type="text" id="TargetAccountId" name="TargetAccountId" [(ngModel)]="TargetAccountId" #TargetAccountId=ngModel class="form-control"/>
+                  <input type="text" id="TargetAccountId" name="TargetAccountId" [(ngModel)]="targetaccountId" #TargetAccountId=ngModel class="form-control" required/>
                   <label class="form-label" for="TargetAccountId">Target AccountId:</label>
                   <span class="text-danger" *ngIf="TargetAccountId.touched && TargetAccountId.invalid">*Required</span>
                 </div> 
@@ -30,9 +30,10 @@
 
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-outline">
-                  <input type="text" id="amount" name="amount" (ngModel)="amount" #amount=ngModel class="form-control"/>
+                  <input type="number" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control" required max="50000"/>
                   <label class="form-label" for="amount">Transfer Amount</label>
-                  <span class="text-danger" *ngIf="amount.touched && amount.invalid">*Required</span>
+                  <span class="text-danger" *ngIf="amount.touched && amount.pristine "> *Required</span>
+                  <span class="text-danger" *ngIf="amount.dirty && amount.invalid">Amount limit exceeded should be less than 50000 rupees  </span> 
                 </div>                
               </div>
 
@@ -40,21 +41,20 @@
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="ServiceId">Service Type:</label>
-                    <select id="ServiceId" name="ServiceId" (ngModel)="ServiceId" #ServiceId=ngModel class="form-control">
+                    <select id="ServiceId" name="ServiceId" [(ngModel)]="serviceId" #ServiceId=ngModel class="form-control">
                       <span class="text-danger" *ngIf="ServiceId.touched && ServiceId.invalid">*Required</span>
-
                       <option value="1">NEFT</option>
                       <option value="2">RTGS</option>
                       <option value="3">IMPS</option>
-                    </select>  
-                  
+                    </select>                    
                 </div>
               </div>
 
               <div class="d-flex justify-content-between align-items-center pb-2">
                
                 
-                <button type="submit" class="btn btn-info btn-lg btn-rounded">Transfer</button>
+                <button [disabled]="transferform.invalid" type="submit" class="btn btn-info btn-lg btn-rounded button2">Transfer</button>
+                <button (click)="back()"> Back </button>
                 
               </div>
             </form>
@@ -63,7 +63,6 @@
       </div>
     </div>
   </div>
-</section>
 
 
- -->
+

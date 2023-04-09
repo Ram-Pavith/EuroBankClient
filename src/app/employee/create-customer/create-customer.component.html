@@ -1,81 +1,68 @@
-<section class="background-radial-gradient overflow-hidden">
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-      <div class="row gx-lg-5 align-items-center mb-5">
-        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-          <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-            The best offer <br />
-            <span style="color: hsl(218, 81%, 75%)">for your business</span>
-          </h1>
-          <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Temporibus, expedita iusto veniam atque, magni tempora mollitia
-            dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-            ab ipsum nisi dolorem modi. Quos?
-          </p>
-        </div>
-  
-        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-  
-          <div class="card bg-glass">
-            <div class="card-body px-4 py-5 px-md-5">
-              <form #createcustomerform="ngForm" (submit)="createCustomer()">
-                <p>{{this.msg}}</p>
-                
-                <div class="form-outline mb-4">
-                  <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control" />
-                  <label class="form-label">Email address</label>
-                  <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
-                </div>
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <img src="../../../assets/Images/Register.png" width="500" length="500">
 
-                <div class="form-outline mb-4">
-                  <input type="text" name="firstname" [(ngModel)]="customer.firstname" #firstname=ngModel class="form-control" />
-                  <label class="form-label">First Name</label>
-                  <span class="text-danger" *ngIf="firstname.touched && firstname.invalid">*Required</span>
-                </div>
+      </div>
 
-                <div class="form-outline mb-4">
-                  <input type="text" name="lastname" [(ngModel)]="customer.lastname" #lastname=ngModel class="form-control" />
-                  <label class="form-label">Last Name</label>
-                  <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">*Required</span>
-                </div>
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <form #createcustomerform="ngForm" (submit)="createCustomer()">
+              <p>{{this.msg}}</p>
+              
+              <div class="form-outline mb-4">
+                <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control" />
+                <label class="form-label">Email address</label>
+                <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
+              </div>
 
-                <div class="form-outline mb-4">
-                  <input type="text" name="address" [(ngModel)]="customer.address" #address=ngModel class="form-control" />
-                  <label class="form-label">Address</label>
-                  <span class="text-danger" *ngIf="address.touched && address.invalid">*Required</span>
-                </div>
+              <div class="form-outline mb-4">
+                <input type="text" name="firstname" [(ngModel)]="customer.firstname" #firstname=ngModel class="form-control" />
+                <label class="form-label">First Name</label>
+                <span class="text-danger" *ngIf="firstname.touched && firstname.invalid">*Required</span>
+              </div>
 
-                <div class="form-outline mb-4">
-                  <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel class="form-control" />
-                  <label class="form-label">Phone</label>
-                  <span class="text-danger" *ngIf="phone.touched && phone.invalid">*Required</span>
-                </div>
+              <div class="form-outline mb-4">
+                <input type="text" name="lastname" [(ngModel)]="customer.lastname" #lastname=ngModel class="form-control" />
+                <label class="form-label">Last Name</label>
+                <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">*Required</span>
+              </div>
 
-                <div class="form-outline mb-4">
-                  <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/>
-                  <label class="form-label">Password</label>
-                  <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
-                </div>
+              <div class="form-outline mb-4">
+                <input type="text" name="address" [(ngModel)]="customer.address" #address=ngModel class="form-control" />
+                <label class="form-label">Address</label>
+                <span class="text-danger" *ngIf="address.touched && address.invalid">*Required</span>
+              </div>
 
-                <div class="form-outline mb-4">
-                  <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control" maxlength="10"/>
-                  <label class="form-label">Pan Number</label>
-                  <span class="text-danger" *ngIf="pannumber.touched && pannumber.invalid">*Required</span>
-                </div>
+              <div class="form-outline mb-4">
+                <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel class="form-control" />
+                <label class="form-label">Phone</label>
+                <span class="text-danger" *ngIf="phone.touched && phone.invalid">*Required</span>
+              </div>
 
-                <div class="form-outline mb-4">
-                  <input type="date" name="dob" [(ngModel)]="customer.dob" #dob=ngModel class="form-control" />
-                  <label class="form-label">DOB</label>
-                  <span class="text-danger" *ngIf="dob.touched && dob.invalid">*Required</span>
-                </div>
-  
-                <input type="submit" value="Create" class="btn btn-primary btn-block mb-4" [disabled]="!createcustomerform.valid"/>
-              </form>
-            </div>
+              <div class="form-outline mb-4">
+                <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$"/>
+                <label class="form-label">Password</label>
+                <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control" maxlength="10"/>
+                <label class="form-label">Pan Number</label>
+                <span class="text-danger" *ngIf="pannumber.touched && pannumber.invalid">*Required</span>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="date" name="dob" [(ngModel)]="customer.dob" #dob=ngModel class="form-control" />
+                <label class="form-label">DOB</label>
+                <span class="text-danger" *ngIf="dob.touched && dob.invalid">*Required</span>
+              </div>
+
+              <input type="submit" value="Create" class="btn btn-primary btn-block mb-4" [disabled]="!createcustomerform.valid"/>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
