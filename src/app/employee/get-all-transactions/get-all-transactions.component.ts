@@ -18,9 +18,9 @@ export class GetAllTransactionsComponent {
 
   gettransactions(){
     this.empserv.getAllTransactions().subscribe(data =>{
-      console.log(data.data);
-      if(data.data.length == 0) this.msg = "No transactions";
-      this.transactionsDTO = data.data;
+      console.log(data);
+      if(data.length == 0) this.msg = "No transactions";
+      this.transactionsDTO = data;
     },err =>{
       console.log(err);
     })

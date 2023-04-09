@@ -56,8 +56,8 @@ export class EmployeeservService {
     })
   }
 
-  getAllTransactions():Observable<any>{
-    return this.http.get<any>(this.req+"/ViewAllTransactions",{
+  getAllTransactions():Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(this.req+"/ViewAllTransactions",{
       headers:this.headers
     })
   }
