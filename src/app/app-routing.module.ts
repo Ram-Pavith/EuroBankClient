@@ -15,7 +15,6 @@ import { GetCustomerAccountsComponent } from './customer/Components/get-customer
 import { GetAccountComponent } from './customer/Components/get-account/get-account.component';
 import { AccountStatementComponent } from './account/Components/account-statement/account-statement.component';
 import { AccountTransactionsComponent } from './account/Components/account-transactions/account-transactions.component';
-import { CustomerMenuComponent } from './customer/Components/customer-menu/customer-menu.component';
 import { GettransactionComponent } from './transaction/Components/gettransaction/gettransaction.component';
 import { CustomerHomeComponent } from './customer/Components/home/home.component';
 import { GetCustomerStatementComponent } from './customer/Components/get-customer-statement/get-customer-statement.component';
@@ -38,7 +37,6 @@ const routes: Routes =
   {path:'GetAllCustomers',component:GetAllCustomersComponent,canActivate: [AuthGuard],data: {role: 'Employee'}}, 
   {path:'GetAllAccounts',component:GetAllAccountsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
   {path:'GetAllTransactions',component:GetAllTransactionsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
-  { path:"CustomerMenu",component:CustomerMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:'AccountsMenu',component:AccountsMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
   {path:'AccountDetails',component:AccountDetailsComponent},
   {path:'AccountDetails/:id',component:AccountDetailsComponent},
