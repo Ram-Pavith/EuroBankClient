@@ -37,3 +37,32 @@
     background-color: hsla(0, 0%, 100%, 0.9) !important;
     backdrop-filter: saturate(200%) blur(25px);
   }
+
+  input{
+    float:left;
+  }
+
+  a:link{
+    color: #f50057;
+  }
+
+  .btn-primary{
+    background-color: rgb(146, 239, 208);
+    border-color: rgb(146, 239, 208);
+    color: black;
+  }
+
+  img{
+    float:left;
+    padding-right: 20px;
+  }
+
+  .center {
+    margin: auto;
+    width: 80%;
+    padding: 140px 50px 0px 100px;
+  }
+
+  .card{
+    background-color: #f0286b1c;
+  }

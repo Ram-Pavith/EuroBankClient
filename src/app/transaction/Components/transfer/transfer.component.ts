@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 import { TransactionService } from 'src/app/transaction.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-transfer',
@@ -27,7 +28,7 @@ export class TransferComponent {
 
   
 
-constructor(private transactionservice:TransactionService,private route:Router){}
+constructor(private transactionservice:TransactionService,private route:Router,private toastr:ToastrService){}
 ngOnInit(): void { 
   this.transferform = new FormGroup({
     TargetAccountId:new FormControl(),
@@ -39,7 +40,7 @@ ngOnInit(): void {
 
 Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number):void
 {
-  if((ServiceId == 1 && (amount >= 1 && amount <= 20000)) || (ServiceId == 2 && (amount >= 20000 && amount<=50000)) ||(ServiceId == 3 && (amount >= 1 && amount <= 50000))){
+  if((ServiceId == 1 && (amount >= 1 && amount <= 200000)) || (ServiceId == 2 && (amount >= 200000)) ||(ServiceId == 3 && (amount >= 1 && amount <= 200000))){
 
   this.transactionservice.Transfer(SrcAccountId,TarAccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
@@ -51,22 +52,24 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
   if(data.transactionStatusCode==1){
     console.log(data.transactionStatusCode)
     this.flag=true;
-    this.msg="Transaction success"
+    this.msg="Transaction Success"
+    this.toastr.success(this.msg,"Money Transfer Successful")
   }
   },err=>{
   this.flag=false;
   console.log(err.error)
-  this.msg=err.error
+  this.msg=err.error;
+  this.toastr.error(this.msg,"Money Transfer Failed")
 }  )}
 else{
   if(ServiceId == 1){
-    this.msg="For NEFT transcation amount should be less than 20000"
+    this.msg="For NEFT transcation amount should be less than 200000"
   }
   else if(ServiceId == 2){
-    this.msg="For RTGS transcation amount should be between 20000 and 50000"
+    this.msg="For RTGS transcation amount should be greater than 200000"
   }
   else if(ServiceId == 3){
-    this.msg="For IMPS transcation amount should be less than 50000"
+    this.msg="For IMPS transcation amount should be less than 200000"
   }
 }
 }

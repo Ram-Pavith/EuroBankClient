@@ -9,5 +9,6 @@ import { Router } from '@angular/router';
 export class CustomerHomeComponent
 {
   constructor(private route:Router){
+    console.log(localStorage.getItem("CustomerId"));
   }
 }

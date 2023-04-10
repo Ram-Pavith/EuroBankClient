@@ -8,22 +8,20 @@ import { Account } from 'src/Models/Account';
   templateUrl: './get-customer-accounts.component.html',
   styleUrls: ['./get-customer-accounts.component.css']
 })
-export class GetCustomerAccountsComponent implements OnInit 
+export class GetCustomerAccountsComponent 
 {
   id:string=""
   customer:Account[]=[];
   constructor(private obj:CustomerService) 
   {
-    this.id=localStorage.getItem("CustomerId")
-  }
-  
-
-  ngOnInit(): void {
+    this.id=localStorage.getItem("CustomerId");
     this.getaccounts();
   }
 
+
   getaccounts()
   {
+    console.log(this.id);
     this.obj.getCustomerAccounts(this.id).subscribe(data =>{
       console.log(data);
       this.customer = data;
