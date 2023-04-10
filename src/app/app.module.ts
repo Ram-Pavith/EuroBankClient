@@ -19,21 +19,21 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import * as Sherlock from '../../node_modules/sherlockjs';
 import * as mdb from 'mdb-ui-kit'; // lib
-import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { CustomerHomeComponent } from './customer/Components/home/home.component'
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { TransactionDateFilter } from './Filters/transactionDateFilter';
 import { TransactionServiceFilter } from './Filters/transactionServiceFilter';
 import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
        NavbarComponent,
        ForgotPasswordComponent,
-       ChangePasswordComponent,
-       AppHomePageComponent
+       AppHomePageComponent,
+       ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -51,11 +51,10 @@ import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule,
-    FontAwesomeModule,
+    FontAwesomeModule
 
   ],
   exports:[
-  //  CustomerService    
   ],
   providers: [],
   bootstrap: [AppComponent],

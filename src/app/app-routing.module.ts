@@ -25,6 +25,8 @@ import { CreateCustomerComponent } from './employee/create-customer/create-custo
 import { AnalysisComponent } from './customer/Components/analysis/analysis.component';
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 
 const routes: Routes = 
@@ -53,7 +55,9 @@ const routes: Routes =
   {path:"statement",component:GetCustomerStatementComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"viewtransaction",component:ViewAllTransactionComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"CustomerAnalysis",component:AnalysisComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
-  {path:'HomePage',component:AppHomePageComponent}
+  {path:'HomePage',component:AppHomePageComponent},
+  {path:'ForgotPassword',component:ForgotPasswordComponent},
+  {path:'ResetPassword',component:ResetPasswordComponent}
 
 ];
 
