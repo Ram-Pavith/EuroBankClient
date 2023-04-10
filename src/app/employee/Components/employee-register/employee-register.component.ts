@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Guid } from 'guid-typescript';
 import { EmployeeRegister } from 'src/Models/EmployeeRegister';
-import { EmployeeservService } from '../Services/employeeserv.service';
+import { EmployeeservService } from '../../Services/employeeserv.service';
 @Component({
   selector: 'app-employee-register',
   templateUrl: './employee-register.component.html',

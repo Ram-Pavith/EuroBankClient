@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmployeeservService } from '../Services/employeeserv.service';
+import { EmployeeservService } from '../../Services/employeeserv.service';
 import { Customer } from 'src/Models/Customer';
 import { CustomerRegister } from 'src/Models/CustomerRegister';
 import { formatDate } from '@angular/common';

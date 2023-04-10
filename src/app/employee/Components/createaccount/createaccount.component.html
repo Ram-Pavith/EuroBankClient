@@ -11,6 +11,8 @@
             <div class="card-body px-4 py-5 px-md-5">
               <form #accountcreateform="ngForm" (submit)="createaccount()">
                 <p>{{this.msg}}</p>
+
+                
                 <!-- Amount input -->
                 <div class="form-outline mb-4">
                   <input type="text" name="custId" [(ngModel)]="customerId" #custId=ngModel id="form3Example3" class="form-control" />

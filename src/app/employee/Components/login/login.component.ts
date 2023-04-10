@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EmployeeLogin } from 'src/Models/EmployeeLogin';
-import { EmployeeservService } from '../Services/employeeserv.service';
+import { EmployeeservService } from '../../Services/employeeserv.service';
 import { Route, Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { ToastrService } from 'ngx-toastr';

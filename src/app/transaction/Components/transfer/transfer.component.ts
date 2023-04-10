@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
-import { TransactionService } from 'src/app/transaction.service';
+import { TransactionService } from '../../Services/transaction.service';
 
 @Component({
   selector: 'app-transfer',

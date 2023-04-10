@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { Subscription } from 'rxjs';
 import { Transaction } from 'src/Models/Transaction';
-import { TransactionService } from 'src/app/transaction.service';
+import { TransactionService } from '../../Services/transaction.service';
 
 @Component({
   selector: 'app-gettransaction',

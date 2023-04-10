@@ -2,7 +2,7 @@ import { Injectable} from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Guid } from 'guid-typescript';
 import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Transaction } from 'src/Models/Transaction';
 
 @Injectable({
@@ -25,7 +25,11 @@ export class TransactionService {
   {
     return this.http.post<RefTransactionStatus>(this.url+"/Withdraw?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
   Deposit(AccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
@@ -37,14 +41,22 @@ export class TransactionService {
   {
     return this.http.post<RefTransactionStatus>(this.url+"/Transfer?Source_AccountId="+SourceAccountId.toString()+"&Target_AccountId="+TargetAccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   GetTransaction(TransactionId:Guid):Observable<Transaction>
   {
     return this.http.get<Transaction>(this.url+"/GetTransactionById?TransactionId="+TransactionId,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
  
 

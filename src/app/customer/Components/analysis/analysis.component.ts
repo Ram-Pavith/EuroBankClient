@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Customer } from 'src/Models/Customer';
 import { Transaction } from 'src/Models/Transaction';
-import { TransactionService } from 'src/app/transaction.service';
+import { TransactionService } from '../../../transaction/Services/transaction.service';
 import { CustomerService } from '../../Services/customer.service';
 import Chart from 'chart.js/auto';
 import { formatDate } from '@angular/common';

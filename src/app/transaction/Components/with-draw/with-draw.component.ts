@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Guid } from 'guid-typescript';
-import { TransactionService } from 'src/app/transaction.service';
+import { TransactionService } from '../../Services/transaction.service';
 import { Router } from '@angular/router';
 import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 
