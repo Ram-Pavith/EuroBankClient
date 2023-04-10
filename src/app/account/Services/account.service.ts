@@ -13,61 +13,60 @@ import { Transaction } from 'src/Models/Transaction';
 })
 export class AccountService {
 
-  headers={
-    'Content-Type':'application/json;charset=UTF-8',
-    'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Method':'*',
-    'Access-Control-Allow-Headers':'Content-Type',
-    'Authorization':`Bearer ` + localStorage.getItem("token")
+  headers = {
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Method': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Authorization': `Bearer ` + localStorage.getItem("token")
   }
 
   CreateAcc_ReqUrl: string = "https://localhost:7035/api/Accounts/CreateAccount?CustomerId=";
-  GetCustAccsBal_ReqUrl:string = "https://localhost:7035/api/Accounts/GetCustomerAccountsBalance?CustomerId=";
-  GetAccBal_ReqUrl:string = "https://localhost:7035/api/Accounts/GetAccountBalance?AccountId=";
-  GetStatement_ReqUrl:string = "https://localhost:7035/api/Accounts/GetAccountStatement?AccountId=";
-  GetAccTrans_ReqUrl:string = "https://localhost:7035/api/Accounts/GetTransactions?AccountId=";
+  GetCustAccsBal_ReqUrl: string = "https://localhost:7035/api/Accounts/GetCustomerAccountsBalance?CustomerId=";
+  GetAccBal_ReqUrl: string = "https://localhost:7035/api/Accounts/GetAccountBalance?AccountId=";
+  GetStatement_ReqUrl: string = "https://localhost:7035/api/Accounts/GetAccountStatement?AccountId=";
+  GetAccTrans_ReqUrl: string = "https://localhost:7035/api/Accounts/GetTransactions?AccountId=";
 
-  constructor(private http:HttpClient) 
-  { 
-    
+  constructor(private http: HttpClient) {
+
   }
 
-  CreateAccount(CustomerId:string):Observable<AccountCreationStatus>{
-    return this.http.post<AccountCreationStatus>(this.CreateAcc_ReqUrl + CustomerId,{
-      headers:this.headers
+  CreateAccount(CustomerId: string): Observable<AccountCreationStatus> {
+    return this.http.post<AccountCreationStatus>(this.CreateAcc_ReqUrl + CustomerId, CustomerId ,{
+      headers: this.headers
     });
   }
 
 
-  GetCustomerAccountsBalance(CustomerId: string):Observable<AccountBalance[]>{
-    return this.http.get<AccountBalance[]>(this.GetCustAccsBal_ReqUrl+CustomerId,{
-      headers:this.headers
+  GetCustomerAccountsBalance(CustomerId: string): Observable<AccountBalance[]> {
+    return this.http.get<AccountBalance[]>(this.GetCustAccsBal_ReqUrl + CustomerId, {
+      headers: this.headers
     });
   }
 
-  GetAccountBalance(AccountId:Guid):Observable<AccountBalance>{
-    console.log(this.http.get<AccountBalance>(this.GetAccBal_ReqUrl+AccountId.toString()));
-    return this.http.get<AccountBalance>(this.GetAccBal_ReqUrl+AccountId.toString(),{
-      headers:this.headers
+  GetAccountBalance(AccountId: Guid): Observable<AccountBalance> {
+    console.log(this.http.get<AccountBalance>(this.GetAccBal_ReqUrl + AccountId.toString()));
+    return this.http.get<AccountBalance>(this.GetAccBal_ReqUrl + AccountId.toString(), {
+      headers: this.headers
     });
   }
 
-  GetAccStatement(url:string):Observable<Statement[]>{
-      return this.http.get<Statement[]>(url,{
-        headers:this.headers
-      });
-  }
-
-  
-  GetAccTransactions(AccountId:Guid):Observable<Transaction[]>{
-    return this.http.get<Transaction[]>(this.GetAccTrans_ReqUrl + AccountId.toString() + "&PageSize=0&PageNumber=1",{
-      headers:this.headers
+  GetAccStatement(url: string): Observable<Statement[]> {
+    return this.http.get<Statement[]>(url, {
+      headers: this.headers
     });
   }
 
 
+  GetAccTransactions(AccountId: Guid): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(this.GetAccTrans_ReqUrl + AccountId.toString() + "&PageSize=0&PageNumber=1", {
+      headers: this.headers
+    });
+  }
 
-  
+
+
+
 
 
 

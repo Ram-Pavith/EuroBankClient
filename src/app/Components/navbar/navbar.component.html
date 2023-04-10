@@ -1,198 +1,24 @@
-<!-- <header> -->
-  <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- Container wrapper -->
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Toggle button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="/HomePage">
-        <img src="../../assets/Images/EuroBank.jpeg" height="40" alt="EuroBank Logo" loading="lazy" />
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/HomePage">
+        <img src="../../assets/Images/EuroBank.jpeg" height="40" alt="EuroBank Logo"  />
       </a>
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <div *ngIf="role==''">
-          <li class="nav-item">
-            <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Home</a>
-          </li>
-        </div>
-
-        <!-- Customer Home -->
-        <div *ngIf="role=='Customer'">
-          <li class="nav-item">
-            <a class="nav-link" href="/CustomerHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Customer Home</a>
-          </li>
-        </div>
-
-        <!-- Account Home -->
-        <div *ngIf="role=='Account'">
-          <li class="nav-item">
-            <a class="nav-link" href="/AccountsMenu" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Account Home</a>
-          </li>
-        </div>
-
-        <!-- Employee Home -->
-        <div *ngIf="role=='Employee'">
-          <li class="nav-item">
-            <a class="nav-link" href="/EmployeeHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Employee Home</a>
-          </li>
-        </div>
-      </ul>
-      <!-- Left links -->
     </div>
-    <!-- Collapsible wrapper -->
-
-    <!-- Right elements -->
-    <div class="d-flex align-items-center">
-
-      <!-- Transactions -->
-      <div class="dropdown" *ngIf="role=='Account'">
-        <a
-          class="text-reset me-3 dropdown-toggle hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-        <i class="bi bi-currency-rupee"></i>
-        <span class="badge rounded-pill badge-notification bg-danger">.</span>
+    <ul class="nav navbar-nav">
+      <li *ngIf="isUserLoggedIn() == false" class="active">
+        <a routerLink="/EmployeeLogin"> Employee Login
         </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li>
-            <a class="dropdown-item" href=""><i class="bi bi-arrow-up"></i> Withdraw</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-arrow-down"></i> Deposit</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-arrow-left-right"></i> Transfer</a>
-          </li>
-        </ul>
-      </div>
-      <!-- Avatar -->
-      <div class="dropdown">
-        <a
-          class="dropdown-toggle d-flex align-items-center hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuAvatar"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-        <div *ngIf="role==''">
-          <a routerLink="/EmployeeLogin" class="btn" style="background-color: #f50057; color:white;"><i class="bi bi-door-open" style="background-color: #f50057;"></i> Employee Login</a>
-          &nbsp;
-          &nbsp;
-          <a routerLink="/CustomerLogin" class="btn" style="background-color: #f50057;color:white;"><i class="bi bi-door-open" style="background-color: #f50057;"></i> Customer Login</a>
-        </div>
-        
-        <div *ngIf="role!=''">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-            class="rounded-circle"
-            height="25"
-            alt="Black and White Portrait of a Man"
-            loading="lazy"
-          />
-          <script>windows.location.reload()</script>
-        </div>
-          
-        </a>
-
-        <!-- Account Profile -->
-        <div *ngIf="role=='Account'">
-          <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuAvatar"
-        >
-        <li>
-          <a class="dropdown-item" routerLink="/AccountsMenu" ><i class="bi bi-person-circle"></i> Account Menu </a>
-        </li>
-
-          <li>
-            <a class="dropdown-item" (click)="accountProfile()" ><i class="bi bi-person-circle"></i> My profile</a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/AccountTransactions"  ><i class="bi bi-cash"></i> Transactions</a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/AccountStatement" ><i class="bi bi-file-text"></i> Statement</a>
-          </li>
-          <li>
-            <a class="dropdown-item" (click)="user_logout()" style="color:red;"><i class="bi bi-box-arrow-right"></i> Logout</a>
-          </li>
-        </ul>
-        </div>
-
-        <!-- Customer Profile -->
-        <div *ngIf="role=='Customer'">
-          <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuAvatar"
-        >
-        <li>
-          <a class="dropdown-item" routerLink="/CustomerHome" ><i class="bi bi-person-circle"></i> Customer Menu </a>
-        </li>
-          
-          <li>
-            <a class="dropdown-item" routerLink="/viewtransaction"  ><i class="bi bi-cash"></i> Transactions</a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/statement" ><i class="bi bi-file-text"></i> Statement</a>
-          </li>
-
-          <li>
-            <a class="dropdown-item" (click)="user_logout()" style="color:red;"><i class="bi bi-box-arrow-right"></i> Logout</a>
-          </li>
-        </ul>
-        </div>
-        
-        <!-- Employee Profile -->
-        <div *ngIf="role=='Employee'">
-          <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuAvatar"
-        >
-          <li>
-            <a class="dropdown-item" routerLink="/EmployeeHome" ><i class="bi bi-person-circle"></i> Employee Menu </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/GetAllTransactions"  ><i class="bi bi-cash"></i> All Transactions</a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/GetAllAccounts" ><i class="bi bi-person-circle"></i> All Accounts</a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/GetAllCustomers" ><i class="bi bi-person-circle"></i> All Customers</a>
-          </li>
-
-          <li>
-            <a class="dropdown-item" (click)="user_logout()" style="color:red;"><i class="bi bi-box-arrow-right"></i> Logout</a>
-          </li>
-        </ul>
-        </div>
-       
-      </div>
-    </div>
-    <!-- Right elements -->
+    </li>
+    <li *ngIf="isUserLoggedIn() == false" class="active">
+      <a routerLink="/CustomerLogin"> Customer Login
+      </a>
+    </li>
+      <li *ngIf="isUserLoggedIn()" class="active"><a (click)="user_logout()">
+          <i class="fa fa-sign-out" aria-hidden="true"> 
+            <span style="width:5px"></span>
+            Logout</i></a>
+      </li>
+    </ul>
   </div>
-  <!-- Container wrapper -->
 </nav>
-<!-- </header> -->
