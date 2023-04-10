@@ -1,9 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './employee/Components/login/login.component';
-import { GetAllCustomersComponent } from './employee/Components/get-all-customers/get-all-customers.component';
-import { GetAllAccountsComponent } from './employee/Components/get-all-accounts/get-all-accounts.component';
-import { GetAllTransactionsComponent } from './employee/Components/get-all-transactions/get-all-transactions.component';
+import { LoginComponent } from './employee/login/login.component';
+import { GetAllCustomersComponent } from './employee/get-all-customers/get-all-customers.component';
+import { GetAllAccountsComponent } from './employee/get-all-accounts/get-all-accounts.component';
+import { GetAllTransactionsComponent } from './employee/get-all-transactions/get-all-transactions.component';
 // import { HomeComponent } from './customer/Components/home/home.component';
 import {CustomerLoginComponent} from './customer/Components/login/CustomerLogin.component';
 import { AccountsMenuComponent } from './account/Components/accounts-menu/accounts-menu.component';

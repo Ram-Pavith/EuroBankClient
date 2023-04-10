@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Transaction } from 'src/Models/Transaction';
-import { EmployeeservService } from '../../Services/employeeserv.service';
+import { EmployeeservService } from '../Services/employeeserv.service';
 import {PaginationModule } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-get-all-transactions',

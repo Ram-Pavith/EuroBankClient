@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Account } from 'src/Models/Account';
-import { EmployeeservService } from '../../Services/employeeserv.service';
+import { EmployeeservService } from '../Services/employeeserv.service';
 
 @Component({
   selector: 'app-get-all-accounts',
