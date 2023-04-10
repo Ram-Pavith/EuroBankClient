@@ -10,4 +10,7 @@ export class ResetPasswordComponent {
     email:"",
     password:""
   }
+  ResetPassword(){
+    
+  }
 }

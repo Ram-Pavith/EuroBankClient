@@ -38,8 +38,8 @@ transactions()
   },err =>{
     console.log(err.error);
   })
-  this.GetDates()
-  this.GetDateCounts()
+  //this.GetDates()
+  //this.GetDateCounts()
 }
 
 GetDates(){
