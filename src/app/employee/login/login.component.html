@@ -9,7 +9,6 @@
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
               <form #loginform="ngForm" (submit)="login()">
-                <p>{{this.msg}}</p>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <input type="email" name="emailId" [(ngModel)]="employeeloginDTO.emailId" #emailId=ngModel id="form3Example3" class="form-control" />
@@ -23,6 +22,10 @@
                   <label class="form-label" for="form3Example4">Password</label>
                   <span class="text-danger" *ngIf="password.touched && password.invalid">*Required</span>
                 </div>
+                <br>
+                <a (click)="ForgotPassword()" style="color:blue;" >Forgot Password ?</a>
+                <br>
+                <br>
                 <!-- Submit button -->
                 <input type="submit" value="Login" class="btn btn-primary btn-block mb-4" [disabled]="!loginform.valid"/>
               </form>

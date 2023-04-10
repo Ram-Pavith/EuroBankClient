@@ -16,7 +16,7 @@ export class GettransactionComponent implements OnInit {
   Transaction:Transaction;
   
   constructor(private transactionservice:TransactionService,private route:ActivatedRoute)
-  {
+  {   
     this.txnid=Guid.parse(this.route.snapshot.paramMap.get('id'));
     console.log(this.txnid);
     this.getTransactionId_api(this.txnid);
