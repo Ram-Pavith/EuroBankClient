@@ -15,6 +15,7 @@ export class WithDrawComponent {
   flag:Boolean
   Amount:number
   serviceId:number
+  paymentId:number
   //amount:number
   withdraw_btn_click:boolean=false
   msg:string="TransactionFailure"

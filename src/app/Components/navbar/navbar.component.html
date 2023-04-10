@@ -110,6 +110,18 @@
          
         </div>
         
+        <div *ngIf="role == 'Customer'">
+          <p style="color: #f50057;" >Welcome, {{ username }}!</p>
+        </div>
+        &nbsp;
+          &nbsp;
+
+          <div *ngIf="role == 'Employee'">
+            <p style="color: #f50057;" >Welcome, {{ username }}!</p>
+          </div>
+          &nbsp;
+          &nbsp;
+        
         <div *ngIf="role!=''">
           <img
             src="assets/Images/Screenshot (5).png"
@@ -120,6 +132,9 @@
           />
           <!-- <script>windows.location.reload()</script> -->
         </div>
+
+       
+       
           
         </a>
 
@@ -170,6 +185,7 @@
           </li>
         </ul>
         </div>
+        
         
         <!-- Employee Profile -->
         <div *ngIf="role=='Employee'">
