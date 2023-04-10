@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="/HomePage">
-        <img src="../../assets/Images/EuroBank.jpeg" height="40" alt="EuroBank Logo" loading="lazy" />
+        <img src="../../assets/Images/EuroBank.jpeg" height="40" alt="EuroBank Logo"  />
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -35,7 +35,7 @@
         <!-- Customer Home -->
         <div *ngIf="role=='Customer'">
           <li class="nav-item">
-            <a class="nav-link" href="/CustomerHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Customer Home</a>
+            <a class="nav-link" routerLink="/CustomerHome" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Customer Home</a>
           </li>
         </div>
 
@@ -80,13 +80,13 @@
           aria-labelledby="navbarDropdownMenuLink"
         >
           <li>
-            <a class="dropdown-item" href=""><i class="bi bi-arrow-up"></i> Withdraw</a>
+            <a class="dropdown-item" routerLink="Withdraw"><i class="bi bi-arrow-up"></i> Withdraw</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-arrow-down"></i> Deposit</a>
+            <a class="dropdown-item" routerLink="Deposit"><i class="bi bi-arrow-down"></i> Deposit</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#"><i class="bi bi-arrow-left-right"></i> Transfer</a>
+            <a class="dropdown-item" routerLink="Transfer"><i class="bi bi-arrow-left-right"></i> Transfer</a>
           </li>
         </ul>
       </div>
@@ -96,7 +96,7 @@
           class="dropdown-toggle d-flex align-items-center hidden-arrow"
           href="#"
           id="navbarDropdownMenuAvatar"
-          role="button"
+          
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
@@ -116,9 +116,9 @@
             class="rounded-circle"
             height="25"
             alt="Black and White Portrait of a Man"
-            loading="lazy"
+            
           />
-          <script>windows.location.reload()</script>
+          <!-- <script>windows.location.reload()</script> -->
         </div>
           
         </a>
