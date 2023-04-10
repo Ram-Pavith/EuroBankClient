@@ -48,7 +48,7 @@ deposit_api(AccountId:Guid,amount:number,PaymentId:number):void
   if(data.transactionStatusCode == 1) {
     this.flag = true;
     this.msg="Transaction Success";
-    this.toastr.success(this.msg,"Money Transfer Successful")
+    this.toastr.success("Money Deposit Successful")
 
     
   //Logging the response received from web api.
@@ -58,7 +58,7 @@ deposit_api(AccountId:Guid,amount:number,PaymentId:number):void
 },err=>{
     this.flag = false;
     this.msg=err.error
-    this.toastr.success(this.msg,"Money Transfer Successful")
+    this.toastr.error("Money Deposit Failed",err.error)
   })
 }
 

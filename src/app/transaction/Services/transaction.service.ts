@@ -35,7 +35,11 @@ export class TransactionService {
   {
     return this.http.get<RefTransactionStatus>(this.url+"/Deposit?AccountId="+AccountId.toString()+"&amount="+amount+"&paymentId="+PaymentId,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    );
   }
   Transfer(SourceAccountId:Guid,TargetAccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {

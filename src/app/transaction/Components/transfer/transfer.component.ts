@@ -53,13 +53,13 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
     console.log(data.transactionStatusCode)
     this.flag=true;
     this.msg="Transaction Success"
-    this.toastr.success(this.msg,"Money Transfer Successful")
+    this.toastr.success("Money Transfer Successful")
   }
   },err=>{
   this.flag=false;
   console.log(err.error)
   this.msg=err.error;
-  this.toastr.error(this.msg,"Money Transfer Failed")
+  this.toastr.error("Money Transfer Failed",err.error)
 }  )}
 else{
   if(ServiceId == 1){
