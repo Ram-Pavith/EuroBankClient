@@ -15,10 +15,10 @@
                 <label class="form-label">Customer Id</label>
                 <span class="text-danger" *ngIf="customerId.touched && customerId.invalid">*Required</span>
               </div>
-              
+
               <div class="form-outline mb-4">
                 <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control" />
-                <label class="form-label">Email address</label>
+                <label class="form-label">Email Address</label>
                 <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
               </div>
 
@@ -47,10 +47,13 @@
               </div>
 
               <div class="form-outline mb-4">
-                <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$"/>
+                <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" />
                 <label class="form-label">Password</label>
-                <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
+                <span class="text-danger" *ngIf="passwd.touched && passwd.errors['pattern']">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
               </div>
+              <p>{{passwd.errors}}</p>
+
+              <!-- pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" -->
 
               <div class="form-outline mb-4">
                 <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control" maxlength="10"/>
