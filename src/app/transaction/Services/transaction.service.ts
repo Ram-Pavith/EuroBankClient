@@ -23,7 +23,7 @@ export class TransactionService {
   url:string="https://localhost:7035/api/Transaction"
   Withdraw(AccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
-    return this.http.post<RefTransactionStatus>(this.url+"/Withdraw?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
+    return this.http.get<RefTransactionStatus>(this.url+"/Withdraw?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
       headers:this.headers
     }).pipe(
       catchError(error=>{
@@ -33,13 +33,13 @@ export class TransactionService {
   }
   Deposit(AccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
-    return this.http.post<RefTransactionStatus>(this.url+"/Deposit?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
+    return this.http.get<RefTransactionStatus>(this.url+"/Deposit?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
       headers:this.headers
     });
   }
   Transfer(SourceAccountId:Guid,TargetAccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
-    return this.http.post<RefTransactionStatus>(this.url+"/Transfer?Source_AccountId="+SourceAccountId.toString()+"&Target_AccountId="+TargetAccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
+    return this.http.get<RefTransactionStatus>(this.url+"/Transfer?Source_AccountId="+SourceAccountId.toString()+"&Target_AccountId="+TargetAccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
       headers:this.headers
     }).pipe(
       catchError(error=>{
