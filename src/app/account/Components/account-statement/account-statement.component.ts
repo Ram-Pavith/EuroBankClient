@@ -22,6 +22,8 @@ export class AccountStatementComponent implements OnInit {
 
   from_date:Date;
   to_date:Date;
+  
+  today_date:Date=new Date(2023,4,10);
 
   //get using route parameter / localstorage
   AccId: string = localStorage.getItem("AccountId");
@@ -91,6 +93,20 @@ export class AccountStatementComponent implements OnInit {
       this.url = 'https://localhost:7035/api/Accounts/GetAccountStatement?AccountId='+localStorage.getItem("AccountId")
     }
     this.getAccountStatement()
+  }
+
+  SearchWithDate():void{
+    this.AccService.GetAccStatement
+    ("https://localhost:7035/api/Accounts/GetAccountStatement?AccountId="+
+    localStorage.getItem("AccountId")+'&from_date='+ 
+    this.from_date.getMonth().toString() + '-' + this.from_date.getDay().toString() + '-' + this.from_date.getFullYear().toString()
+     +'&to_date=' + 
+     this.to_date.getMonth().toString() + '-' + this.to_date.getDay().toString() + '-' + this.to_date.getFullYear().toString()).subscribe(data => {
+      console.log(data);
+      this.AccStatement = data;
+      this.showTable = true
+    });
+    
   }
 
   getAccountStatement(){

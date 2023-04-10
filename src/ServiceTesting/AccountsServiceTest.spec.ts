@@ -3,7 +3,7 @@ import { inject, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AccountService } from '../account/Services/account.service';
+import { AccountService } from '../app/account/Services/account.service';
 import { Account } from 'src/Models/Account';
 import { AccountBalance } from 'src/Models/AccountBalance';
 import { Guid } from 'guid-typescript';

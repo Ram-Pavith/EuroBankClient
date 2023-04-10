@@ -63,8 +63,7 @@ export class NavbarComponent{
       localStorage.clear()
       this.router.navigateByUrl('/CustomerLogin')
     }
-
-    
+    localStorage.clear(); 
   }
   
 

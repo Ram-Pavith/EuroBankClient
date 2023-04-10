@@ -13,24 +13,24 @@ import { Transaction } from 'src/Models/Transaction';
 })
 export class AccountService {
 
-  headers={
-    'Content-Type':'application/json;charset=UTF-8',
-    'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Method':'*',
-    'Access-Control-Allow-Headers':'Content-Type',
-    'Authorization':`Bearer ` + localStorage.getItem("token")
+  headers = {
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Method': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Authorization': `Bearer ` + localStorage.getItem("token")
   }
 
   CreateAcc_ReqUrl: string = "https://localhost:7035/api/Accounts/CreateAccount?CustomerId=";
-  GetCustAccsBal_ReqUrl:string = "https://localhost:7035/api/Accounts/GetCustomerAccountsBalance?CustomerId=";
-  GetAccBal_ReqUrl:string = "https://localhost:7035/api/Accounts/GetAccountBalance?AccountId=";
-  GetStatement_ReqUrl:string = "https://localhost:7035/api/Accounts/GetAccountStatement?AccountId=";
-  GetAccTrans_ReqUrl:string = "https://localhost:7035/api/Accounts/GetTransactions?AccountId=";
+  GetCustAccsBal_ReqUrl: string = "https://localhost:7035/api/Accounts/GetCustomerAccountsBalance?CustomerId=";
+  GetAccBal_ReqUrl: string = "https://localhost:7035/api/Accounts/GetAccountBalance?AccountId=";
+  GetStatement_ReqUrl: string = "https://localhost:7035/api/Accounts/GetAccountStatement?AccountId=";
+  GetAccTrans_ReqUrl: string = "https://localhost:7035/api/Accounts/GetTransactions?AccountId=";
 
-  constructor(private http:HttpClient) 
-  { 
-    
+  constructor(private http: HttpClient) {
+
   }
+
 
   CreateAccount(CustomerId:string):Observable<AccountCreationStatus>{
     console.log(CustomerId)
@@ -88,7 +88,7 @@ export class AccountService {
 
 
 
-  
+
 
 
 
