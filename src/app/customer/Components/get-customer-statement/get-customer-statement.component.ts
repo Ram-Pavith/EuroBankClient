@@ -97,8 +97,8 @@ export class GetCustomerStatementComponent implements OnInit
     this.obj.GetCustomerStatement(this.url).subscribe(data => {
       console.log(data);
       this.customerStatement = data;
+      this.showTable = true
     });
-    this.showTable = true
 
   }
 
