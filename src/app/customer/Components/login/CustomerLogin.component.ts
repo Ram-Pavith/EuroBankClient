@@ -57,14 +57,15 @@ export class CustomerLoginComponent {
           this.customerId = customer.customerId
           localStorage.setItem("CustomerEmailId",customer.emailId)
           this.SaveCustomerId()
+          this.authService.login('Customer')
+          this.SaveToken()
+          this.SaveCustomerId()
+          this.route.navigateByUrl('CustomerHome');
         }, error => {
           console.log(error)
         })
-        this.authService.login('Customer')
-        this.SaveToken()
-        this.SaveCustomerId()
+        
       }
-      this.route.navigateByUrl('CustomerHome');
     }, err => {
       console.log(err.error)
       this.msg = "Invalid login";

@@ -15,11 +15,13 @@ export class GetCustomerAccountsComponent implements OnInit
   constructor(private obj:CustomerService) 
   {
     this.id=localStorage.getItem("CustomerId")
+    console.log(this.id)
+    this.getaccounts();
+
   }
   
 
   ngOnInit(): void {
-    this.getaccounts();
   }
 
   getaccounts()
