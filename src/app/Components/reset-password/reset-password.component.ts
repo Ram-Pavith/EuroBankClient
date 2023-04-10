@@ -26,9 +26,11 @@ export class ResetPasswordComponent {
           console.log(data)
           this.toastr.success("Password Succesfully Reset")
           if(this.role=="Customer"){
+            localStorage.clear()
             this.route.navigateByUrl("/CustomerLogin")
           }
           if(this.role=="Employee"){
+            localStorage.clear()
             this.route.navigateByUrl("/EmployeeLogin")
           }
         }
