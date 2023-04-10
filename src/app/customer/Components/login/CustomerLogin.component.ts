@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';    
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
@@ -32,7 +32,7 @@ export class CustomerLoginComponent {
   customerId: string = ""
   use: any;
 
-  constructor(private obj: CustomerService, private route: Router, private bj: TransactionService,private toastr : ToastrService,private authService:AuthService) { }
+  constructor(private obj: CustomerService, private route: Router, private bj: TransactionService, private toastr: ToastrService, private authService: AuthService) { }
 
 
   IsLoggedIn() {
@@ -50,12 +50,12 @@ export class CustomerLoginComponent {
     this.obj.userAuthorize(this.user).subscribe(data => {
       console.log(data.token);
       if (data.success) {
-          this.msg = "Success";
-          this.toastr.success(this.msg,"Succesfully Logged In")
-          this.authtoken = data.token;
-          this.obj.userlogin(this.user).subscribe(customer => {
+        this.msg = "Success";
+        this.toastr.success(this.msg, "Succesfully Logged In")
+        this.authtoken = data.token;
+        this.obj.userlogin(this.user).subscribe(customer => {
           this.customerId = customer.customerId
-          localStorage.setItem("CustomerEmailId",customer.emailId)
+          localStorage.setItem("CustomerEmailId", customer.emailId)
           this.SaveCustomerId()
           this.authService.login('Customer')
           this.SaveToken()
@@ -64,12 +64,13 @@ export class CustomerLoginComponent {
         }, error => {
           console.log(error)
         })
-        
+
       }
+      
     }, err => {
       console.log(err.error)
       this.msg = "Invalid login";
-      this.toastr.error(err.error,"Wrong Credentials")
+      this.toastr.error(err.error, "Wrong Credentials")
     })
   }
   SaveToken() {
@@ -84,8 +85,8 @@ export class CustomerLoginComponent {
   GetCustomerId() {
     localStorage.getItem("CustomerId");
   }
-  ForgotPassword(){
-    localStorage.setItem("PasswordForgotBy","Customer")
+  ForgotPassword() {
+    localStorage.setItem("PasswordForgotBy", "Customer")
     this.route.navigateByUrl("/ForgotPassword")
   }
 }

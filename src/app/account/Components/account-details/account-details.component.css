@@ -33,23 +33,32 @@ td{
 }
 
 .slogan{
-    margin-top:90px;
+    margin-top:120px;
     margin-left: 240px;
     font-family:'Alkatra', cursive;
-    font-size: 100px;
+    font-size: 80px;
     font-style: italic;
     font-weight: bold;
-    background: -webkit-linear-gradient(white, #DE5D83);
+    background: -webkit-linear-gradient(#f50057, #e34b78);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 
 table{
-    margin-top:30px;
-    margin-left: 200px;
+    /* margin-top:120px; */
+    /* margin-left: 200px; */
     font-size: 30px;
 }
+
+.card{
+    margin-left: 200px;
+    margin-top: 160px;
+    width: fit-content;
+    background-color: #f0286b1c;
+}
+
+
 
 .accOutline{
     display: flex;

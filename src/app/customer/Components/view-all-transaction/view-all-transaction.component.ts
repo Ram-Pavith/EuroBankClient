@@ -26,6 +26,7 @@ export class ViewAllTransactionComponent implements OnInit
   filterItemDate:string;
   filterItemServ:string;
   display='none';
+  showTable=false;
 
   constructor(private obj:CustomerService){
     this.transactions()
@@ -40,8 +41,12 @@ transactions()
 {
   this.obj.ViewAllTransaction(this.id).subscribe(data=>{
     console.log(data);
-    if(data.length == 0) this.msg = "No transactions";
-    this.customerTransactions = data;
+    if(data.length == 0) {this.msg = "No transactions";this.showTable=false}
+    if(data.length>0){
+      this.customerTransactions = data;
+    this.showTable=true;
+    }
+    
   },err =>{
     console.log(err.error);
   })

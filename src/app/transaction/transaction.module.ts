@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DepositComponent } from './Components/deposit/deposit.component';
 import { TransferComponent } from './Components/transfer/transfer.component';
 import { GettransactionComponent } from './Components/gettransaction/gettransaction.component';
-
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -20,7 +20,9 @@ import { GettransactionComponent } from './Components/gettransaction/gettransact
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   exports:[
     WithDrawComponent,

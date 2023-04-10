@@ -1,3 +1,14 @@
+img{
+  width: 180px;
+  height:180px;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  padding: 70px 0px 0px 200px;
+}
+
 .center {
   margin: auto;
   width: 80%;
@@ -16,7 +27,8 @@ height: 187px;
   background-color: #f50057;
   border-color: #f50057;
   width: 139.74px;
-  height: 61.6px;    
+  height: 30.6px; 
+  font-size: 12px;   
 }
 
 .card{
@@ -27,5 +39,9 @@ margin-right: 20px;
 .card-deck{
 width: fit-content;
 margin-left: 500px;
+}
+
+.last-card{
+  margin-left:285px;
 }
 

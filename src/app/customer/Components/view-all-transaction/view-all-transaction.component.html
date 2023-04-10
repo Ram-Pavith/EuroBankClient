@@ -1,5 +1,9 @@
 <div class="center">
-    <table class="table table-hover" id="StatementTable">
+    <div *ngIf="!showTable" class="no-records">
+        {{msg}}
+        <img src="assets/Images/Empty Inbox _Outline.png">
+    </div>
+    <table *ngIf="showTable" class="table table-hover" id="StatementTable">
         <thead>
             <th> Transaction ID </th>
             <th> Counterparty ID </th>

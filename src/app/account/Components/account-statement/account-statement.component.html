@@ -1,38 +1,47 @@
 
-
 <div class="center">
-    <div class="input-group p-5">
-        <input  name= "searchString" [(ngModel)]="SearchString" class="form-control py-2 border-right-0 border form-rounded" type="search" value="search" id="example-search-input">
+    <div>
+        From date: <input name="from_date" type="date" [(ngModel)]="from_date"> 
+        {{from_date}}
+        <br/><br/>
+        To date:   <input name="to_date" type="date" [(ngModel)]="to_date">
+    </div>
+  <div class="input-group p-5">
+        <input name="searchString" [(ngModel)]="SearchString"
+            class="form-control py-2 border-right-0 border form-rounded" type="search" value="search"
+            id="example-search-input" placeholder="Enter date">
         <span class="input-group-append">
-            <div class="input-group-text bg-transparent form-rounded"><button (click)="SearchToDates()"><i class="fa fa-search"></i></button></div>
+            <div class="input-group-text bg-transparent form-rounded">
+                <button class="btn-primary" style="height: 35px;" (click)="SearchToDates()"><i
+                        class="fa fa-search"></i></button></div>
         </span>
     </div>
+    <div *ngIf="showTable">
+        <table class="table table-hover" id="StatementTable">
+            <thead>
+                <th> Date </th>
+                <th> Value Date </th>
+                <th> Narration </th>
+                <th> Reference Number</th>
+                <th> Withdraw</th>
+                <th> Deposit </th>
+                <th> Balance </th>
+            </thead>
+            <tbody *ngFor="let s of AccStatement">
+                <tr>
+                    <td> {{ s.date | date:'short'}} </td>
+                    <td> {{ s.valueDate | date:'short'}} </td>
+                    <td> {{ s.narration }}</td>
+                    <td> {{ s.refNo }}</td>
+                    <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal | number : '1.2-2'}} </td>
+                    <td *ngIf="s.withdrawal == 0"> &nbsp; </td>
+                    <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit | number : '1.2-2'}}</td>
+                    <td *ngIf="s.deposit == 0"> &nbsp;</td>
+                    <td> &#8377; {{ s.closingBalance | number : '1.2-2'}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table *ngIf="showTable" class="table table-hover" id="StatementTable">
-        <thead>
-            <th> Date </th>
-            <th> Value Date </th>
-            <th> Narration </th>
-            <th> Reference Number</th>
-            <th> Withdraw</th> 
-            <th> Deposit </th>
-            <th> Balance </th>
-        </thead>
-        <tbody *ngFor="let s of AccStatement">
-            <tr>
-                <td> {{ s.date | date:'short'}} </td>
-                <td> {{ s.valueDate | date:'short'}} </td>
-                <td> {{ s.narration }}</td>
-                <td> {{ s.refNo }}</td>
-                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal | number : '1.2-2'}} </td>
-                <td *ngIf="s.withdrawal == 0"> &nbsp;  </td>
-                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit | number : '1.2-2'}}</td>
-                <td *ngIf="s.deposit == 0"> &nbsp;</td>
-                <td> &#8377; {{  s.closingBalance | number : '1.2-2'}}</td>       
-            </tr>
-        </tbody>
-    </table>
-    <button (click)="PrintStatement()" class="btn-primary"><i class="fa fa-print"></i>  Print  </button>
+        <button (click)="PrintStatement()" class="btn-primary"><i class="fa fa-print"></i> Print </button>
+    </div>
 </div>
-
-
