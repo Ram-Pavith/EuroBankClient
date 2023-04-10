@@ -26,6 +26,7 @@ import { AnalysisComponent } from './customer/Components/analysis/analysis.compo
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { CreateaccountComponent } from './employee/Components/createaccount/createaccount.component';
+import { MylibComponent } from 'projects/mylib/src/public-api';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
@@ -58,6 +59,7 @@ const routes: Routes =
   {path:"viewtransaction",component:ViewAllTransactionComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"CustomerAnalysis",component:AnalysisComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:'HomePage',component:AppHomePageComponent},
+  {path:'lib',component:MylibComponent},
   {path:'ForgotPassword',component:ForgotPasswordComponent},
   {path:'ResetPassword',component:ResetPasswordComponent}
 

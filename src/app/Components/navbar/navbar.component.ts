@@ -10,11 +10,12 @@ import { Guid } from 'guid-typescript';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
+  
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent{
 
-  username:string="";
+  username:string
   fahouse = faHouse
   role:string
   accId:string
@@ -29,13 +30,19 @@ export class NavbarComponent{
     this.navigationSubscription = this.router.events.subscribe((e:any)=>{
       if(e instanceof NavigationEnd){
         this.initialiseInvites();
+        
       }
     })
   }
+  
 
   initialiseInvites(){
     this.role = localStorage.getItem("ROLE")==undefined?"":localStorage.getItem("ROLE")
     console.log(this.role)
+    this.username=localStorage.getItem("UserName");
+
+    // this.username=localStorage.getItem("UserName");
+    // console.log(this.username)
   }
   // ngOnChanges(): void {
     // if(this.CustService.IsLoggedIn()){
@@ -59,6 +66,7 @@ export class NavbarComponent{
 
     
   }
+  
 
   isUserLoggedIn():boolean{
     if(this.CustService.IsLoggedIn() || this.EmpService.IsLoggedIn()){

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Guid } from 'guid-typescript';
 import { Account } from 'src/Models/Account';
 import { CustomerService } from '../../Services/customer.service';
+import { MylibComponent } from 'projects/mylib/src/public-api';
+import { MylibModule } from 'mylib';
 
 @Component({
   selector: 'app-get-account',
@@ -13,6 +15,7 @@ export class GetAccountComponent implements OnInit
   customer:Account[]=[]
   constructor(private obj:CustomerService){}
   id:Guid
+  
 
 
   ngOnInit(): void {

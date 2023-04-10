@@ -38,6 +38,7 @@ export class CustomerLoginComponent {
   IsLoggedIn() {
 
     return localStorage.getItem("token") != null;
+    
   }
 
   Logout() {
@@ -55,16 +56,19 @@ export class CustomerLoginComponent {
         this.authtoken = data.token;
         this.obj.userlogin(this.user).subscribe(customer => {
           this.customerId = customer.customerId
-          localStorage.setItem("CustomerEmailId", customer.emailId)
-          this.SaveCustomerId()
+          localStorage.setItem("UserName",customer.firstname+customer.lastname)
+          console.log(data);
           this.authService.login('Customer')
           this.SaveToken()
           this.SaveCustomerId()
           this.route.navigateByUrl('CustomerHome');
+          
+         
+          
         }, error => {
           console.log(error)
         })
-
+     
       }
       
     }, err => {

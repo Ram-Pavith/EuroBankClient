@@ -14,6 +14,10 @@ import { CustomerHomeComponent } from './Components/home/home.component';
 import { TransactionDateFilter } from '../Filters/transactionDateFilter';
 import { TransactionServiceFilter } from '../Filters/transactionServiceFilter';
 import { TransactionTypeFilter } from '../Filters/transactionTypeFilter';
+import { MylibComponent, MylibModule } from 'mylib';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,20 +26,26 @@ import { TransactionTypeFilter } from '../Filters/transactionTypeFilter';
     GetCustomerStatementComponent,
     ViewAllTransactionComponent,
     CustomerHomeComponent,
+    // MylibComponent,
+    
 ],
   imports:
    [
    CommonModule,
+  //  MylibComponent,
+  MylibModule,
    AppRoutingModule,
     ReactiveFormsModule,
    FormsModule,
+   
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     
   ],
   exports:[
-    CustomerLoginComponent
+    CustomerLoginComponent,
+    
   ]
 })
 export class CustomerModule { }
