@@ -2,7 +2,7 @@ import { Injectable, Query } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Account } from 'src/Models/Account';
 import { Guid } from 'guid-typescript';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { AccountCreationStatus } from 'src/Models/AccountCreationStatus';
 import { AccountBalance } from 'src/Models/AccountBalance';
 import { Statement } from '../../../Models/Statement';
@@ -33,36 +33,57 @@ export class AccountService {
   }
 
   CreateAccount(CustomerId:string):Observable<AccountCreationStatus>{
-    return this.http.post<AccountCreationStatus>(this.CreateAcc_ReqUrl + CustomerId,{
+    console.log(CustomerId)
+    return this.http.post<AccountCreationStatus>(this.CreateAcc_ReqUrl + CustomerId,CustomerId,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
 
   GetCustomerAccountsBalance(CustomerId: string):Observable<AccountBalance[]>{
     return this.http.get<AccountBalance[]>(this.GetCustAccsBal_ReqUrl+CustomerId,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   GetAccountBalance(AccountId:Guid):Observable<AccountBalance>{
     console.log(this.http.get<AccountBalance>(this.GetAccBal_ReqUrl+AccountId.toString()));
     return this.http.get<AccountBalance>(this.GetAccBal_ReqUrl+AccountId.toString(),{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   GetAccStatement(url:string):Observable<Statement[]>{
       return this.http.get<Statement[]>(url,{
         headers:this.headers
-      });
+      }).pipe(
+        catchError(error=>{
+          return throwError(error.error)
+        })
+      )    
   }
 
   
   GetAccTransactions(AccountId:Guid):Observable<Transaction[]>{
     return this.http.get<Transaction[]>(this.GetAccTrans_ReqUrl + AccountId.toString() + "&PageSize=0&PageNumber=1",{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
 

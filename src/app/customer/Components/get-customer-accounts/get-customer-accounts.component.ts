@@ -8,7 +8,7 @@ import { Account } from 'src/Models/Account';
   templateUrl: './get-customer-accounts.component.html',
   styleUrls: ['./get-customer-accounts.component.css']
 })
-export class GetCustomerAccountsComponent implements OnInit 
+export class GetCustomerAccountsComponent 
 {
   id:string=""
   customer:Account[]=[];
@@ -24,8 +24,10 @@ export class GetCustomerAccountsComponent implements OnInit
   ngOnInit(): void {
   }
 
+
   getaccounts()
   {
+    console.log(this.id);
     this.obj.getCustomerAccounts(this.id).subscribe(data =>{
       console.log(data);
       this.customer = data;

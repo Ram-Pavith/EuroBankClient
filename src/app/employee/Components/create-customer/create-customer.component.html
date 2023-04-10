@@ -10,6 +10,11 @@
           <div class="card-body px-4 py-5 px-md-5">
             <form #createcustomerform="ngForm" (submit)="createCustomer()">
               <p>{{this.msg}}</p>
+              <div class="form-outline mb-4">
+                <input type="text" name="customerId" [(ngModel)]="customer.customerId" #customerId=ngModel class="form-control" />
+                <label class="form-label">Customer Id</label>
+                <span class="text-danger" *ngIf="customerId.touched && customerId.invalid">*Required</span>
+              </div>
               
               <div class="form-outline mb-4">
                 <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control" />

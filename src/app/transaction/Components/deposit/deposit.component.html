@@ -28,13 +28,12 @@
 
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-outline">  
-                    <label class="form-label" for="ServiceId">Service Type:</label>
-                    <select id="ServiceId" name="ServiceId" [(ngModel)]="serviceId" #ServiceId=ngModel class="form-control">
-                      <option value="1">NEFT</option>
-                      <option value="2">RTGS</option>
-                      <option value="3">IMPS</option>
+                    <label class="form-label" for="PaymentId">Payment :</label>
+                    <select id="PaymentId" name="PaymentId" [(ngModel)]="paymentId" #PaymentId=ngModel class="form-control">
+                      <option value="1">Card</option>
+                      <option value="2">NetBanking</option>
                     </select>  
-                    <span class="text-danger" *ngIf="ServiceId.touched && ServiceId.invalid">*Required</span>    
+                    <span class="text-danger" *ngIf="PaymentId.touched && PaymentId.invalid">*Required</span>    
                 </div>
               </div>
 

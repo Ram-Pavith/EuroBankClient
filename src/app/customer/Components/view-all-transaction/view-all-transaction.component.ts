@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/Models/Customer';
 import { Transaction } from 'src/Models/Transaction';
-import { TransactionService } from 'src/app/transaction.service';
+import { TransactionService } from '../../../transaction/Services/transaction.service';
 import { CustomerService } from '../../Services/customer.service';
 import Chart from 'chart.js/auto';
 import { formatDate } from '@angular/common';
@@ -26,6 +26,7 @@ export class ViewAllTransactionComponent implements OnInit
   filterItemDate:string;
   filterItemServ:string;
   display='none';
+  showTable=false;
 
   constructor(private obj:CustomerService){
     this.transactions()
@@ -40,8 +41,12 @@ transactions()
 {
   this.obj.ViewAllTransaction(this.id).subscribe(data=>{
     console.log(data);
-    if(data.length == 0) this.msg = "No transactions";
-    this.customerTransactions = data;
+    if(data.length == 0) {this.msg = "No transactions";this.showTable=false}
+    if(data.length>0){
+      this.customerTransactions = data;
+    this.showTable=true;
+    }
+    
   },err =>{
     console.log(err.error);
   })
