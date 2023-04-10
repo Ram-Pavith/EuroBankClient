@@ -1,7 +1,7 @@
-import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from '../../customer/Services/customer.service';
 import { EmployeeservService } from '../../employee/Services/employeeserv.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';    
 import * as mdb from 'mdb-ui-kit'; // lib
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,7 @@ import { Guid } from 'guid-typescript';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnChanges{
+export class NavbarComponent{
 
   username:string="";
   fahouse = faHouse
@@ -20,15 +20,29 @@ export class NavbarComponent implements OnChanges{
   accId:string
   customerId:string
   employeeId:string
+  navigationSubscription;
+  customer: string;
+  employee: string;
+  account: string;
+  @Input() ParentRole:string;
   constructor(private CustService:CustomerService,private EmpService:EmployeeservService,private router:Router,private authService:AuthService){
-    this.role = authService.getRole()==undefined?'':authService.getRole()
+    this.navigationSubscription = this.router.events.subscribe((e:any)=>{
+      if(e instanceof NavigationEnd){
+        this.initialiseInvites();
+      }
+    })
   }
-  ngOnChanges(): void {
-    if(this.CustService.IsLoggedIn()){
-      this.username = localStorage.getItem("CustomerName");
-    }
-    this.role = localStorage.getItem("ROLE")
+
+  initialiseInvites(){
+    this.role = localStorage.getItem("ROLE")==undefined?"":localStorage.getItem("ROLE")
+    console.log(this.role)
   }
+  // ngOnChanges(): void {
+    // if(this.CustService.IsLoggedIn()){
+    //   this.username = localStorage.getItem("CustomerName");
+    // }
+    // this.role = localStorage.getItem("ROLE")
+  // }
 
   user_logout():void{
     if(localStorage.getItem("ROLE")=="Customer"){
@@ -38,6 +52,9 @@ export class NavbarComponent implements OnChanges{
     if(localStorage.getItem("ROLE")=="Employee"){
       console.log("employee log out");
       this.EmpService.logout();
+    }else{
+      localStorage.clear()
+      this.router.navigateByUrl('/CustomerLogin')
     }
 
     

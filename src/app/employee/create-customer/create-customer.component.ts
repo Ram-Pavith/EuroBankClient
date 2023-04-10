@@ -31,6 +31,7 @@ export class CreateCustomerComponent {
     //this.customer.dob = this.Dob.toISOString();
     //this.customer.dob = formatDate(this.Dob,'mm/dd/yyyy','en-US')
     this.empservice.createCustomer(this.customer).subscribe(data =>{
+      console.log(this.customer)
       console.log(data);
       this.msg = "Success!!"
     },err =>{

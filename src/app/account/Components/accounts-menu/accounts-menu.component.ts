@@ -10,12 +10,7 @@ import { AuthService } from 'src/app/Services/auth-service.service';
 export class AccountsMenuComponent {
   
   accId:string = localStorage.getItem("AccountId")
-  constructor(private authService:AuthService,  private router: Router){
-    if(localStorage.getItem("FirstAccount")!="true" && localStorage.getItem("ROLE")=="Account"){
-      window.location.reload()
-      localStorage.setItem("FirstAccount","true")
-      router.navigateByUrl('/AccountsMenu')
-    }  }
+  constructor(private authService:AuthService,  private router: Router){  }
   CustomerHomeRoute(){
     this.authService.login('Customer')
     this.router.navigateByUrl( "/CustomerHome");

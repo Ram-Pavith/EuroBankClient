@@ -9,10 +9,5 @@ import { Router } from '@angular/router';
 export class CustomerHomeComponent
 {
   constructor(private route:Router){
-    if(localStorage.getItem("First")!="true" && localStorage.getItem("ROLE")=="Customer"){
-      window.location.reload()
-      localStorage.setItem("First","true")
-      route.navigateByUrl('/CustomerHome')
-    }
   }
 }

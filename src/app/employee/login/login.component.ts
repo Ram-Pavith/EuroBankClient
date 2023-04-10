@@ -54,4 +54,9 @@ export class LoginComponent {
     localStorage.clear();
     this.authService.logout
     this.route.navigateByUrl('/EmployeeLogin');  }
+
+  ForgotPassword(){
+    localStorage.setItem("PasswordForgotBy","Employee")
+    this.route.navigateByUrl("/ForgotPassword")
+  }
 }
