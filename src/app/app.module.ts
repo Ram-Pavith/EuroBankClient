@@ -20,7 +20,6 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import * as Sherlock from '../../node_modules/sherlockjs';
 import * as mdb from 'mdb-ui-kit'; // lib
-import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { CustomerHomeComponent } from './customer/Components/home/home.component'
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
@@ -29,17 +28,17 @@ import { TransactionServiceFilter } from './Filters/transactionServiceFilter';
 import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
 import { MylibComponent } from 'dist/mylib/lib/mylib.component';
 import { MylibModule } from 'mylib';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
        NavbarComponent,
        ForgotPasswordComponent,
-       ChangePasswordComponent,
+       ChangePasswordComponent,       
+      // MylibComponent,
        AppHomePageComponent,
-       
-      // MylibComponent
-       
+       ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

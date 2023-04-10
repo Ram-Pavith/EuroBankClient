@@ -1,0 +1,29 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, catchError, throwError } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BusinessService {
+
+  constructor(private http:HttpClient) { }
+  token:string = null;
+  headers={
+    'Content-Type':'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Method':'*',
+    'Access-Control-Allow-Headers':'Content-Type',
+    'Authorization':`Bearer ` + localStorage.getItem("token")
+  }
+
+  sendEmail(to:string, subject:string, body:string,role:string):Observable<any>{
+    return this.http.post<any>("https://localhost:7035/SendEmail?To="+to+"&Subject=" + subject+ "&Body=" + body + "&Role=" + role,{
+      headers:this.headers
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )      
+  }
+}
