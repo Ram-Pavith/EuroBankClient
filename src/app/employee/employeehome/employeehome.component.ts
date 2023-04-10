@@ -8,10 +8,5 @@ import { Router } from '@angular/router';
 })
 export class EmployeehomeComponent {
   constructor(private route:Router){
-    if(localStorage.getItem("EmployeeId")!=undefined && localStorage.getItem("Role")=="Employee"){
-      if(localStorage.getItem("First")!="true" && localStorage.getItem("ROLE")=="Employee"){
-        window.location.reload()
-        localStorage.setItem("First","true")
-      }    }
   }
 }
