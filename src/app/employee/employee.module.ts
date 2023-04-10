@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PaginationModule } from 'ngx-bootstrap/pagination';
 import { CreateaccountComponent } from './Components/createaccount/createaccount.component';
+import { ShowcustomerComponent } from './Components/showcustomer/showcustomer.component';
 
 
 
@@ -26,7 +27,8 @@ import { CreateaccountComponent } from './Components/createaccount/createaccount
     CreateCustomerComponent,
     EmployeeRegisterComponent,
     EmployeehomeComponent,
-    CreateaccountComponent
+    CreateaccountComponent,
+    ShowcustomerComponent
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { CreateaccountComponent } from './Components/createaccount/createaccount
     GetAllAccountsComponent,
     GetAllTransactionsComponent,
     CreateCustomerComponent,
+    ShowcustomerComponent,
     PaginationModule
   ]
 })

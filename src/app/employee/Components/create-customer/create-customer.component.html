@@ -1,76 +1,76 @@
-  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+  <div class="center">
     <div class="row gx-lg-5 align-items-center mb-5">
       <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-        <img src="../../../assets/Images/Register.png" width="500" length="500">
-
+        <img src="../../../../assets/Images/Login.png" width="500" length="500">
       </div>
-
       <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-        <div class="card bg-glass">
+
+        <div class="card">
           <div class="card-body px-4 py-5 px-md-5">
             <form #createcustomerform="ngForm" (submit)="createCustomer()">
               <p>{{this.msg}}</p>
               <div class="form-outline mb-4">
-                <input type="text" name="customerId" [(ngModel)]="customer.customerId" #customerId=ngModel class="form-control" />
-                <label class="form-label">Customer Id</label>
+                <label for="form3Example1">Customer Id</label>
+                <input type="text" name="customerId" [(ngModel)]="customer.customerId" #customerId=ngModel class="form-control border border-dark" id="form3Example1"/>
                 <span class="text-danger" *ngIf="customerId.touched && customerId.invalid">*Required</span>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control" />
-                <label class="form-label">Email Address</label>
+                <label for="form3Example2">Email Address</label>
+                <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control  border border-dark" id="form3Example2"/>
                 <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="text" name="firstname" [(ngModel)]="customer.firstname" #firstname=ngModel class="form-control" />
-                <label class="form-label">First Name</label>
+                <label for="form3Example3">First Name</label>
+                <input type="text" name="firstname" [(ngModel)]="customer.firstname" #firstname=ngModel class="form-control  border border-dark" id="form3Example3"/>
                 <span class="text-danger" *ngIf="firstname.touched && firstname.invalid">*Required</span>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="text" name="lastname" [(ngModel)]="customer.lastname" #lastname=ngModel class="form-control" />
-                <label class="form-label">Last Name</label>
+                <label for="form3Example4">Last Name</label>
+                <input type="text" name="lastname" [(ngModel)]="customer.lastname" #lastname=ngModel class="form-control  border border-dark" id="form3Example4"/>
                 <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">*Required</span>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="text" name="address" [(ngModel)]="customer.address" #address=ngModel class="form-control" />
-                <label class="form-label">Address</label>
+                <label for="form3Example5">Address</label>
+                <input type="text" name="address" [(ngModel)]="customer.address" #address=ngModel class="form-control  border border-dark" id="form3Example5"/>
                 <span class="text-danger" *ngIf="address.touched && address.invalid">*Required</span>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel maxlength="10" class="form-control" />
-                <label class="form-label">Phone</label>
+                <label for="form3Example6">Phone</label>
+                <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel maxlength="10" class="form-control  border border-dark" id="form3Example6"/>
                 <span class="text-danger" *ngIf="phone.touched && phone.invalid">*Required</span>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control" />
-                <label class="form-label">Password</label>
-                <span class="text-danger" *ngIf="passwd.touched && passwd.errors['pattern']">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
+                <label for="form3Example7">Password</label>
+                <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel pattern="^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="form-control  border border-dark" id="form3Example7"/>
+                <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
               </div>
-              <p>{{passwd.errors}}</p>
+              <p>{{passwd.errors|json}}</p>
 
               <!-- pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" -->
 
               <div class="form-outline mb-4">
-                <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control" maxlength="10"/>
-                <label class="form-label">Pan Number</label>
+                <label for="form3Example8">Pan Number</label>
+                <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control  border border-dark" maxlength="10" id="form3Example8"/>
                 <span class="text-danger" *ngIf="pannumber.touched && pannumber.invalid">*Required</span>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="date" name="dob" [(ngModel)]="customer.dob" #dob=ngModel class="form-control" />
-                <label class="form-label">DOB</label>
+                <label for="form3Example9">DOB</label>
+                <input type="date" name="dob" [(ngModel)]="customer.dob" #dob=ngModel class="form-control  border border-dark" id="form3Example9"/>
                 <span class="text-danger" *ngIf="dob.touched && dob.invalid">*Required</span>
               </div>
-
+              <br>
+              <br>
               <input type="submit" value="Create" class="btn btn-primary btn-block mb-4" [disabled]="!createcustomerform.valid"/>
             </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div>  

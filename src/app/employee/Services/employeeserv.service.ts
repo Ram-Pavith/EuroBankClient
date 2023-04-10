@@ -16,7 +16,7 @@ import { UserAuthResponse } from 'src/Models/UserAuthResponse';
   providedIn: 'root'
 })
 export class EmployeeservService {
-
+  getcustroute:string = "https://localhost:7035/api/Customer/GetCustomerByCustomerId?customerId=";
   constructor(private http:HttpClient,private router:Router) { }
 
   //Variable to store the request URL for accessing API.
@@ -105,6 +105,16 @@ export class EmployeeservService {
 
   employeeRegister(emp:EmployeeRegister):Observable<any>{
     return this.http.post<EmployeeRegister>(this.req+"/EmployeeRegister",emp,{
+      headers:this.headers
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
+  }
+
+  getcustomerbycutomerid(custid:string):Observable<any>{
+    return this.http.get<Customer>(this.getcustroute + custid,{
       headers:this.headers
     }).pipe(
       catchError(error=>{

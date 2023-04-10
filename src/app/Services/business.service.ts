@@ -37,4 +37,14 @@ export class BusinessService {
       })
     )
   }
+
+  serviceChargesApply():Observable<any>{
+    return this.http.get<any>("https://localhost:7035/EvaluateServiceCharges",{
+      headers:this.headers
+    }).pipe(
+      catchError(error => {
+        return throwError(error.error)
+      })
+    )
+  }
 }
