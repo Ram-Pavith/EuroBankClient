@@ -11,7 +11,7 @@ export class ResetPasswordComponent {
     password:""
   }
 
-  ResetPassword():void{
+  ResetPassword():void{}
 
-  }
+
 }

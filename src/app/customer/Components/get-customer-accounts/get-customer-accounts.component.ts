@@ -14,8 +14,14 @@ export class GetCustomerAccountsComponent
   customer:Account[]=[];
   constructor(private obj:CustomerService) 
   {
-    this.id=localStorage.getItem("CustomerId");
+    this.id=localStorage.getItem("CustomerId")
+    console.log(this.id)
     this.getaccounts();
+
+  }
+  
+
+  ngOnInit(): void {
   }
 
 

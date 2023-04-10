@@ -10,5 +10,6 @@ export class CustomerHomeComponent
 {
   constructor(private route:Router){
     console.log(localStorage.getItem("CustomerId"));
+    console.log(localStorage.getItem("CustomerId"))
   }
 }
