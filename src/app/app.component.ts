@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     this.role = localStorage.getItem("ROLE")
   }
 ngOnInit(): void {
-  this.route.navigateByUrl('/HomePage')
+  //this.route.navigateByUrl('/HomePage')
 }
 
 }

@@ -45,10 +45,14 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
-        <!-- <pagination [boundaryLinks]="true" [totalItems]="77"
+        <pagination [boundaryLinks]="true"
+                    [totalItems]="pages" 
+                    [itemsPerPage]="pageSize" 
+                    [maxSize]="100"
+                    (pageChanged)="onPageChanged($event)"
             previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
 
-    </pagination> -->
+        </pagination>
     </div>
     
 </div>

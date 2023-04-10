@@ -72,8 +72,19 @@ export class EmployeeservService {
     )    
   }
 
-  getAllTransactions():Observable<Transaction[]>{
-    return this.http.get<Transaction[]>(this.req+"/ViewAllTransactions",{
+  getAllTransactionPageNumbers(pageSize : number):Observable<any>{
+    return this.http.get<any>(this.req + "/AllTransactionPages?pageSize=" + pageSize,{
+      headers:this.headers
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )
+  }
+
+  getAllTransactions(pageNumber:number,pageSize:number):Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(this.req+"/ViewAllTransactions?PageSize="+pageSize+"&PageNumber="+pageNumber
+    ,{
       headers:this.headers
     }).pipe(
       catchError(error=>{

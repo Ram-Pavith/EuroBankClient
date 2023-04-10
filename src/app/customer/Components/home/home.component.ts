@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { faWindowRestore } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,5 @@ import { Router } from '@angular/router';
 export class CustomerHomeComponent
 {
   constructor(private route:Router){
-    console.log(localStorage.getItem("CustomerId"));
-    console.log(localStorage.getItem("CustomerId"))
   }
 }

@@ -89,4 +89,5 @@ export class CustomerLoginComponent {
     localStorage.setItem("PasswordForgotBy", "Customer")
     this.route.navigateByUrl("/ForgotPassword")
   }
+
 }
