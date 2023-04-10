@@ -121,6 +121,12 @@
           </div>
           &nbsp;
           &nbsp;
+
+          <div *ngIf="role == 'Account'">
+            <p style="color: #f50057;" >Welcome, {{ username }}!</p>
+          </div>
+          &nbsp;
+          &nbsp;
         
         <div *ngIf="role!=''">
           <img
