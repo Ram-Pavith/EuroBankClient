@@ -56,6 +56,8 @@ export class CustomerLoginComponent {
           this.obj.userlogin(this.user).subscribe(customer => {
           this.customerId = customer.customerId
           localStorage.setItem("CustomerEmailId",customer.emailId)
+          console.log(data);
+         
           this.SaveCustomerId()
         }, error => {
           console.log(error)
