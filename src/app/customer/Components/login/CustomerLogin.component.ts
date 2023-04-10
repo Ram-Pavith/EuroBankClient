@@ -85,4 +85,8 @@ export class CustomerLoginComponent {
   GetCustomerId() {
     localStorage.getItem("CustomerId");
   }
+  ForgotPassword(){
+    localStorage.setItem("PasswordForgotBy","Customer")
+    this.route.navigateByUrl("/ForgotPassword")
+  }
 }

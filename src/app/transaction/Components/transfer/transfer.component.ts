@@ -39,6 +39,8 @@ ngOnInit(): void {
 
 Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number):void
 {
+  if((ServiceId == 1 && (amount >= 1 && amount <= 20000)) || (ServiceId == 2 && (amount >= 20000 && amount<=50000)) ||(ServiceId == 3 && (amount >= 1 && amount <= 50000))){
+
   this.transactionservice.Transfer(SrcAccountId,TarAccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
   //Logging the response received from web api.
@@ -55,10 +57,19 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
   this.flag=false;
   console.log(err.error)
   this.msg=err.error
+}  )}
+else{
+  if(ServiceId == 1){
+    this.msg="For NEFT transcation amount should be less than 20000"
+  }
+  else if(ServiceId == 2){
+    this.msg="For RTGS transcation amount should be between 20000 and 50000"
+  }
+  else if(ServiceId == 3){
+    this.msg="For IMPS transcation amount should be less than 50000"
+  }
 }
-  
-  
-)}
+}
 
 onSubmit(form:FormGroup){
 console.log(this.targetaccountId,this.Amount,this.serviceId)
@@ -69,16 +80,4 @@ back(){
   this.route.navigateByUrl("/AccountsMenu")
 }
 
-
-// function Transfer_api(SrcAccountId: any, Guid: typeof Guid, TarAccountId: any, Guid1: typeof Guid, amount: any, number: any, ServiceId: any, number1: any) {
-//     throw new Error('Function not implemented.');
-//   }
-
-// function onSubmit(form: any, FormGroup: typeof FormGroup) {
-//   throw new Error('Function not implemented.');
-// }
-
-// function back() {
-//   throw new Error('Function not implemented.');
-// }
 }
