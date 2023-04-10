@@ -3,7 +3,7 @@ import { Guid } from 'guid-typescript';
 import { Account } from 'src/Models/Account';
 import { CustomerService } from '../../Services/customer.service';
 import { MylibComponent } from 'projects/mylib/src/public-api';
-import { MylibModule } from 'mylib';
+import { MylibModule } from '../../../../../projects/mylib/src/lib/mylib.module';
 
 @Component({
   selector: 'app-get-account',

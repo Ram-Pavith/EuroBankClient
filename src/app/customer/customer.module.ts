@@ -14,8 +14,8 @@ import { CustomerHomeComponent } from './Components/home/home.component';
 import { TransactionDateFilter } from '../Filters/transactionDateFilter';
 import { TransactionServiceFilter } from '../Filters/transactionServiceFilter';
 import { TransactionTypeFilter } from '../Filters/transactionTypeFilter';
-import { MylibComponent, MylibModule } from 'mylib';
-
+import { MylibModule } from '../../../projects/mylib/src/lib/mylib.module';
+import { MylibComponent} from '../../../projects/mylib/src/lib/mylib.component';
 
 
 

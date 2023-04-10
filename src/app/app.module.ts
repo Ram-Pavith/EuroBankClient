@@ -1,7 +1,6 @@
 import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
-import { JwPaginationModule } from 'jw-angular-pagination';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // If You need animations
@@ -26,8 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { TransactionDateFilter } from './Filters/transactionDateFilter';
 import { TransactionServiceFilter } from './Filters/transactionServiceFilter';
 import { TransactionTypeFilter } from './Filters/transactionTypeFilter';
-import { MylibComponent } from 'dist/mylib/lib/mylib.component';
-import { MylibModule } from 'mylib';
+import { MylibComponent } from '../../projects/mylib/src/lib/mylib.component';
+import { MylibModule } from '../../projects/mylib/src/lib/mylib.module';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 @NgModule({
