@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
-import { TransactionService } from 'src/app/transaction.service';
+import { TransactionService } from '../../../transaction/Services/transaction.service';
 import { CustomerService } from '../../Services/customer.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Services/auth-service.service';

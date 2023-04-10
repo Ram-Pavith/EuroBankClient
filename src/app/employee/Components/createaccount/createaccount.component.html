@@ -1,0 +1,48 @@
+
+<body>
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+          <img src="../../../../assets/Images/Login.png" width="500" length="500">
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+  
+          <div class="card bg-glass">
+            <div class="card-body px-4 py-5 px-md-5">
+              <form #accountcreateform="ngForm" (submit)="createaccount()">
+                <p>{{this.msg}}</p>
+
+                
+                <!-- Amount input -->
+                <div class="form-outline mb-4">
+                  <input type="text" name="custId" [(ngModel)]="customerId" #custId=ngModel id="form3Example3" class="form-control" />
+                  <label class="form-label" for="form3Example3">Customer ID</label>
+                  <span class="text-danger" *ngIf="custId.touched && custId.invalid">*Required</span>
+                </div>
+  
+                <!-- Submit button -->
+                <input type="submit" value="Create Account" class="btn btn-primary btn-block mb-4" [disabled]="!accountcreateform.valid"/>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<script>
+  if(msg == "Success"){
+    Toastify({
+      text: "This is a toast",
+      duration: 3000,
+      destination: "https://localhost:4200",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "left", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      }
+    }).showToast();
+  }
+</script>
