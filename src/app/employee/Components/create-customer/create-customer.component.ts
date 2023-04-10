@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { EmployeeservService } from '../Services/employeeserv.service';
+import { EmployeeservService } from '../../Services/employeeserv.service';
 import { Customer } from 'src/Models/Customer';
 import { CustomerRegister } from 'src/Models/CustomerRegister';
 import { formatDate } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-customer',
@@ -21,7 +22,7 @@ export class CreateCustomerComponent {
     panNumber:"",
     dob:new Date()};
   Dob:Date = new Date();
-  constructor(private empservice:EmployeeservService){}
+  constructor(private empservice:EmployeeservService,private toastr:ToastrService){}
 
   ngOnInit(){
   }
@@ -35,8 +36,10 @@ export class CreateCustomerComponent {
       console.log(this.customer)
       console.log(data);
       this.msg = "Success!!"
+      this.toastr.success("Customer Created")
     },err =>{
       this.msg = "Error"
+      this.toastr.error("Customer Creation Failed",err.error)
     })
   }
 }

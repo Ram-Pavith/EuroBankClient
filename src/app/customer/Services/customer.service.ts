@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import{HttpClient,HttpHeaders, HttpParamsOptions} from '@angular/common/http';
-import { observable } from 'rxjs';
+import { catchError, observable, throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Customer } from 'src/Models/Customer';
 import { CustomerLogin } from 'src/Models/CustomerLogin';
@@ -48,7 +48,11 @@ export class CustomerService
   {
     return this.http.get<Account>(this.req+"/GetAccount?AccountId="+id,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
 
   }
 
@@ -57,27 +61,43 @@ export class CustomerService
     return this.http.get<Statement>(url,{
       headers:this.headers
     }
-    );
+    ).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   ViewAllTransaction(id:string):Observable<any>
   {
     return this.http.get<Transaction>(this.req+"/ViewAllTransactions?CustomerId="+id,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   userlogin(CusloginDTO:CustomerLogin):Observable<any>
   {
     return this.http.post<CustomerLogin>(this.req+"/CustomerLogin",CusloginDTO,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
   userAuthorize(CusloginDTO:CustomerLogin):Observable<any>
   {
     return this.http.post<CustomerLogin>(this.req+"/CustomerAuthorize",CusloginDTO,{
       headers:this.headers
-    });
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
   
 

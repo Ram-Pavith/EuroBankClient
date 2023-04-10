@@ -32,7 +32,11 @@ export class EmployeeservService {
   employeelogin(emploginDTO:EmployeeLogin):Observable<any>{
     return this.http.post<EmployeeLogin>(this.req+"/EmployeeLogin",emploginDTO,{
       headers:this.headers
-    })
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
   employeeAuthorize(emploginDTO:EmployeeLogin):Observable<any>{
     return this.http.post<EmployeeLogin>(this.req+"/EmployeeAuthorize",emploginDTO,{
@@ -41,65 +45,63 @@ export class EmployeeservService {
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Method':'*'
       })
-    })
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   getAllCustomers():Observable<Customer[]>{
     return this.http.get<Customer[]>(this.req+"/GetAllCustomers",{
       headers:this.headers
-    })
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   getAllAccounts():Observable<Account[]>{
     return this.http.get<Account[]>(this.req+"/ViewAllBankAccounts",{
       headers:this.headers
-    })
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   getAllTransactions():Observable<Transaction[]>{
     return this.http.get<Transaction[]>(this.req+"/ViewAllTransactions",{
       headers:this.headers
-    })
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
   createCustomer(customer:CustomerRegister):Observable<any>{
     return this.http.post<CustomerRegister>(this.req+"/CreateCustomer",customer,{
       headers:this.headers
     }).pipe(
-      catchError(err=>{
-        console.log(err)
-        throw err.error
+      catchError(error=>{
+        return throwError(error.error)
       })
-    )
+    )    
   }
 
   employeeRegister(emp:EmployeeRegister):Observable<any>{
     return this.http.post<EmployeeRegister>(this.req+"/EmployeeRegister",emp,{
       headers:this.headers
-    })
+    }).pipe(
+      catchError(error=>{
+        return throwError(error.error)
+      })
+    )    
   }
 
-
-  //Method to test error handling.
-  register():Observable<any>
-  {
-    //Giving incorrect URL.
-    return this.http.get<any>('https://localhost:44311/api/Players')
-           .pipe(catchError(this.manageError));
-  }
-  
-
-  //Method to handle errors.
-  private manageError(err_response:HttpErrorResponse)
-  {
-    if(err_response.error instanceof ErrorEvent)
-    console.error('Client Side Error:',err_response.error.message);
-    else
-    console.error('Server Side Error:',err_response);
-
-    return throwError('There is a little problem while processing your request.Sorry for the inconvenience');
-    
-  }
 
   IsLoggedIn()
   {

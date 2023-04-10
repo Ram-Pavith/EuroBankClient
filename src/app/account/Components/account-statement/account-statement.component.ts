@@ -18,7 +18,11 @@ import { formatDate } from '@angular/common';
 export class AccountStatementComponent implements OnInit {
   url:string
   AccStatement: Statement[] = []
-  SearchString:string
+  SearchString:string;
+
+  from_date:Date;
+  to_date:Date;
+
   //get using route parameter / localstorage
   AccId: string = localStorage.getItem("AccountId");
   startDate:Date
