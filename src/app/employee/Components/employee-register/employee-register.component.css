@@ -1,4 +1,4 @@
-.background-radial-gradient {
+  .background-radial-gradient {
     background-color: hsl(218, 41%, 15%);
     background-image: radial-gradient(650px circle at 0% 0%,
         hsl(218, 41%, 35%) 15%,
@@ -36,4 +36,34 @@
   .bg-glass {
     background-color: hsla(0, 0%, 100%, 0.9) !important;
     backdrop-filter: saturate(200%) blur(25px);
+  }
+
+  input{
+    float:left;
+    border: 1px solid black;
+  }
+
+  a:link{
+    color: #f50057;
+  }
+
+  .btn-primary{
+    background-color: rgb(146, 239, 208);
+    border-color: rgb(146, 239, 208);
+    color: black;
+  }
+
+  img{
+    float:left;
+    padding-right: 20px;
+  }
+
+  .center {
+    margin: auto;
+    width: 80%;
+    padding: 140px 50px 0px 100px;
+  }
+
+  .card{
+    background-color: #f0286b1c;
   }

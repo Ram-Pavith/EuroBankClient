@@ -6,22 +6,28 @@
     <table class="table table-hover">
         <thead>
             <th> Customer ID </th>
-            <th> Email ID </th>
+            <th> Email Address </th>
             <th> Name </th>
-            <th> Address </th>
+            <th></th>
+            <!-- <th> Address </th>
             <th> Phone </th> 
             <th> Pan Number </th>
-            <th> DOB </th>
+            <th> DOB </th> -->
         </thead>
         <tbody *ngFor="let t of customersDTO">
             <tr>
                 <td> {{ t.customerId }} </td>
                 <td>{{t.emailId}}</td>
                 <td>{{ t.firstname + t.lastname }}</td>
-                <td>{{t.address}}</td>
+                <td>
+                    <a [routerLink]="['/getcustomerbycustomerId',t.customerId]">
+                        <i class="fa-solid fa-circle-info fa-2xl"></i>
+                    </a>
+                </td>
+                <!-- <td>{{t.address}}</td>
                 <td>{{t.phone}}</td>
                 <td>{{t.panNumber}}</td>
-                <td>{{t.dob}}</td>
+                <td>{{t.dob}}</td> -->
             </tr>
         </tbody>
     </table>

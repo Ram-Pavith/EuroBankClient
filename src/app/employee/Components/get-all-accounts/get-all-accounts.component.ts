@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Account } from 'src/Models/Account';
 import { EmployeeservService } from '../../Services/employeeserv.service';
+import { AcccountTypeEnum } from 'src/Models/AccountTypeEnum';
 
 @Component({
   selector: 'app-get-all-accounts',
@@ -9,6 +10,7 @@ import { EmployeeservService } from '../../Services/employeeserv.service';
 })
 export class GetAllAccountsComponent {
   accountsDTO:Account[] = [];
+  //acctype:AcccountTypeEnum;
   constructor(private empserv:EmployeeservService){}
 
   ngOnInit(){

@@ -1,69 +1,68 @@
 <div class="accOutline">
     <div>
         <img src="../../../../assets/Images/logo.png">
-    </div>       
+    </div>
 
     <div>
-        <!-- <p class="slogan">
-            Grow with us ...
-        </p> -->
-    <table>
-        <tr>
-            <th>Transaction ID</th>
-            <td> {{Transaction.transactionId}} </td>
-        </tr>
+        <div class="card bg-class">
+        <table>
+            <tr>
+                <th>Transaction ID</th>
+                <td> {{Transaction.transactionId}} </td>
+            </tr>
+        <br/><br/>
     
-
-        <tr>
-            <th>AccountId</th>
-            <td> {{Transaction.accountId}} </td>
-        </tr>
-
-        <tr>
-            <th>Type of Service</th>
-            
-            <span *ngIf="Transaction.serviceId == 1">NEFT</span>
-                    <span *ngIf="Transaction.serviceId == 2">RTGS </span>
-                    <span *ngIf="Transaction.serviceId == 3">IMPS </span>
-        </tr>
-
-        <tr>
-            <th>Transaction Status</th>
-            <span *ngIf="Transaction.refTransactionStatusId == 1">Transaction Success</span>
-                    <span *ngIf="Transaction.refTransactionStatusId == 2">Transaction Failed </span>
-                    <span *ngIf="Transaction.refTransactionStatusId == 3">Withdrawal Limit Amount Exceeded </span>
-                    <span *ngIf="Transaction.refTransactionStatusId == 4">Insufficient Balance </span>
-            
-            <!-- <td> {{accDet.accountTypeId}} </td> -->
-        </tr>
-
-        <tr>
-            <th>Transaction Type</th>
-            <td> 
+            <tr>
+                <th>AccountId</th>
+                <td> {{Transaction.accountId}} </td>
+            </tr>
+            <br/><br/>
+            <tr>
+                <th>Type of Service</th>
                 
-                <span *ngIf="Transaction.refTransactionTypeId == 1"> Deposit </span>
-                    <span *ngIf="Transaction.refTransactionTypeId == 2"> Withdraw </span>
-                    <span *ngIf="Transaction.refTransactionTypeId == 3"> Transfer</span>
-            </td>
-        </tr>
-    
-        <tr>
-            <th>Payment Method</th>
-            <td> <span *ngIf="Transaction.refPaymentMethodId == 1">Card</span>
-                <span *ngIf="Transaction.refPaymentMethodId == 2">Net Banking </span> </td>
-        </tr>
-
-        <tr>
-            <th>Date Of Transaction</th>
-            <td> {{Transaction.dateOfTransaction |  date:'short'}} </td>
-        </tr>
-
-        <tr>
-            <th>Transaction Amount</th>
-            <td> &#8377; {{Transaction.amountOfTransaction
-                | number : '1.2-2'}}</td>
-        </tr>
-       
-    </table>
+                <span *ngIf="Transaction.serviceId == 1">NEFT</span>
+                        <span *ngIf="Transaction.serviceId == 2">RTGS </span>
+                        <span *ngIf="Transaction.serviceId == 3">IMPS </span>
+            </tr>
+            <br/><br/>
+            <tr>
+                <th>Transaction Status</th>
+                <span *ngIf="Transaction.refTransactionStatusId == 1">Transaction Success</span>
+                        <span *ngIf="Transaction.refTransactionStatusId == 2">Transaction Failed </span>
+                        <span *ngIf="Transaction.refTransactionStatusId == 3">Withdrawal Limit Amount Exceeded </span>
+                        <span *ngIf="Transaction.refTransactionStatusId == 4">Insufficient Balance </span>
+                
+                <!-- <td> {{accDet.accountTypeId}} </td> -->
+            </tr>
+            <br/><br/>
+            <tr>
+                <th>Transaction Type</th>
+                <td> 
+                    
+                    <span *ngIf="Transaction.refTransactionTypeId == 1"> Deposit </span>
+                        <span *ngIf="Transaction.refTransactionTypeId == 2"> Withdraw </span>
+                        <span *ngIf="Transaction.refTransactionTypeId == 3"> Transfer</span>
+                </td>
+            </tr>
+            <br/><br/>
+            <tr>
+                <th>Payment Method</th>
+                <td> <span *ngIf="Transaction.refPaymentMethodId == 1">Card</span>
+                    <span *ngIf="Transaction.refPaymentMethodId == 2">Net Banking </span> </td>
+            </tr>
+            <br/><br/>
+            <tr>
+                <th>Date Of Transaction</th>
+                <td> {{Transaction.dateOfTransaction |  date:'short'}} </td>
+            </tr>
+            <br/><br/>
+            <tr>
+                <th>Transaction Amount</th>
+                <td> &#8377; {{Transaction.amountOfTransaction
+                    | number : '1.2-2'}}</td>
+            </tr>
+            <br/>
+        </table>
+        </div>
     </div>
 </div>
