@@ -59,14 +59,15 @@ export class CustomerLoginComponent {
           console.log(data);
          
           this.SaveCustomerId()
+          this.authService.login('Customer')
+          this.SaveToken()
+          this.SaveCustomerId()
+          this.route.navigateByUrl('CustomerHome');
         }, error => {
           console.log(error)
         })
-        this.authService.login('Customer')
-        this.SaveToken()
-        this.SaveCustomerId()
+        
       }
-      this.route.navigateByUrl('CustomerHome');
     }, err => {
       console.log(err.error)
       this.msg = "Invalid login";
