@@ -65,7 +65,12 @@ export class EmployeeservService {
   createCustomer(customer:CustomerRegister):Observable<any>{
     return this.http.post<CustomerRegister>(this.req+"/CreateCustomer",customer,{
       headers:this.headers
-    })
+    }).pipe(
+      catchError(err=>{
+        console.log(err)
+        throw err.error
+      })
+    )
   }
 
   employeeRegister(emp:EmployeeRegister):Observable<any>{

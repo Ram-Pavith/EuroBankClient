@@ -2,7 +2,7 @@ import { Injectable, Query } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Account } from 'src/Models/Account';
 import { Guid } from 'guid-typescript';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { AccountCreationStatus } from 'src/Models/AccountCreationStatus';
 import { AccountBalance } from 'src/Models/AccountBalance';
 import { Statement } from '../../../Models/Statement';
@@ -35,7 +35,11 @@ export class AccountService {
   CreateAccount(CustomerId:string):Observable<AccountCreationStatus>{
     return this.http.post<AccountCreationStatus>(this.CreateAcc_ReqUrl + CustomerId,{
       headers:this.headers
-    });
+    }).pipe(catchError(err=>{
+          console.log(err)
+          throw err.error
+      })
+    );
   }
 
 
