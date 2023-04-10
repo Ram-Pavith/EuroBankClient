@@ -57,7 +57,7 @@ const routes: Routes =
   {path:"viewtransaction",component:ViewAllTransactionComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"CustomerAnalysis",component:AnalysisComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:'HomePage',component:AppHomePageComponent},
-  {path:'lib',component:MylibComponent}
+  {path:'lib',component:MylibComponent},
   {path:'ForgotPassword',component:ForgotPasswordComponent},
   {path:'ResetPassword',component:ResetPasswordComponent}
 

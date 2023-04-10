@@ -35,7 +35,6 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     AppComponent,
        NavbarComponent,
        ForgotPasswordComponent,
-       ChangePasswordComponent,       
       // MylibComponent,
        AppHomePageComponent,
        ResetPasswordComponent
