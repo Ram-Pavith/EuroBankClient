@@ -15,7 +15,6 @@ import { GetCustomerAccountsComponent } from './customer/Components/get-customer
 import { GetAccountComponent } from './customer/Components/get-account/get-account.component';
 import { AccountStatementComponent } from './account/Components/account-statement/account-statement.component';
 import { AccountTransactionsComponent } from './account/Components/account-transactions/account-transactions.component';
-import { CustomerMenuComponent } from './customer/Components/customer-menu/customer-menu.component';
 import { GettransactionComponent } from './transaction/Components/gettransaction/gettransaction.component';
 import { CustomerHomeComponent } from './customer/Components/home/home.component';
 import { GetCustomerStatementComponent } from './customer/Components/get-customer-statement/get-customer-statement.component';
@@ -26,6 +25,8 @@ import { CreateCustomerComponent } from './employee/create-customer/create-custo
 import { AnalysisComponent } from './customer/Components/analysis/analysis.component';
 import { AppHomePageComponent } from './Components/app-home-page/app-home-page.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 
 const routes: Routes = 
@@ -38,7 +39,6 @@ const routes: Routes =
   {path:'GetAllCustomers',component:GetAllCustomersComponent,canActivate: [AuthGuard],data: {role: 'Employee'}}, 
   {path:'GetAllAccounts',component:GetAllAccountsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
   {path:'GetAllTransactions',component:GetAllTransactionsComponent,canActivate: [AuthGuard],data: {role: 'Employee'}},
-  { path:"CustomerMenu",component:CustomerMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:'AccountsMenu',component:AccountsMenuComponent,canActivate: [AuthGuard],data: {expectedRole: 'Account'}},
   {path:'AccountDetails',component:AccountDetailsComponent},
   {path:'AccountDetails/:id',component:AccountDetailsComponent},
@@ -55,7 +55,9 @@ const routes: Routes =
   {path:"statement",component:GetCustomerStatementComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"viewtransaction",component:ViewAllTransactionComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
   {path:"CustomerAnalysis",component:AnalysisComponent,canActivate: [AuthGuard],data: {expectedRole: 'Customer'}},
-  {path:'HomePage',component:AppHomePageComponent}
+  {path:'HomePage',component:AppHomePageComponent},
+  {path:'ForgotPassword',component:ForgotPasswordComponent},
+  {path:'ResetPassword',component:ResetPasswordComponent}
 
 ];
 
