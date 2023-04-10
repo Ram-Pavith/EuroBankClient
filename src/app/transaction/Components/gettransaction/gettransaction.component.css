@@ -1,10 +1,20 @@
 *{
     font-family: 'Crimson Text', serif;
-    color:white
 }
 
 .center {
     margin: auto;
+}
+
+.accMenuBtn{
+    float:right;
+    /* width: fit-content; */
+    background-color: #f50057;
+    border-color: #f50057;
+    height: 40px;    
+    font-size: large;
+    color: white;
+
 }
 
 img{
@@ -16,17 +26,19 @@ img{
 }
 
 th{
-    width:200px;
+    width: 150px;
+    padding:5px;
 }
 td{
     margin-left: 50px;
+    padding: 5px;
 }
 
 .slogan{
     margin-top:90px;
     margin-left: 240px;
     font-family:'Alkatra', cursive;
-    font-size: 100px;
+    font-size: 75px;
     font-style: italic;
     font-weight: bold;
     background: -webkit-linear-gradient(white, #DE5D83);
@@ -37,17 +49,17 @@ td{
 
 table{
     margin-top:30px;
-    margin-left: 200px;
-    font-size: 30px;
+    margin-left: 150px;
+    font-size: 20px;
 }
+
 
 .accOutline{
     display: flex;
     /* justify-content: space-between; */
-    border: 2px solid #c72c62;
-    /* background-color: #b42d5c; */
+    border: 2px solid #f50057;
     /* width: fit-content; */
-    margin-top: 70px;
+    margin-top: 40px;
     margin-left: 100px;
     margin-right: 100px;
 

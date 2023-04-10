@@ -42,7 +42,7 @@
               </div>
 
               <div class="form-outline mb-4">
-                <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel class="form-control" />
+                <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel maxlength="10" class="form-control" />
                 <label class="form-label">Phone</label>
                 <span class="text-danger" *ngIf="phone.touched && phone.invalid">*Required</span>
               </div>

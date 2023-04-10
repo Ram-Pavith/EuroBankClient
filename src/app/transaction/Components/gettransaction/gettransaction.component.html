@@ -1,7 +1,7 @@
 <div class="accOutline">
-    <!-- <div>
-        <img src="C:\Users\Admin\Downloads\WhatsApp Image 2023-04-07 at 4.17.27 PM.jpeg">
-    </div> -->
+    <div>
+        <img src="../../../../assets/Images/logo.png">
+    </div>       
 
     <div>
         <p class="slogan">
@@ -9,16 +9,19 @@
         </p>
     <table>
         <tr>
-            <th>TransactionId</th>
+            <th>Transaction ID</th>
             <td> {{Transaction.transactionId}} </td>
         </tr>
+    
+
         <tr>
             <th>AccountId</th>
             <td> {{Transaction.accountId}} </td>
         </tr>
+
         <tr>
             <th>Type of Service</th>
-            <td> {{Transaction.serviceId}} </td>
+            
             <span *ngIf="Transaction.serviceId == 1">NEFT</span>
                     <span *ngIf="Transaction.serviceId == 2">RTGS </span>
                     <span *ngIf="Transaction.serviceId == 3">IMPS </span>
@@ -33,6 +36,7 @@
             
             <!-- <td> {{accDet.accountTypeId}} </td> -->
         </tr>
+
         <tr>
             <th>Transaction Type</th>
             <td> 
@@ -42,11 +46,13 @@
                     <span *ngIf="Transaction.refTransactionTypeId == 3"> Transfer</span>
             </td>
         </tr>
+    
         <tr>
             <th>Payment Method</th>
             <td> <span *ngIf="Transaction.refPaymentMethodId == 1">Card</span>
                 <span *ngIf="Transaction.refPaymentMethodId == 2">Net Banking </span> </td>
         </tr>
+
         <tr>
             <th>Date Of Transaction</th>
             <td> {{Transaction.dateOfTransaction |  date:'short'}} </td>
@@ -57,6 +63,7 @@
             <td> &#8377; {{Transaction.amountOfTransaction
                 | number : '1.2-2'}}</td>
         </tr>
+       
     </table>
     </div>
 </div>
