@@ -27,8 +27,10 @@
         <div *ngIf="role==''">
           <li class="nav-item">
             <a class="nav-link" href="/HomePage" style="color:#f50057;"><fa-icon [icon]="fahouse" style="color:#f50057;"></fa-icon> Home</a>
-          </li>
+          </li>            
         </div>
+        <a class="nav-link" routerLink="lib" style="color:#f50057;"><i class="fa-solid fa-magnifying-glass-dollar"></i>Privacy</a>
+
 
         <!-- Customer Home -->
         <div *ngIf="role=='Customer'">
@@ -51,6 +53,8 @@
           </li>
         </div>
       </ul>
+      &nbsp;
+      &nbsp;
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
@@ -101,6 +105,9 @@
           &nbsp;
           &nbsp;
           <a routerLink="/CustomerLogin" class="btn" style="background-color: #f50057;color:white;"><i class="bi bi-door-open" style="background-color: #f50057;"></i> Customer Login</a>
+          &nbsp;
+          &nbsp;
+         
         </div>
         
         <div *ngIf="role!=''">

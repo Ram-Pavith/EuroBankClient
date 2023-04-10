@@ -58,7 +58,6 @@ import { MylibModule } from 'mylib';
     HttpClientModule,
     ToastrModule,
     FontAwesomeModule,
-    JwPaginationModule,
     MylibModule
     
 
