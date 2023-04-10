@@ -21,19 +21,19 @@ export class TransactionService {
   constructor(private http:HttpClient) { }
 
   url:string="https://localhost:7035/api/Transaction"
-  Withdraw(AccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
+  Withdraw(AccountId:Guid,amount:number,PaymentId:number):Observable<RefTransactionStatus>
   {
-    return this.http.get<RefTransactionStatus>(this.url+"/Withdraw?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
+    return this.http.get<RefTransactionStatus>(this.url+"/Withdraw?AccountId="+AccountId.toString()+"&amount="+amount+"&paymentId="+PaymentId,{
       headers:this.headers
     }).pipe(
       catchError(error=>{
         return throwError(error.error)
       })
-    )    
+    ); 
   }
-  Deposit(AccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
+  Deposit(AccountId:Guid,amount:number,PaymentId:number):Observable<RefTransactionStatus>
   {
-    return this.http.get<RefTransactionStatus>(this.url+"/Deposit?AccountId="+AccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
+    return this.http.get<RefTransactionStatus>(this.url+"/Deposit?AccountId="+AccountId.toString()+"&amount="+amount+"&paymentId="+PaymentId,{
       headers:this.headers
     });
   }
@@ -45,7 +45,7 @@ export class TransactionService {
       catchError(error=>{
         return throwError(error.error)
       })
-    )    
+    );   
   }
 
   GetTransaction(TransactionId:Guid):Observable<Transaction>

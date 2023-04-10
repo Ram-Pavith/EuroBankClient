@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { RefTransactionStatus } from 'src/Models/RefTransactionStatus';
 import { TransactionService } from '../../Services/transaction.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-deposit',
@@ -17,7 +18,7 @@ export class DepositComponent {
   msg:string=''
   flag:boolean=false
   Amount:number
-  serviceId:number
+  paymentId:number
   deposit_btn_click:boolean=false;
   RefTransactionStatus:RefTransactionStatus={
     transactionStatusCode:0,
@@ -27,7 +28,7 @@ export class DepositComponent {
 
   
 
-constructor(private transactionservice:TransactionService,private route:Router){}
+constructor(private transactionservice:TransactionService,private route:Router, private toastr :ToastrService){}
 ngOnInit(): void { 
   this.depositform = new FormGroup({
     AccountId:new FormControl(),
@@ -37,17 +38,18 @@ ngOnInit(): void {
   
  }
 
-deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
+deposit_api(AccountId:Guid,amount:number,PaymentId:number):void
 {
-  if((ServiceId == 1 && (amount >= 1 && amount <= 200000)) || (ServiceId == 2 && (amount >= 20000 && amount<=200000)) ||(ServiceId == 3 && (amount >= 1 && amount <= 200000))){
 
-  this.transactionservice.Deposit(AccountId,amount,ServiceId).subscribe(data=>{
+  this.transactionservice.Deposit(AccountId,amount,PaymentId).subscribe(data=>{
     this.RefTransactionStatus=data;  
   console.log(data);
 
   if(data.transactionStatusCode == 1) {
     this.flag = true;
     this.msg="Transaction Success";
+    this.toastr.success(this.msg,"Money Transfer Successful")
+
     
   //Logging the response received from web api.
   //this.route.navigateByUrl("/AccountDetails")
@@ -56,25 +58,14 @@ deposit_api(AccountId:Guid,amount:number,ServiceId:number):void
 },err=>{
     this.flag = false;
     this.msg=err.error
+    this.toastr.success(this.msg,"Money Transfer Successful")
   })
 }
-else{
-  if(ServiceId == 1){
-    this.msg="For NEFT transcation amount should be less than 200000"
-  }
-  else if(ServiceId == 2){
-    this.msg="For RTGS transcation amount should be between 20000 and 200000"
-  }
-  else if(ServiceId == 3){
-    this.msg="For IMPS transcation amount should be less than 200000"
-  }
-}
 
-  
-}
+
 onSubmit(form:FormGroup){
 
-  this.deposit_api(Guid.parse(localStorage.getItem("AccountId")),this.Amount,this.serviceId);
+  this.deposit_api(Guid.parse(localStorage.getItem("AccountId")),this.Amount,this.paymentId);
   this.deposit_btn_click=true;
   
 }
