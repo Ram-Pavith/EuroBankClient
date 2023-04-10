@@ -7,7 +7,6 @@
         <thead>
             <th> Account ID </th>
             <th> Account Type ID </th>
-            <th> Account Creation Status ID </th>
             <th> Customer ID </th>
             <th> Date Created</th> 
             <th> Balance </th>
@@ -15,11 +14,11 @@
         <tbody *ngFor="let t of accountsDTO">
             <tr>
                 <td> {{ t.accountId }} </td>
-                <td>{{t.accountTypeId}}</td>
-                <td>{{ t.accountCreationStatusId }}</td>
+                <td *ngIf="t.accountTypeId == 1">Savings</td>
+                <td *ngIf="t.accountTypeId == 2">Current</td>
                 <td>{{t.customerId}}</td>
                 <td>{{t.dateCreated | date : 'short'}}</td>
-                <td>{{t.balance}}</td>
+                <td>₹{{t.balance}}</td>
             </tr>
         </tbody>
     </table>

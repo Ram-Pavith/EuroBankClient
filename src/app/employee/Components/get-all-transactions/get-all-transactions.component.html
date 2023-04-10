@@ -9,9 +9,7 @@
             <th> Transaction ID </th>
             <th> CounterParty ID </th>
             <th> Account ID </th>
-            <th> Service ID </th>
-            <th> Transaction Status Id</th> 
-            <th> Transaction Type ID </th>
+            <th> Service ID </th> 
             <th> PaymentMethod ID</th>
             <th> Date Of Transaction</th>
             <th> Amount Of Transaction</th>
@@ -22,13 +20,16 @@
                 <td> {{ t.transactionId }} </td>
                 <td>{{t.counterPartyId}}</td>
                 <td>{{ t.accountId }}</td>
-                <td>{{t.serviceId}}</td>
-                <td>{{t.refTransactionStatusId}}</td>
-                <td>{{t.refTransactionTypeId}}</td>
-                <td>{{t.refPaymentMethodId}}</td>
+                <td>
+                    <span> {{GetServiceTypeLabel(t.serviceId)}}</span>
+                </td>
+                <td>
+                    <span *ngIf="t.refPaymentMethodId == 1">Card </span>
+                    <span *ngIf="t.refPaymentMethodId == 2">Net Banking</span>
+                </td>
                 <td>{{t.dateOfTransaction}}</td>
                 <td>
-                    {{t.amountOfTransaction}}
+                    ₹{{t.amountOfTransaction}}
                     <span *ngIf="t.refTransactionTypeId == 1"> <i class="fas fa-caret-down fa-2xl"></i> </span>
                     <span *ngIf="t.refTransactionTypeId == 2"> <i class="fas fa-caret-up fa-2xl"></i> </span>
                     <span *ngIf="t.refTransactionTypeId == 3"> <i class="fa fa-exchange fa-xl"></i></span>

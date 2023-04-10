@@ -4,6 +4,7 @@ import { Customer } from 'src/Models/Customer';
 import { CustomerRegister } from 'src/Models/CustomerRegister';
 import { formatDate } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-create-customer',

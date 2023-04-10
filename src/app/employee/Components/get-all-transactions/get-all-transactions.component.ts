@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Transaction } from 'src/Models/Transaction';
 import { EmployeeservService } from '../../Services/employeeserv.service';
 import {PaginationModule } from 'ngx-bootstrap/pagination';
+import { ServiceEnum } from 'src/Models/ServiceEnum';
 @Component({
   selector: 'app-get-all-transactions',
   templateUrl: './get-all-transactions.component.html',
@@ -16,6 +17,10 @@ export class GetAllTransactionsComponent {
     this.gettransactions();
   }
 
+  GetServiceTypeLabel(id:number):String{
+    return ServiceEnum[id];
+  }
+  
   gettransactions(){
     this.empserv.getAllTransactions().subscribe(data =>{
       console.log(data);
