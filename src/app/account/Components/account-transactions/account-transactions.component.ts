@@ -16,12 +16,12 @@ export class AccountTransactionsComponent implements OnInit {
   filterItemType:string;
   filterItemDate:string;
   filterItemServ:string;
-  msg:string
+  msg:string="";
   AccTransactions:Transaction[] = [];
 
   constructor(private AccService:AccountService){
     this.AccService.GetAccTransactions(Guid.parse(this.AccId)).subscribe(data =>{
-      if(data.length == 0) this.msg = "No transactions";
+      if(data.length == 0) this.msg = "No transactions.";
       console.log(data);
       this.AccTransactions = data;
       
