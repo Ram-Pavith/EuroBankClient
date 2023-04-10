@@ -30,7 +30,7 @@
 
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-outline">
-                  <input type="number" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control" required max="50000"/>
+                  <input type="number" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control border" required max="50000"/>
                   <label class="form-label" for="amount">Transfer Amount</label>
                   <span class="text-danger" *ngIf="amount.touched && amount.pristine "> *Required</span>
                   <span class="text-danger" *ngIf="amount.dirty && amount.invalid">Amount limit exceeded should be less than 50000 rupees  </span> 
@@ -41,7 +41,7 @@
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="ServiceId">Service Type:</label>
-                    <select id="ServiceId" name="ServiceId" [(ngModel)]="serviceId" #ServiceId=ngModel class="form-control">
+                    <select id="ServiceId" name="ServiceId" [(ngModel)]="serviceId" #ServiceId=ngModel class="form-control border">
                       <span class="text-danger" *ngIf="ServiceId.touched && ServiceId.invalid">*Required</span>
                       <option value="1">NEFT</option>
                       <option value="2">RTGS</option>

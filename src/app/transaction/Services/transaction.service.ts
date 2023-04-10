@@ -15,7 +15,7 @@ export class TransactionService {
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Method':'*',
     'Access-Control-Allow-Headers':'Content-Type',
-    'Authorization':`Bearer ` + localStorage.getItem("token")
+    'Authorization': 'Bearer '+ localStorage.getItem("token")
   }
 
   constructor(private http:HttpClient) { }
