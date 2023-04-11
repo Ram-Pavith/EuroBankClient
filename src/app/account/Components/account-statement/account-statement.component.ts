@@ -16,23 +16,23 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./account-statement.component.css']
 })
 export class AccountStatementComponent implements OnInit {
-  url:string
+  url: string
   AccStatement: Statement[] = []
-  SearchString:string;
+  SearchString: string;
 
-  from_date:Date;
-  to_date:Date;
-  
-  today_date:Date=new Date(2023,4,10);
+  from_date: Date;
+  to_date: Date;
+
+  today_date: Date = new Date(2023, 4, 10);
 
   //get using route parameter / localstorage
   AccId: string = localStorage.getItem("AccountId");
-  startDate:Date
-  endDate:Date
-  nlpString:any
-  showTable:boolean = false
+  startDate: Date
+  endDate: Date
+  nlpString: any
+  showTable: boolean = false
 
-  constructor(private AccService: AccountService, private toastr:ToastrService) {
+  constructor(private AccService: AccountService, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -62,54 +62,54 @@ export class AccountStatementComponent implements OnInit {
       width: 170, //target width in the PDF document
       windowWidth: 650 //window width in CSS pixels
     },
-     );
+    );
   }
-  SearchToDates(){
+  SearchToDates() {
     this.showTable = false
     var flag = true
     this.nlpString = Sherlock.parse(this.SearchString)
     this.startDate = this.nlpString.startDate
     this.endDate = this.nlpString.endDate
-    if(this.startDate == null || this.endDate == null ){
+    if (this.startDate == null || this.endDate == null) {
       this.toastr.error("Enter Proper date span of from and to dates")
       flag = false
     }
-    var differenceInDays = (this.endDate.getTime() - this.startDate.getTime())/(1000 * 3600 * 24)
+    var differenceInDays = (this.endDate.getTime() - this.startDate.getTime()) / (1000 * 3600 * 24)
     console.log(differenceInDays)
-    if(differenceInDays>30){
+    if (differenceInDays > 30) {
       this.toastr.info("Date Difference is more than a month, hence dispaying this month's statements by default")
-      flag=false
+      flag = false
     }
-    if(this.endDate > new Date()){
+    if (this.endDate > new Date()) {
       this.toastr.error("the End Date should be in the past")
     }
-    if(flag){
-      var startdate = formatDate(this.startDate,'mm/dd/yyyy','en-US');
-      var enddate = formatDate(this.endDate,'mm/dd/yyyy','en-US');
-      this.url = 'https://localhost:7035/api/Accounts/GetAccountStatement?AccountId='+localStorage.getItem("AccountId")+'&from_date='+this.startDate.getDate() +'%2F'+ this.startDate.getMonth() + '%2F'+this.startDate.getFullYear() + '&to_date=' + this.endDate.getDate() + '%2F' + this.endDate.getMonth() +'%2F'+this.endDate.getFullYear()
+    if (flag) {
+      var startdate = formatDate(this.startDate, 'mm/dd/yyyy', 'en-US');
+      var enddate = formatDate(this.endDate, 'mm/dd/yyyy', 'en-US');
+      this.url = 'https://localhost:7035/api/Accounts/GetAccountStatement?AccountId=' + localStorage.getItem("AccountId") + '&from_date=' + this.startDate.getDate() + '%2F' + this.startDate.getMonth() + '%2F' + this.startDate.getFullYear() + '&to_date=' + this.endDate.getDate() + '%2F' + this.endDate.getMonth() + '%2F' + this.endDate.getFullYear()
       console.log(this.url)
     }
-    if(flag==false){
-      this.url = 'https://localhost:7035/api/Accounts/GetAccountStatement?AccountId='+localStorage.getItem("AccountId")
+    if (flag == false) {
+      this.url = 'https://localhost:7035/api/Accounts/GetAccountStatement?AccountId=' + localStorage.getItem("AccountId")
     }
     this.getAccountStatement()
   }
 
-  SearchWithDate():void{
+  SearchWithDate(): void {
     this.AccService.GetAccStatement
-    ("https://localhost:7035/api/Accounts/GetAccountStatement?AccountId="+
-    localStorage.getItem("AccountId")+'&from_date='+ 
-    this.from_date.getMonth().toString() + '-' + this.from_date.getDay().toString() + '-' + this.from_date.getFullYear().toString()
-     +'&to_date=' + 
-     this.to_date.getMonth().toString() + '-' + this.to_date.getDay().toString() + '-' + this.to_date.getFullYear().toString()).subscribe(data => {
-      console.log(data);
-      this.AccStatement = data;
-      this.showTable = true
-    });
-    
+      ("https://localhost:7035/api/Accounts/GetAccountStatement?AccountId=" +
+        localStorage.getItem("AccountId") + '&from_date=' +
+        this.from_date.getMonth().toString() + '-' + this.from_date.getDay().toString() + '-' + this.from_date.getFullYear().toString()
+        + '&to_date=' +
+        this.to_date.getMonth().toString() + '-' + this.to_date.getDay().toString() + '-' + this.to_date.getFullYear().toString()).subscribe(data => {
+          console.log(data);
+          this.AccStatement = data;
+          this.showTable = true
+        });
+
   }
 
-  getAccountStatement(){
+  getAccountStatement() {
     this.AccService.GetAccStatement(this.url).subscribe(data => {
       console.log(data);
       this.AccStatement = data;

@@ -5,6 +5,7 @@ import { CustomerRegister } from 'src/Models/CustomerRegister';
 import { formatDate } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-customer',
@@ -23,7 +24,7 @@ export class CreateCustomerComponent {
     panNumber:"",
     dob:new Date()};
   Dob:Date = new Date();
-  constructor(private empservice:EmployeeservService,private toastr:ToastrService){}
+  constructor(private empservice:EmployeeservService,private toastr:ToastrService,private router:Router){}
 
   ngOnInit(){
   }
@@ -37,7 +38,8 @@ export class CreateCustomerComponent {
       console.log(this.customer)
       console.log(data);
       this.msg = "Success!!"
-      this.toastr.success("Customer Created")
+      this.toastr.success("Customer Created");
+      this.router.navigateByUrl('/EmployeeHome');
     },err =>{
       this.msg = "Error"
       this.toastr.error("Customer Creation Failed",err.error)

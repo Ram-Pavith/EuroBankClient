@@ -8,7 +8,7 @@
             <div class="d-flex justify-content-between align-items-center mb-3">
               <div class="form-outline">
                 <label class="form-label" for="amount">Withdrawal Amount</label>
-                <input type="number" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control border" required max="50000" >
+                <input type="number" id="amount" name="amount" [(ngModel)]="Amount" #amount=ngModel class="form-control border border-dark" required max="50000" >
                 <span class="text-danger" *ngIf="amount.touched && amount.pristine "> *Required</span>
                 <span class="text-danger" *ngIf="amount.dirty && amount.invalid">Amount limit exceeded should be less than 50000 rupees  </span>               
               </div>
@@ -16,7 +16,7 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
               <div class="form-outline">    
                   <label class="form-label" for="PaymentId">Payment Type:</label>
-                  <select id="PaymentId" name="PaymentId" [(ngModel)]="paymentId" #PaymentId=ngModel class="form-control border" required>
+                  <select id="PaymentId" name="PaymentId" [(ngModel)]="paymentId" #PaymentId=ngModel class="form-control border border-dark" required>
                     <option value="1">Card</option>
                     <option value="2">NetBanking</option>
                   </select>  

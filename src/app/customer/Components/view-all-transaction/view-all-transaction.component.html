@@ -38,7 +38,7 @@
                     <span *ngIf="t.refTransactionStatusId != 1" style="color: red;"><i class="fa fa-times" aria-hidden="true"></i></span>
                 </td>
                 <td>{{t.dateOfTransaction | date : 'short'}}</td>
-                <td>{{t.amountOfTransaction}}
+                <td>&#8377; {{t.amountOfTransaction | number : '1.2-2'}}
                     
                     <span *ngIf="t.refTransactionStatusId == 1">
                         <span *ngIf="t.refTransactionTypeId == 1"> <i class="fas fa-caret-down fa-2xl"></i> </span>

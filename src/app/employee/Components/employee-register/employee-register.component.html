@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-body px-4 py-5 px-md-5">
             <form #registerform="ngForm" (submit)="register()">
-              <p>{{this.msg}}</p>
+              <!-- <p class="text-danger">{{this.msg}}</p> -->
               <div class="form-outline mb-4">
                 <label for="form3Example1">First Name</label>
                 <input type="text" name="firstname" [(ngModel)]="empregister.firstname" #firstname=ngModel id="form3Example1" class="form-control border border-dark" />
