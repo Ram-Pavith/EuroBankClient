@@ -11,59 +11,47 @@
               <p>{{this.msg}}</p>
               <div class="form-outline mb-4">
                 <label for="form3Example1">Customer Id</label>
-                <input type="text" name="customerId" [(ngModel)]="customer.customerId" #customerId=ngModel class="form-control border border-dark" id="form3Example1"/>
-                <span class="text-danger" *ngIf="customerId.touched && customerId.invalid">*Required</span>
+                <input type="text" name="customerId" [(ngModel)]="customer.customerId" #customerId=ngModel class="form-control border border-dark" id="form3Example1" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example2">Email Address</label>
-                <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control  border border-dark" id="form3Example2"/>
-                <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
+                <input type="email" name="emailId" [(ngModel)]="customer.emailId" #emailId=ngModel class="form-control  border border-dark" id="form3Example2" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example3">First Name</label>
-                <input type="text" name="firstname" [(ngModel)]="customer.firstname" #firstname=ngModel class="form-control  border border-dark" id="form3Example3"/>
-                <span class="text-danger" *ngIf="firstname.touched && firstname.invalid">*Required</span>
+                <input type="text" name="firstname" [(ngModel)]="customer.firstname" #firstname=ngModel class="form-control  border border-dark" id="form3Example3" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example4">Last Name</label>
-                <input type="text" name="lastname" [(ngModel)]="customer.lastname" #lastname=ngModel class="form-control  border border-dark" id="form3Example4"/>
-                <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">*Required</span>
+                <input type="text" name="lastname" [(ngModel)]="customer.lastname" #lastname=ngModel class="form-control  border border-dark" id="form3Example4" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example5">Address</label>
-                <input type="text" name="address" [(ngModel)]="customer.address" #address=ngModel class="form-control  border border-dark" id="form3Example5"/>
-                <span class="text-danger" *ngIf="address.touched && address.invalid">*Required</span>
+                <input type="text" name="address" [(ngModel)]="customer.address" #address=ngModel class="form-control  border border-dark" id="form3Example5" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example6">Phone</label>
-                <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel maxlength="10" class="form-control  border border-dark" id="form3Example6"/>
-                <span class="text-danger" *ngIf="phone.touched && phone.invalid">*Required</span>
+                <input type="text" name="phone" [(ngModel)]="customer.phone" #phone=ngModel maxlength="10" class="form-control  border border-dark" id="form3Example6" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example7">Password</label>
-                <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel pattern="^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="form-control  border border-dark" id="form3Example7"/>
-                <span class="text-danger" *ngIf="passwd.touched && passwd.invalid">Password should be of length greater than 8(1 special character,1 digit,1 Capital letter)</span>
+                <input type="password" name="passwd" [(ngModel)]="customer.password" #passwd=ngModel class="form-control  border border-dark" id="form3Example7" required/>
               </div>
-              <p>{{passwd.errors|json}}</p>
-
-              <!-- pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" -->
 
               <div class="form-outline mb-4">
                 <label for="form3Example8">Pan Number</label>
-                <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control  border border-dark" maxlength="10" id="form3Example8"/>
-                <span class="text-danger" *ngIf="pannumber.touched && pannumber.invalid">*Required</span>
+                <input type="text" name="pannumber" [(ngModel)]="customer.panNumber" #pannumber=ngModel class="form-control  border border-dark" maxlength="10" id="form3Example8" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example9">DOB</label>
-                <input type="date" name="dob" [(ngModel)]="customer.dob" #dob=ngModel class="form-control  border border-dark" id="form3Example9"/>
-                <span class="text-danger" *ngIf="dob.touched && dob.invalid">*Required</span>
+                <input type="date" name="dob" [(ngModel)]="customer.dob" #dob=ngModel class="form-control  border border-dark" id="form3Example9" required/>
               </div>
               <br>
               <br>

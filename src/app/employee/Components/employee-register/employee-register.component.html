@@ -11,27 +11,23 @@
               <p>{{this.msg}}</p>
               <div class="form-outline mb-4">
                 <label for="form3Example1">First Name</label>
-                <input type="text" name="firstname" [(ngModel)]="empregister.firstname" #firstname=ngModel id="form3Example1" class="form-control border border-dark" />
-                <span class="text-danger" *ngIf="firstname.touched && firstname.invalid">*Required</span>
+                <input type="text" name="firstname" [(ngModel)]="empregister.firstname" #firstname=ngModel id="form3Example1" class="form-control border border-dark" required/>
               </div>
 
               <div class="form-outline mb-4">
                 <label for="form3Example2">Last Name</label>
-                <input type="text" name="lastname" [(ngModel)]="empregister.lastname" #lastname=ngModel id="form3Example2" class="form-control border border-dark" />
-                <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">*Required</span>
+                <input type="text" name="lastname" [(ngModel)]="empregister.lastname" #lastname=ngModel id="form3Example2" class="form-control border border-dark" required/>
               </div>
               
               <div class="form-outline mb-4">
                 <label for="form3Example3">Email Address</label>
-                <input type="email" name="emailId" [(ngModel)]="empregister.emailId" #emailId=ngModel id="form3Example3" class="form-control border border-dark" />
-                <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
+                <input type="email" name="emailId" [(ngModel)]="empregister.emailId" #emailId=ngModel id="form3Example3" class="form-control border border-dark" required/>
               </div>
 
               
               <div class="form-outline mb-4">
                 <label for="form3Example4">Password</label>
-                <input type="password" name="password" [(ngModel)]="empregister.password" #password="ngModel" id="form3Example4" class="form-control border border-dark" />
-                <span class="text-danger" *ngIf="password.touched && password.invalid">*Required</span>
+                <input type="password" name="password" [(ngModel)]="empregister.password" #password="ngModel" id="form3Example4" class="form-control border border-dark" required/>
               </div>
               <br>
               <br>
