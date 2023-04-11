@@ -9,15 +9,15 @@
             <th> Transaction ID </th>
             <th> CounterParty ID </th>
             <th> Account ID </th>
-            <th> Service Type</th> 
-            <th> Payment Method Type</th>
-            <th> Date Of Transaction</th>
+            <th> Service </th> 
+            <th> Payment Method </th>
+            <th> Date of Transaction</th>
             <th> Transaction Status </th>
             <th> Amount Of Transaction</th>
             <th></th>
         </thead>
         <tbody *ngFor="let t of transactionsDTO">
-            <tr>
+            <tr [routerLink]="['/gettransactionbytransactionId',t.transactionId]">
                 <td> {{ t.transactionId }} </td>
                 <td>{{t.counterPartyId}}</td>
                 <td>{{ t.accountId }}</td>

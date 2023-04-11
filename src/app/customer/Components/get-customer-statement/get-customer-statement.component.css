@@ -1,7 +1,6 @@
 .center {
-    margin: auto;
-    padding: 100px
-}
+    /* margin: auto; */
+    margin: 20px 10px 0px 10px;}
 
 .form-rounded {
     border-radius: 1rem;
@@ -11,9 +10,19 @@
     background-color: #f50057;
     border-color: #f50057;
     width: 100px;
-    height: 40px;    
+    height: 35px;    
     font-size: large;
     float:right
+}
+
+.print-button{
+    background-color: #f50057;
+    border-color: #f50057;
+    width: 130px;
+    height: 60px;    
+    font-size: large;
+    float:right;
+    color:white;
 }
 
 .table {

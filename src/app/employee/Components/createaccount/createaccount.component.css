@@ -1,0 +1,15 @@
+.card {
+    background-color: #f0286b1c;
+}
+
+.btn-primary {
+    background-color: rgb(146, 239, 208);
+    border-color: rgb(146, 239, 208);
+    color: black;
+}
+
+.center {
+    margin: auto;
+    width: 80%;
+    padding: 150px 50px 0px 100px;
+}

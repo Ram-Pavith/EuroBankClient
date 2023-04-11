@@ -1,11 +1,12 @@
 
 <div class="center">
+
   <div class="input-group p-5">
-    <input name="searchString" [(ngModel)]="SearchString"
-    class="form-control py-2 border-right-0 border form-rounded" type="search" value="search"
-    id="example-search-input" placeholder="eg: from last month to today (or) from mm-dd-yyyy to mm-dd-yyyy">
-                class="form-control py-2 border-right-0 border form-rounded" type="search" value="search"
-            id="example-search-input" placeholder="Enter date">
+        <input name="searchString" [(ngModel)]="SearchString"
+            class="form-control py-2 border-right-0 border form-rounded" type="search" value="search"
+            id="example-search-input" placeholder="eg: from last month to today (or) from mm-dd-yyyy to mm-dd-yyyy">
+
+
         <span class="input-group-append">
             <div class="input-group-text bg-transparent form-rounded">
                 <button class="btn-primary" style="height: 35px;" (click)="SearchToDates()"><i
@@ -38,6 +39,6 @@
             </tbody>
         </table>
 
-        <button (click)="PrintStatement()" class="btn-primary"><i class="fa fa-print"></i> Print </button>
+        <button (click)="PrintStatement()" class="btn-primary"><i class="fa fa-print"></i> Download as PDF </button>
     </div>
 </div>

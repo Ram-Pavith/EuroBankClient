@@ -15,7 +15,7 @@
             <th> DOB </th> -->
         </thead>
         <tbody *ngFor="let t of customersDTO">
-            <tr>
+            <tr [routerLink]="['/getcustomerbycustomerId',t.customerId]">
                 <td> {{ t.customerId }} </td>
                 <td>{{t.emailId}}</td>
                 <td>{{ t.firstname + t.lastname }}</td>

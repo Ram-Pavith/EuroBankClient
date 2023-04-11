@@ -1,6 +1,6 @@
 .center {
-    margin: auto;
-    padding: 50px 0px 0px 0px;
+    /* margin: auto; */
+    margin: 20px 10px 0px 10px;
 }
 
 .form-rounded {
@@ -10,8 +10,8 @@
 .btn-primary {
     background-color: #f50057;
     border-color: #f50057;
-    width: 100px;
-    height: 40px;    
+    width: 130px;
+    height: 60px;    
     font-size: large;
     float:right
 }

@@ -1,44 +1,49 @@
 <div class="center">
     <div class="input-group p-5">
         <input name="searchString" [(ngModel)]="SearchString"
-        class="form-control py-2 border-right-0 border form-rounded" type="search" value="search"
-        id="example-search-input" placeholder="eg: from last month to today (or) from mm-dd-yyyy to mm-dd-yyyy">
-                <span class="input-group-append">
-            <div class="input-group-text bg-transparent form-rounded"><button (click)="SearchToDates()"><i class="fa fa-search"></i></button></div>
+            class="form-control py-2 border-right-0 border form-rounded" type="search" value="search"
+            id="example-search-input" placeholder="eg: from last month to today (or) from mm-dd-yyyy to mm-dd-yyyy">
+        <span class="input-group-append">
+            <div class="input-group-text bg-transparent form-rounded"><button class="btn-primary"
+                    (click)="SearchToDates()"><i class="fa fa-search"></i></button></div>
+
         </span>
     </div>
-    
-    <table *ngIf="showTable" class="table table-hover" id="StatementTable">
-        <thead>
-            <th> Statement ID </th>
-            <th> Account ID </th>
-            <th> Date </th>
-            <th> Narration </th>
-            <th> Reference Number </th>
-            <th> withdrawal </th>
-            <th> deposit </th>
-            <th> Balance </th>
-            
-        </thead>
-        <tbody *ngFor="let s of customerStatement">
-            <tr>
-                <td> {{ s.statementId }} </td>
-                <td> {{ s.accountId}} </td>
-                <td> {{ s.date|date:'short'}} </td>
-                <td> {{ s.narration }}</td>
-                <td> {{ s.refNo }}</td>
-                <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal}} </td>
-                <td *ngIf="s.withdrawal == 0"> &nbsp;  </td>
-                <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit}}</td>
-                <td *ngIf="s.deposit == 0"> &nbsp;</td>
-                <td> &#8377; {{ s.closingBalance}}</td>       
-            </tr>
-        </tbody>
-    </table>
+
+    <div *ngIf="showTable">
+        <table class="table table-hover" id="StatementTable">
+            <thead>
+                <th> Statement ID </th>
+                <th> Account ID </th>
+                <th> Date </th>
+                <th> Narration </th>
+                <th> Reference Number </th>
+                <th> withdrawal </th>
+                <th> deposit </th>
+                <th> Balance </th>
+
+            </thead>
+            <tbody *ngFor="let s of customerStatement">
+                <tr>
+                    <td> {{ s.statementId }} </td>
+                    <td> {{ s.accountId}} </td>
+                    <td> {{ s.date|date:'short'}} </td>
+                    <td> {{ s.narration }}</td>
+                    <td> {{ s.refNo }}</td>
+                    <td *ngIf="s.withdrawal != 0">&#8377; {{ s.withdrawal}} </td>
+                    <td *ngIf="s.withdrawal == 0"> &nbsp; </td>
+                    <td *ngIf="s.deposit != 0">&#8377; {{ s.deposit}}</td>
+                    <td *ngIf="s.deposit == 0"> &nbsp;</td>
+                    <td> &#8377; {{ s.closingBalance}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <button (click)="PrintStatement()" class="print-button"><i class="fa fa-print"></i> Download as PDF </button>
+
+    </div>
 </div>
-<div>
-    <button (click)="PrintStatement()" class="btn-primary"><i class="fa fa-print"></i>  Print  </button>
-</div>
+
 <script>
     $('#StatementTable').DataTable()
 </script>

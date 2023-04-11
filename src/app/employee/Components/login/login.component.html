@@ -12,7 +12,7 @@
               <form #loginform="ngForm" (submit)="login()">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <label for="form3Example3">Email address</label>
+                  <label for="form3Example3">Email Address</label>
                   <input type="email" name="emailId" [(ngModel)]="employeeloginDTO.emailId" #emailId=ngModel id="form3Example3" class="form-control border border-dark" />                 
                   <span class="text-danger" *ngIf="emailId.touched && emailId.invalid">*Required</span>
                 </div>

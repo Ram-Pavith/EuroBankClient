@@ -20,6 +20,7 @@ export class AccountTransactionsComponent implements OnInit {
   AccTransactions:Transaction[] = [];
 
   constructor(private AccService:AccountService){
+    
     this.AccService.GetAccTransactions(Guid.parse(this.AccId)).subscribe(data =>{
       if(data.length == 0) this.msg = "No transactions.";
       console.log(data);
