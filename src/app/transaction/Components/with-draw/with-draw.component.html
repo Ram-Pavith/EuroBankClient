@@ -4,16 +4,6 @@
       <img src="../../../../assets/Images/Wallet_Monochromatic.png" width="300" length="300">
       <div class="card" style="border-radius: 15px;">
         <div class="card-body p-4">             
-          <div *ngIf="withdraw_btn_click">
-          <div *ngIf="flag">
-            <p>{{msg}}</p>
-          <img src="https://crella.sfo2.cdn.digitaloceanspaces.com/wp-content/uploads/2023/01/16081957/green-check-02-2-scaled.jpg" width="20px" class="center">
-        </div>
-        <!-- <div *ngIf="!flag">
-          <p>{{msg}}</p>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8S94Ni6dgxWsJmYsPJ8ucfgTuTiEwmv9YrhzHk7hEwgirWYT2Ui-QaA16GDppStu0JVM&usqp=CAU" width="20px" class="center">
-        </div> -->
-        </div>
           <form #withdrawform="ngForm"(ngSubmit)="onSubmit(withdrawform.value)">
             <div class="d-flex justify-content-between align-items-center mb-3">
               <div class="form-outline">

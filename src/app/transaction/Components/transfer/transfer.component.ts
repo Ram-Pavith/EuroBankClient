@@ -44,8 +44,6 @@ Transfer_api(SrcAccountId:Guid,TarAccountId:Guid,amount:number,ServiceId:number)
 
   this.transactionservice.Transfer(SrcAccountId,TarAccountId,amount,ServiceId).subscribe(data=>{
     this.RefTransactionStatus=data;
-  //Logging the response received from web api.
-  //this.route.navigateByUrl("Account")Mohana Page
   console.log(data);
   console.log(data.transactionStatusCode);
   this.msg=data.transactionStatusDescription;

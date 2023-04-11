@@ -12,6 +12,7 @@
             <th> Service Type</th> 
             <th> Payment Method Type</th>
             <th> Date Of Transaction</th>
+            <th> Transaction Status </th>
             <th> Amount Of Transaction</th>
             <th></th>
         </thead>
@@ -28,6 +29,10 @@
                     <span *ngIf="t.refPaymentMethodId == 2">Net Banking</span>
                 </td>
                 <td>{{t.dateOfTransaction}}</td>
+                <td>
+                    <span *ngIf="t.refTransactionStatusId == 1" style="color: green;"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span *ngIf="t.refTransactionStatusId != 1" style="color: red;"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </td>
                 <td>
                     ₹{{t.amountOfTransaction}}
                     <span *ngIf="t.refTransactionTypeId == 1"> <i class="fas fa-caret-down fa-2xl"></i> </span>

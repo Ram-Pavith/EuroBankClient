@@ -63,7 +63,7 @@ ngOnInit(): void {
  },err=>{
      this.flag = false;
      this.msg=err.error
-     this.toastr.error(err.error)
+     this.toastr.error("Withdraw Failed",err.error)
 
      
    })

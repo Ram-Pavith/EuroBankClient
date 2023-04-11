@@ -25,31 +25,19 @@ export class TransactionService {
   {
     return this.http.get<RefTransactionStatus>(this.url+"/Withdraw?AccountId="+AccountId.toString()+"&amount="+amount+"&paymentId="+PaymentId,{
       headers:this.headers
-    }).pipe(
-      catchError(error=>{
-        return throwError(error.error)
-      })
-    ); 
+    }); 
   }
   Deposit(AccountId:Guid,amount:number,PaymentId:number):Observable<RefTransactionStatus>
   {
     return this.http.get<RefTransactionStatus>(this.url+"/Deposit?AccountId="+AccountId.toString()+"&amount="+amount+"&paymentId="+PaymentId,{
       headers:this.headers
-    }).pipe(
-      catchError(error=>{
-        return throwError(error.error)
-      })
-    );
+    });
   }
   Transfer(SourceAccountId:Guid,TargetAccountId:Guid,amount:number,ServiceId:number):Observable<RefTransactionStatus>
   {
     return this.http.get<RefTransactionStatus>(this.url+"/Transfer?Source_AccountId="+SourceAccountId.toString()+"&Target_AccountId="+TargetAccountId.toString()+"&amount="+amount+"&serviceId="+ServiceId,{
       headers:this.headers
-    }).pipe(
-      catchError(error=>{
-        return throwError(error.error)
-      })
-    );   
+    });   
   }
 
   GetTransaction(TransactionId:Guid):Observable<Transaction>

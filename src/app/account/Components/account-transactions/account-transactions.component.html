@@ -56,6 +56,7 @@
                 <th> Transaction ID</th>
                 <th> Service </th>
                 <th> Date </th>
+                <th> Transaction Status </th>
                 <th> Amount </th>
                 <th></th>
                 <th></th>
@@ -68,6 +69,10 @@
                         <span> {{GetServiceTypeLabel(t.serviceId)}}</span>
                     </td>
                     <td>{{t.dateOfTransaction | date : 'short'}}</td>
+                    <td>
+                        <span *ngIf="t.refTransactionStatusId == 1" style="color: green;"><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <span *ngIf="t.refTransactionStatusId != 1" style="color: red;"><i class="fa fa-times" aria-hidden="true"></i></span>
+                    </td>
                     <td> &#8377; {{ t.amountOfTransaction | number : '1.2-2'}}
                     </td>
                     <td>
