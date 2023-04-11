@@ -37,7 +37,8 @@ export class AnalysisComponent {
         console.log(this.customerTransactions);
         this.GetDates();
         this.GetDateCounts();
-        this.createChart();
+        //this.createChart();
+        this.lazyLoadingChart();
 
       },
       (err) => {
@@ -70,19 +71,21 @@ export class AnalysisComponent {
         this.dates.push(date)
         this.uniqueDates[date] = this.uniqueDates[date]?this.uniqueDates[date]+1:1
   }
+  
 
-  createChart() {
+  createChart(labels:string[],data:number[]) {
     this.chart = new Chart('MyChart', {
       type: 'bar', //this denotes tha type of chart
 
       data: {
         // values on X-Axis
-        labels: this.uniqueDates,
+        labels: ['1','2','3'],
         datasets: [
           {
             label: 'Customer Transactions ',
-            data: this.dateCounts,
+            data: [1,2,3],
             backgroundColor: 'blue',
+            borderColor:'blue'
           },
         ],
       },
@@ -91,4 +94,14 @@ export class AnalysisComponent {
       },
     });
   }
+  lazyLoadingChart(){
+    setTimeout(() => {
+      var labels = this.uniqueDates
+      var data = this.dateCounts
+      this.createChart(labels,data)
+    }, 3000);
+  }
+
+  
 }
+

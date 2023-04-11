@@ -31,11 +31,7 @@ export class BusinessService {
     console.log(role)
     return this.http.put<any>("https://localhost:7035/ResetPassword?Email="+email+"&Password="+password+"&Role="+role,{
       headers:this.headers
-    }).pipe(
-      catchError(error=>{
-        return throwError(error.error)
-      })
-    )
+    })
   }
 
   serviceChargesApply():Observable<any>{
