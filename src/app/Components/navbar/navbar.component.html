@@ -28,6 +28,7 @@
         />
       </a>
       <!-- Left links -->
+      
 
       <a class="nav-link" routerLink="lib" style="color:#f50057;"><i class="fa-solid fa-magnifying-glass-dollar"></i>Privacy</a>
 
@@ -80,17 +81,17 @@
       <div *ngIf="role == 'Customer'">
         <p style="color: #f50057">Welcome, {{ username }}!</p>
       </div>
-      &nbsp; &nbsp;
+      &nbsp; 
 
       <div *ngIf="role == 'Employee'">
         <p style="color: #f50057">Welcome, {{ username }}!</p>
       </div>
-      &nbsp; &nbsp;
+      &nbsp;
 
       <div *ngIf="role == 'Account'">
         <p style="color: #f50057">Welcome, {{ username }}!</p>
       </div>
-      &nbsp; &nbsp;
+      &nbsp; 
       <!-- Transactions -->
       <div class="dropdown" *ngIf="role == 'Account'">
         <a
@@ -155,9 +156,9 @@
 
           <div *ngIf="role != ''">
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+              src="assets/Images/profile.png"
               class="rounded-circle"
-              height="25"
+              height="35"
               alt="Black and White Portrait of a Man"
               loading="lazy"
             />
