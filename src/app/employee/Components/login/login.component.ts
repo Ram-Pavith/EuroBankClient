@@ -29,7 +29,7 @@ export class LoginComponent {
         this.SaveToken();
         this.empservice.employeelogin(this.employeeloginDTO).subscribe(emp=>{
           this.employeeId = emp.employeeId
-          localStorage.setItem("UserName",emp.firstname+emp.lastname);
+          localStorage.setItem("UserName",emp.firstname+" "+emp.lastname);
           this.SaveEmployeeId()
         })
         this.SaveToken()

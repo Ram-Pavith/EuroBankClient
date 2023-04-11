@@ -56,7 +56,7 @@ export class CustomerLoginComponent {
         this.authtoken = data.token;
         this.obj.userlogin(this.user).subscribe(customer => {
           this.customerId = customer.customerId
-          localStorage.setItem("UserName",customer.firstname+customer.lastname)
+          localStorage.setItem("UserName",customer.firstname+" "+customer.lastname)
           console.log(data);
           this.authService.login('Customer')
           this.SaveToken()

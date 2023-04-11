@@ -9,77 +9,86 @@ import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-analysis',
   templateUrl: './analysis.component.html',
-  styleUrls: ['./analysis.component.css']
+  styleUrls: ['./analysis.component.css'],
 })
 export class AnalysisComponent {
-  customerTransactions:Transaction[]=[]
-  msg:string
-  id:string=localStorage.getItem("CustomerId");
+  customerTransactions: [];
+  msg: string;
+  id: string = localStorage.getItem('CustomerId');
   public chart: any;
-  dates:string[]
-  uniqueDates:string[]
-  dateCounts:number[]
+  dates: string[] = [];
+  uniqueDates: string[] = [];
+  dateCounts: number[]= [];
 
-  constructor(private obj:CustomerService){
-    this.transactions()
-    //this.createChart()
+  constructor(private obj: CustomerService) {
+    //
   }
 
   ngOnInit(): void {
+    this.transactions();
+
   }
-  
 
-transactions()
-{{{debugger}}
-  this.obj.ViewAllTransaction(this.id).subscribe(data=>{
-    console.log(data);
-    if(data.length == 0) this.msg = "No transactions";
-    this.customerTransactions = data;
-  },err =>{
-    console.log(err.error);
-  })
-  //this.GetDates()
-  //this.GetDateCounts()
-}
+  transactions() {
+    this.obj.ViewAllTransaction(this.id).subscribe(
+      (data) => {
+        if (data.length == 0) this.msg = 'No transactions';
+        this.customerTransactions = data;
+        console.log(this.customerTransactions);
+        this.GetDates();
+        this.GetDateCounts();
+        this.createChart();
 
-GetDates(){
-  for(var item of this.customerTransactions){
-    var date = formatDate(item.dateOfTransaction,'mm/dd/yyyy','en-US')
-      this.dates.push(date)
-      if(!this.uniqueDates.includes(date)){
-        this.uniqueDates.push(date)
+      },
+      (err) => {
+        console.log(err.error);
       }
-      console.log(date)
+    );
   }
-  console.log(this.uniqueDates)
-}
-GetDateCounts(){
-  for(var item of this.uniqueDates){
-    this.dateCounts.push(this.dates.filter((x) => x == item).length)
+
+  GetDates() {
+    console.log('inside get Dates');
+    this.customerTransactions.forEach((element) => this.uniqueDatesPush(element));
+    console.log(this.dates)
+    console.log(this.uniqueDates);
   }
-  console.log(this.dateCounts)
-}
+  GetDateCounts() {
+    console.log('inside date counts');
 
-createChart(){
-  
-  this.chart = new Chart("MyChart", {
-    type: 'bar', //this denotes tha type of chart
+    for(var item in this.uniqueDates){
+      var x = parseInt((this.uniqueDates[item]))
+      this.dateCounts.push(x)
 
-    data: {// values on X-Axis
-      labels: this.uniqueDates, 
-       datasets: [
-        {
-          label: "Sales",
-          data: this.dateCounts,
-          backgroundColor: 'blue'
-        } 
-      ]
-    },
-    options: {
-      aspectRatio:2.5
     }
-    
-  });
-}
+    console.log(this.dateCounts)
+  }
+  uniqueDatesPush(element){
+    var milliseconds = Date.parse(element.dateOfTransaction)
+    var datestring = new Date(milliseconds)
+    var date = datestring.toDateString()
 
+        this.dates.push(date)
+        this.uniqueDates[date] = this.uniqueDates[date]?this.uniqueDates[date]+1:1
+  }
+
+  createChart() {
+    this.chart = new Chart('MyChart', {
+      type: 'bar', //this denotes tha type of chart
+
+      data: {
+        // values on X-Axis
+        labels: this.uniqueDates,
+        datasets: [
+          {
+            label: 'Customer Transactions ',
+            data: this.dateCounts,
+            backgroundColor: 'blue',
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5,
+      },
+    });
+  }
 }
