@@ -1,20 +1,12 @@
 
 <div class="center">
-    <!-- <div>
-        {{today_date.getMonth().toString()}}
-        From date: <input name="from_date" type="date" [(ngModel)]="from_date"> 
-        {{from_date}}
-        <br/><br/>
-        To date:   <input name="to_date" type="date" [(ngModel)]="to_date">
-        {{to_date}}
-        <button type="submit" (click)="SearchWithDate()">
-            Get Statement
-        </button>
-    </div> -->
+
   <div class="input-group p-5">
         <input name="searchString" [(ngModel)]="SearchString"
             class="form-control py-2 border-right-0 border form-rounded" type="search" value="search"
             id="example-search-input" placeholder="eg: from last month to today (or) from mm-dd-yyyy to mm-dd-yyyy">
+
+
         <span class="input-group-append">
             <div class="input-group-text bg-transparent form-rounded">
                 <button class="btn-primary" style="height: 35px;" (click)="SearchToDates()"><i
